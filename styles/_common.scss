@@ -1,0 +1,45 @@
+.mx-auto {
+  margin: 0 auto !important;
+}
+.ltr {
+  direction: ltr;
+}
+
+.input-has-error {
+  border-color: #ea1d25 !important;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.grey-hover {
+  &:hover {
+    border-bottom: 1px solid #f5f5f5 !important;
+  }
+}
+
+.line-over-text {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  color: #f5f5f5 !important;
+  font-weight: 500;
+  // &:before {
+  //   content: "";
+  //   width: 100%;
+  //   text-align: center;
+  //   border-bottom: 1px solid $medium-grey;
+  //   display: block;
+  //   transform: translateY(9px);
+  // }
+  text-decoration-line: line-through;
+}
+
+.font-weight-500 {
+  font-weight: 500;
+}
+
+.margin-half {
+  margin: 0.5rem !important;
+}

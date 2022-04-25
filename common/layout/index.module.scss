@@ -1,0 +1,39 @@
+.container {
+  //padding-bottom: 7rem;
+  overflow-x: hidden;
+  @media (min-width: 768px) {
+    padding-bottom: unset;
+  }
+
+  .content {
+    width: 100vw;
+    max-width: 1366px;
+    margin: 0 auto;
+    @media (min-width: 768px) {
+      min-height: 68.9rem;
+      height: 100%;
+    }
+  }
+  .lg-margin{
+    margin-top: 13.8rem;
+    @media (max-width: 768px) {
+      margin-top: 11.8rem;
+    }
+  }
+  .sm-margin{
+    margin-top: 10rem;
+    @media (max-width: 768px) {
+      margin-top: 8rem;
+    }
+  }
+  .no-margin{
+    margin-top: unset !important;
+  }
+  .landing {
+    max-width: 100%;
+  }
+}
+
+.no-padding {
+  padding-bottom: unset;
+}

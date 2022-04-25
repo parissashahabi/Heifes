@@ -1,0 +1,35 @@
+.container {
+    margin: 2rem 0;
+    width: 100%;
+    flex-wrap: nowrap;
+    padding: 0 1rem;
+    h2 {
+      margin-bottom: unset;
+    }
+    @media (max-width: 1024px) {
+      padding: unset;
+      margin: 0 0 0.8rem;
+    }
+    > div {
+      width: 100%;
+    }
+    .mobile {
+      max-width: 20.9rem;
+      width: 100%;
+      margin: 0 1.6rem;
+      @media (max-width: 1024px) {
+        display: none;
+      }
+    }
+    .prices {
+      max-width: 106.8rem;
+      width: 100%;
+      background-color: #2d2d2d;
+      box-shadow: 2px 4px 60px 0px #2d2d2d1a;
+    }
+    .special-offers {
+      padding: 1.6rem 0 0.4rem 0;
+      background: white !important;
+    }
+  }
+  

@@ -1,0 +1,13 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    max-height: fit-content;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+    background-image: url("/images/login.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  

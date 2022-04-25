@@ -1,0 +1,65 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+  Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 62.5%;
+  direction: rtl;
+  background-color: #FAF4EA !important;
+  // @media (max-width: 768px) {
+  //   background-color: $white !important;
+  // }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: dana !important;
+}
+
+h4,
+h3 {
+  @media (max-width: 768px) {
+    font-size: 1.4rem !important;
+  }
+}
+
+h2 {
+  @media (max-width: 768px) {
+    font-size: 1.8rem !important;
+  }
+}
+
+span {
+  @media (max-width: 768px) {
+    font-size: 1.2rem !important;
+  }
+}
+
+
+a[class="ant-picker-now-btn"] {
+  color: #0086B3 !important;
+}
+
+.ant-btn-primary {
+  background: #0086B3 !important;
+  border-color: #0086B3 !important;
+}
+
+.ant-picker-focused {
+  border-color: rgba(0, 134, 179, 0.6) !important;
+  box-shadow: 0 0 0 2px rgb(0 134 179/ 20%) !important;
+}
+
+.ant-picker:hover {
+  border-color: rgba(0, 134, 179, 0.6) !important;
+}
+
+.datepicker-input:focus-visible {
+  outline: none !important;
+}

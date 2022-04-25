@@ -1,0 +1,38 @@
+.sum-box {
+  margin-top: 1.6rem;
+  background-color: white;
+  padding: 1.2rem 1.6rem 9.4rem;
+width: 100%;
+  .price-txt {
+    span {
+      font-weight: 500;
+      font-size: 12px;
+    }
+  }
+
+  .price {
+    margin-right: auto;
+
+    span {
+      font-size: 12px;
+    }
+  }
+
+  .sum-cart-txt {
+    margin-bottom: 3.2rem;
+
+    svg {
+      font-weight: 500;
+      font-size: 14px;
+      color: #4D4D4D;
+    }
+  }
+
+  .sum-cart {
+    margin-right: auto;
+
+    span {
+      color: green;
+    }
+  }
+}

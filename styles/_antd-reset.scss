@@ -1,0 +1,30 @@
+.ant-spin-nested-loading > div > .ant-spin {
+  max-height: unset !important;
+  height: 100vh !important;
+}
+.ant-spin-blur {
+  opacity: 0 !important;
+}
+.ant-divider-horizontal {
+  margin: 1rem 0 !important;
+}
+
+.ant-drawer-header {
+  .ant-drawer-close {
+    right: unset !important;
+    left: 0;
+  }
+}
+
+.anticon-spin {
+  font-size: calc(1vw + 20px) !important;
+  color: #ea1d25 !important;
+}
+
+
+.ant-scrolling-effect{
+  overflow: inherit!important;
+}
+.ant-tooltip {
+z-index: 1 !important;
+}
