@@ -1,4 +1,5 @@
 .container {
+  padding: 20px;
     width: 100vw;
     height: 100vh;
     max-width: 100%;
@@ -11,7 +12,42 @@
     background-position: center;
     :global{
       .ant-tabs{
-        background-color: #FAF4EA;
+        max-width: 400px;
+        width: 100%;
+      }
+      .ant-tabs-content-holder{
+        background-color: rgba(250, 244, 234, 0.76);
+        border-radius: 0px 0px 36px 36px;
+
+      }
+      .ant-tabs > .ant-tabs-nav{
+        margin: 0;
+      }
+      .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list, .ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-list{
+        width: 100%;
+      }
+      .ant-tabs-tab{
+        width: 50%;
+        justify-content: center;
+        display: flex;
+        margin: 0 !important;
+      }
+      div[class="ant-tabs-tab ant-tabs-tab-active"]{
+        border-top-left-radius: 100px;
+        border-top-right-radius: 100px;
+        background-color: rgba(250, 244, 234, 0.76);
+        box-shadow: inset 0px 5px 6px #00000029;
+      }
+      div[class="ant-tabs-tab"]{
+        border-top-left-radius: 100px;
+        border-top-right-radius: 100px;
+        background-color: rgba(250, 244, 234, 0.51);
+      }
+      .ant-tabs-top > .ant-tabs-nav::before, .ant-tabs-bottom > .ant-tabs-nav::before, .ant-tabs-top > div > .ant-tabs-nav::before, .ant-tabs-bottom > div > .ant-tabs-nav::before{
+        border-bottom: unset;
+      }
+      .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+        color: black;
       }
     }
   }
