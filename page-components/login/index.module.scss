@@ -9,5 +9,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    :global{
+      .ant-tabs{
+        background-color: #FAF4EA;
+      }
+    }
   }
   
