@@ -63,7 +63,7 @@ const Header = (props: PropTypes & SizeProps) => {
       {/* <Menu.Item> {member?.userFullName || "مهمان"}</Menu.Item>
       <Menu.Item>{member?.phoneNumber || ""}</Menu.Item> */}
       <Divider />
-      <Menu.Item onClick={() => router.push(ROUTES.ORDERS_LIST)}>
+      <Menu.Item /*onClick={() => router.push(ROUTES.ORDERS_LIST)}*/>
         <Typography.Text style={{ fontWeight: "500", color: "#5F5F5F" }}>
           پیگیری خرید
         </Typography.Text>
