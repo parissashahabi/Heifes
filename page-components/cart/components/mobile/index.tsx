@@ -138,3 +138,8 @@
 // };
 
 // export default sizes(CartMobile);
+
+const CartMobile = ()=>{
+    return <h1>mobile cart</h1>
+}
+export default CartMobile;
