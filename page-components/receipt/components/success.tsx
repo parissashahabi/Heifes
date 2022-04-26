@@ -2,7 +2,7 @@ import { Button, Col, Row, Typography } from "antd";
 import success from "./success.module.scss";
 import {CheckCircleFilled} from "@ant-design/icons";
 
-const { Text, Title } = Typography;
+const { Title } = Typography;
 const Success = () => {
   return (
     <Col className={success["container"]} span={24}>

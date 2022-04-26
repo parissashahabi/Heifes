@@ -3,12 +3,18 @@
   display: block;
 
   .first-col {
-    background-color: #5cbf8c4d;
+    background-color: #EE5D6C4D;
     width: 390px;
     height: 280px;
     border-radius: 16px;
     margin: 50px auto;
     padding-top: 30px;
+
+    .text-report {
+      color: #707070;
+      text-align: center;
+      padding: 0 10px;
+    }
     :global {
       .ant-row {
         padding-top: 10px;
@@ -17,13 +23,6 @@
         width: 100%;
       }
     }
-  }
-  .btn-receipt {
-    border-radius: 8px;
-    border-color: #A989AE;
-    border-width: 2px;
-    background-color: #FAF4EA;
-    color: #A989AE;
   }
   .btn-return {
     border-radius: 8px;
