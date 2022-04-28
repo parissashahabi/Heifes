@@ -1,0 +1,55 @@
+.tab-pane-container {
+  h4{
+    padding: 60px 0 34px;
+    text-align: center;
+  }
+  a{
+    color: #FE863C;
+    margin: 12px 0 25px;
+  }
+  .password-container{
+    margin-top: 19px;
+    justify-content: end;
+    align-items: center;
+    i {
+      position: absolute;
+      color: #FF9800;
+      transform: translate(13px,4px);
+      svg{
+      font-size: 18px;
+      }
+    }
+    i:hover {
+      cursor: pointer;
+    }
+  }
+
+:global {
+  .ant-form-item{
+    margin-bottom: unset;
+  }
+  .ant-input:focus, .ant-input-focused{
+    box-shadow: unset;
+  }
+  a.ant-typography:focus, .ant-typography a:focus, a.ant-typography:hover, .ant-typography a:hover{
+    color: #FE863C;
+  }
+  .ant-btn:hover, .ant-btn:focus{
+    color: black;
+  }
+  .ant-btn {
+    width: 100%;
+    background: #FF9800 0% 0% no-repeat padding-box;
+    border: 1px solid #FFE8C6;
+    border-radius: 16px;
+    height: 48px;
+  }
+  .ant-input{
+    background: #FFE8C6 0% 0% no-repeat padding-box;
+    border: 1px solid #FFE8C6;
+    border-radius: 16px;
+    padding: 12px;
+  }
+}
+}
+  

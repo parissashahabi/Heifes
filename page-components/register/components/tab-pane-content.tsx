@@ -21,24 +21,15 @@ const TabPaneContent = ({ type }: { type: string }) => {
         className={styles["tab-pane-container"]}
       >
         <Col span={18}>
-          <Typography.Title level={4}>ورود به حساب کاربری</Typography.Title>
+          <Typography.Title level={4}>عضویت در حیفه‌س</Typography.Title>
           <Form.Item name="phoneNumber">
           <Input placeholder="شماره همراه" />
           </Form.Item>
-            <Form.Item name="password">
-          <Row className={styles["password-container"]}>
-            <Input placeholder="رمز عبور" type={passwordShown ? "text" : "password"}/>
-            <i onClick={togglePassword}>{passwordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
-          </Row>
-            </Form.Item>
-          <Row justify="end">
-            <Link href="/">رمز عبور خود را فراموش کرده‌اید؟</Link>
-          </Row>
-          <Button htmlType="submit">ورود</Button>
+          <Button htmlType="submit" style={{marginTop: "19px"}}>ارسال کد</Button>
           <Row style={{marginBottom: "60px",marginTop: "12px"}}>
             <Typography.Text>
-              حساب کاربری ندارید؟
-              <Link href="/register">عضویت در حیفه‌س</Link>
+              حساب کاربری دارید؟
+              <Link href="/login">ورود به حساب کاربری</Link>
             </Typography.Text>
           </Row>
         </Col>
