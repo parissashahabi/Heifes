@@ -1,0 +1,122 @@
+.container {
+  background: url("/images/store-banner.png");
+  box-shadow: 2px 4px 60px rgba(45, 45, 45, 0.1);
+  background-repeat: no-repeat;
+  background-position: -58px -56px;
+  border-radius: 8px;
+  max-height: 12.8rem;
+  height: 100%;
+  flex-direction: column;
+  padding: 2.2rem 4.3rem 1.9rem 0;
+  margin-bottom: 1.6rem;
+  span[id="address"] {
+    color: #F28077;
+    margin-right: 7px;
+  }span[id="open-hours"] {
+    color: #A989AE;
+    margin-right: 7px;
+  }
+  svg[id="loaction"] {
+    transform: translateY(-2px);
+  } svg[id="clock"] {
+    transform: translateY(-2px);
+  }
+  .select{
+transform: translateY(-7px);
+    direction: ltr;
+    margin-right: 25px;
+  }
+    :global{
+      .ant-select:not(.ant-select-customize-input) .ant-select-selector{
+        background-color: #E0D1D6 !important;
+        border: unset;
+        border-radius: 50px;
+      }
+      .ant-select-selection-placeholder{
+        color: #444444;
+        padding-right: unset !important;
+        font-size: 12px;
+        margin-left: 10px;
+      }
+      .ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
+        height: unset;
+      }
+      .ant-select-arrow{
+        color: #444444;
+        right: unset;
+        transform: translateY(-2px);
+      }
+      .ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
+        padding: 0 10px 0 30px;
+      }
+    }
+  @media (max-width: 1024px) {
+    margin: 0 1.6rem 1.6rem;
+  }
+  @media (max-width: 1024px) {
+    background: url("/images/store-banner.png"),
+      linear-gradient(0deg, #ef5652, #ef5652), url("/images/store-banner.png"),
+      #eddacc;
+    background-repeat: no-repeat;
+    max-height: 11.5rem;
+    height: 100%;
+    min-width: 32.8rem;
+    max-width: unset;
+    width: unset;
+    //padding: 1.7rem 1.3rem;
+    span[id="address"] {
+      display: none;
+    }
+    padding: 1.7rem 1.3rem 1.7rem 0;
+    h2 {
+      font-size: 1.6rem !important;
+
+      line-height: 2.5rem !important;
+    }
+  }
+  h5 {
+    color: #E0D1D6;
+    margin-bottom: 0.8rem !important;
+    font-size: 2.4rem;
+    line-height: 50px;
+  }
+  //span {
+  //  color: white;
+  //  font-size: 1.3rem !important;
+  //}
+  .telephone {
+    background: white;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem 1.6rem;
+    border-radius: 8px;
+    transform: translate(15rem, 2.1rem);
+    margin-right: 11vmax;
+    a{
+      color: inherit;
+    }
+    @media (max-width: 1024px) {
+      margin-right: unset;
+      transform: unset;
+      margin-top: 0.7rem;
+
+      svg {
+        margin-right: 1.2rem !important;
+        font-size: 1.4rem !important;
+      }
+      span {
+        font-weight: 600 !important;
+        font-size: 1.6rem !important;
+        color: green !important;
+      }
+    }
+    svg {
+      margin-right: 1.2rem;
+      font-size: 4.4rem;
+    }
+    h2 {
+      font-weight: 700;
+      margin-bottom: unset !important;
+    }
+  }
+}
