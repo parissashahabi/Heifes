@@ -1,4 +1,4 @@
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Space, Table, Tag } from 'antd';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import React, { Component } from 'react';
 import styles from "./index.module.scss";
@@ -11,27 +11,45 @@ const { Header, Content, Footer, Sider } = Layout;
 const data = [
   {
     key: '1',
-    firstName: 'John',
-    lastName: 'Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
+    product_name: 'سوپر مارکت ستاره',
+    tracking_code: 298415,
+    order_status: ['ثبت وضعیت'],
   },
   {
     key: '2',
-    firstName: 'Jim',
-    lastName: 'Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
+    product_name: 'سوپر مارکت ستاره',
+    tracking_code: 298415,
+    order_status: ['ثبت وضعیت'],
   },
   {
     key: '3',
-    firstName: 'Joe',
-    lastName: 'Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    product_name: 'سوپر مارکت ستاره',
+    tracking_code: 298415,
+    order_status: ['ثبت وضعیت'],
+  },
+  {
+    key: '4',
+    product_name: 'سوپر مارکت ستاره',
+    tracking_code: 298415,
+    order_status: ['ثبت وضعیت'],
+  },
+  {
+    key: '5',
+    product_name: 'سوپر مارکت ستاره',
+    tracking_code: 298415,
+    order_status: ['ثبت وضعیت'],
+  },
+  {
+    key: '6',
+    product_name: 'سوپر مارکت ستاره',
+    tracking_code: 298415,
+    order_status: ['ثبت وضعیت'],
+  },
+  {
+    key: '7',
+    product_name: 'سوپر مارکت ستاره',
+    tracking_code: 298415,
+    order_status: ['ثبت وضعیت'],
   },
 ];
 
@@ -51,8 +69,8 @@ export default () => (
       <Menu
         theme="light"
         mode="inline"
-        defaultSelectedKeys={['4']}
-        items={[UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
+        defaultSelectedKeys={['5']}
+        items={[UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined, UploadOutlined].map(
           (icon, index) => ({
             key: String(index + 1),
             icon: React.createElement(icon),
@@ -67,40 +85,27 @@ export default () => (
       <Content style={{ margin: '24px 16px 0' }}>
         <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
         <Table dataSource={data}>
-    <ColumnGroup title="Name">
-      <Column title="First Name" dataIndex="firstName" key="firstName" />
-      <Column title="Last Name" dataIndex="lastName" key="lastName" />
+    <ColumnGroup title="نام کالا" dataIndex="product_name" key="product_name" >
     </ColumnGroup>
-    <Column title="Age" dataIndex="age" key="age" />
-    <Column title="Address" dataIndex="address" key="address" />
-    <Column
-      title="Tags"
-      dataIndex="tags"
-      key="tags"
-      render={tags => (
+    <Column title="کد رهگیری" dataIndex="tracking_code" key="tracking_code" />
+    <Column 
+      title="وضعیت سفارش"
+      dataIndex="order_status"
+      key="order_status"
+      render={order_status => (
         <>
-          {tags.map(tag => (
-            <Tag color="blue" key={tag}>
+          {order_status.map(tag => (
+            <Tag color="#A0A0A0" key={tag}>
               {tag}
             </Tag>
           ))}
         </>
       )}
     />
-    <Column
-      title="Action"
-      key="action"
-      render={(text, record) => (
-        <Space size="middle">
-          <a>Invite {record.lastName}</a>
-          <a>Delete</a>
-        </Space>
-      )}
-    />
   </Table>
         </div>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Mohammad Aghaei</Footer>
+      {/* <Footer style={{ textAlign: 'center' }}>Mohammad Aghaei</Footer> */}
     </Layout>
   </Layout>
 );
