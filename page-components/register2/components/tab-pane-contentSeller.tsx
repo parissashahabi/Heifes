@@ -34,7 +34,7 @@ const TabPaneContentSeller = ({ type }: { type: string }) => {
               <i onClick={togglePassword}>{passwordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
             </Row>
           </Form.Item>
-          <Form.Item name="password">
+          <Form.Item name="repeatPassword">
             <Row className={styles["password-container"]}>
               <Input placeholder="تکرار رمز عبور" type={passwordShown ? "text" : "password"}/>
               <i onClick={togglePassword}>{passwordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
