@@ -5,6 +5,7 @@ import React, { useEffect } from "react";
 import ArrowLeft from "../../../public/icons/arrowLeft.svg"
 import styles from "./index.module.scss"
 import SearchBarHeader from "../../../common/components/searchBarHeader";
+import ProductCard from "./components/store-product-card/index"
 const StoreDetails = () => {
     const router = useRouter();
     useEffect( () => {
@@ -18,6 +19,27 @@ const StoreDetails = () => {
       "2",
       "3"
   ];
+  const products=[
+      {
+         name: "تن ماهی گوهرانه",
+          price: "23500",
+          oldPrice: "25800",
+          discount: "25",
+          img: "",
+      }, {
+         name: "روغن سرخ کردنی لادن طلایی",
+          price: "12600",
+          oldPrice: "31000",
+          discount: "75",
+          img: "",
+      }, {
+         name: "صابون گلنار",
+          price: "7000",
+          oldPrice: "11400",
+          discount: "30",
+          img: "",
+      },
+  ]
     const storeName = "سوپرمارکت ستاره"
   return <>
     <StoreBanner storeName={storeName} stores={stores} storeAddress="اصفهان، شیخ مفید، نبش فرعی لاله" storeOpenHours="10"/>
@@ -34,7 +56,6 @@ const StoreDetails = () => {
           </Col>
       </Row>
       <Row style={{marginTop: "30px"}}>
-
       <SearchBarHeader
           inputPlaceholderLabel="جستجوی نام کالا..."
           page={`store-${router.query.id}`}
@@ -43,6 +64,11 @@ const StoreDetails = () => {
           listCount={2}
       />
       </Row>
+          <Row gutter={16}>
+          {products.map(product => {
+          return <Col span={6}><ProductCard product={product}/></Col>
+          })}
+          </Row>
     </>;
 };
 export default StoreDetails;
