@@ -15,6 +15,7 @@ import {
   Typography,
   Modal,
 } from "antd";
+import Login from "../../../../public/icons/login.svg"
 import styles from "./styles/cart.module.scss";
 import EmptyCart from "../common/empty-cart";
 import Link from "next/link";
@@ -177,7 +178,7 @@ const CartDesktop = (props: PropType & SizeProps) => {
 
   const steps = [
     {
-      icon: <LoginOutlined />,
+      icon: <Login/>,
       id: 1,
       title: "عضویت",
       subtitle: "و ورود به فروشگاه",
