@@ -1,8 +1,6 @@
 import "../styles/index.scss";
 import "antd/dist/antd.css";
 import Head from "next/head";
-import { Spin } from "antd";
-import { LoadingOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Layout from "../common/layout";
