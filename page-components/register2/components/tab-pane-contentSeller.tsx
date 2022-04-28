@@ -22,10 +22,25 @@ const TabPaneContentSeller = ({ type }: { type: string }) => {
       >
         <Col span={18}>
           <Typography.Title level={4}>عضویت در حیفه‌س</Typography.Title>
-          <Form.Item name="phoneNumber">
-          <Input placeholder="شماره همراه" />
+          <Form.Item name="verifyCode">
+            <Input placeholder="کد تایید پیامک شده" />
           </Form.Item>
-          <Button htmlType="submit" style={{marginTop: "19px"}}>ارسال کد</Button>
+          <Form.Item style={{marginTop: "19px"}} name="idCode">
+            <Input  placeholder="کد ملی" />
+          </Form.Item>
+          <Form.Item name="password">
+            <Row className={styles["password-container"]}>
+              <Input placeholder="رمز عبور" type={passwordShown ? "text" : "password"}/>
+              <i onClick={togglePassword}>{passwordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
+            </Row>
+          </Form.Item>
+          <Form.Item name="password">
+            <Row className={styles["password-container"]}>
+              <Input placeholder="تکرار رمز عبور" type={passwordShown ? "text" : "password"}/>
+              <i onClick={togglePassword}>{passwordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
+            </Row>
+          </Form.Item>
+          <Button htmlType="submit">ثبت نام</Button>
           <Row style={{marginBottom: "60px",marginTop: "12px"}}>
             <Typography.Text>
               حساب کاربری دارید؟
