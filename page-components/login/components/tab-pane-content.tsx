@@ -38,7 +38,7 @@ const TabPaneContent = ({ type }: { type: string }) => {
           <Row style={{marginBottom: "60px",marginTop: "12px"}}>
             <Typography.Text>
               حساب کاربری ندارید؟
-              <Link href="/">عضویت در حیفه‌س</Link>
+              <Link href="/register">عضویت در حیفه‌س</Link>
             </Typography.Text>
           </Row>
         </Col>

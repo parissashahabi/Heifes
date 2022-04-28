@@ -1,0 +1,42 @@
+.container {
+  justify-content: center;
+  display: block;
+
+  .first-col {
+    background-color: #5cbf8c4d;
+    width: 390px;
+    height: 280px;
+    border-radius: 16px;
+    margin: 50px auto;
+    padding-top: 30px;
+    :global {
+      .ant-row {
+        padding-top: 10px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+    }
+  }
+  .btn-receipt {
+    border-radius: 8px;
+    border-color: #A989AE;
+    border-width: 2px;
+    background-color: #FAF4EA;
+    color: #A989AE;
+  }
+  .btn-return {
+    border-radius: 8px;
+    border-color: #707070;
+    border-width: 2px;
+    background-color: #FAF4EA;
+    color: #707070;
+  }
+  :global {
+    .ant-btn {
+      margin: 15px auto;
+      display: block;
+      width: 390px;
+    }
+  }
+}

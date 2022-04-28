@@ -20,6 +20,7 @@ const Cart = () => {
   useEffect(() => {
     if (cartList.length) {
       let total = 0;
+      // test
       cartList.map((item) => {
         total += item.totalPrice;
       });
