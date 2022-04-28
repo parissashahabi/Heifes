@@ -5,7 +5,7 @@ import {useState} from "react";
 import {
 EyeInvisibleFilled ,EyeFilled
 } from "@ant-design/icons";
-const TabPaneContent = ({ type }: { type: string }) => {
+const TabPaneContentBuyer = ({ type }: { type: string }) => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -23,12 +23,24 @@ const TabPaneContent = ({ type }: { type: string }) => {
         <Col span={18}>
           <Typography.Title level={4}>عضویت در حیفه‌س</Typography.Title>
           <Form.Item name="phoneNumber">
-          <Input placeholder="شماره همراه" />
+            <Input placeholder="شماره همراه" />
           </Form.Item>
-          <Button htmlType="submit" >ارسال کد</Button>
+          <Form.Item name="password">
+            <Row className={styles["password-container"]}>
+              <Input placeholder="رمز عبور" type={passwordShown ? "text" : "password"}/>
+              <i onClick={togglePassword}>{passwordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
+            </Row>
+          </Form.Item>
+          <Form.Item name="password">
+            <Row className={styles["password-container"]}>
+              <Input placeholder="تکرار رمز عبور" type={passwordShown ? "text" : "password"}/>
+              <i onClick={togglePassword}>{passwordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
+            </Row>
+          </Form.Item>
+          <Button htmlType="submit">ثبت نام</Button>
           <Row style={{marginBottom: "60px",marginTop: "12px"}}>
             <Typography.Text>
-              حساب کاربری دارید؟
+               حساب کاربری دارید؟
               <Link href="/login">ورود به حساب کاربری</Link>
             </Typography.Text>
           </Row>
@@ -37,4 +49,4 @@ const TabPaneContent = ({ type }: { type: string }) => {
     </Form>
   );
 };
-export default TabPaneContent;
+export default TabPaneContentBuyer;

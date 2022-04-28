@@ -5,7 +5,7 @@ import {useState} from "react";
 import {
 EyeInvisibleFilled ,EyeFilled
 } from "@ant-design/icons";
-const TabPaneContent = ({ type }: { type: string }) => {
+const TabPaneContentSeller = ({ type }: { type: string }) => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -25,7 +25,7 @@ const TabPaneContent = ({ type }: { type: string }) => {
           <Form.Item name="phoneNumber">
           <Input placeholder="شماره همراه" />
           </Form.Item>
-          <Button htmlType="submit" >ارسال کد</Button>
+          <Button htmlType="submit" style={{marginTop: "19px"}}>ارسال کد</Button>
           <Row style={{marginBottom: "60px",marginTop: "12px"}}>
             <Typography.Text>
               حساب کاربری دارید؟
@@ -37,4 +37,4 @@ const TabPaneContent = ({ type }: { type: string }) => {
     </Form>
   );
 };
-export default TabPaneContent;
+export default TabPaneContentSeller;
