@@ -5,7 +5,7 @@ import {useState} from "react";
 import {
 EyeInvisibleFilled ,EyeFilled
 } from "@ant-design/icons";
-const TabPaneContent = ({ type }: { type: string }) => {
+const TabPaneContent = ({ type, activeTab }: { type: string; activeTab:string }) => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -38,7 +38,7 @@ const TabPaneContent = ({ type }: { type: string }) => {
           <Row style={{marginBottom: "60px",marginTop: "12px"}}>
             <Typography.Text>
               حساب کاربری ندارید؟
-              <Link href="/register">عضویت در حیفه‌س</Link>
+              <Link href={`/register?activeTab=${activeTab}`}>عضویت در حیفه‌س</Link>
             </Typography.Text>
           </Row>
         </Col>
