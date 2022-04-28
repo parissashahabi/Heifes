@@ -5,7 +5,7 @@ import {useState} from "react";
 import {
 EyeInvisibleFilled ,EyeFilled
 } from "@ant-design/icons";
-const TabPaneContentBuyer = ({ type }: { type: string }) => {
+const TabPaneContentBuyer = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -23,7 +23,7 @@ const TabPaneContentBuyer = ({ type }: { type: string }) => {
         <Col span={18}>
           <Typography.Title level={4}>عضویت در حیفه‌س</Typography.Title>
           <Form.Item name="phoneNumber">
-            <Input placeholder="شماره همراه" />
+            <Input placeholder="کد تایید پیامک شده" />
           </Form.Item>
           <Form.Item name="password">
             <Row className={styles["password-container"]}>

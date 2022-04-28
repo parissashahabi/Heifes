@@ -5,7 +5,7 @@ import {useState} from "react";
 import {
 EyeInvisibleFilled ,EyeFilled
 } from "@ant-design/icons";
-const TabPaneContentSeller = ({ type }: { type: string }) => {
+const TabPaneContentSeller = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
     setPasswordShown(!passwordShown);

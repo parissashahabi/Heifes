@@ -1,10 +1,13 @@
 import { Button, Col, Row, Typography } from "antd";
 import fail from "./fail.module.scss";
 import {ExclamationCircleFilled} from "@ant-design/icons";
+import {useRouter} from "next/router";
 
 const { Text, Title } = Typography;
 const Fail = () => {
-  return (
+    const router =useRouter();
+
+    return (
       <Col className={fail["container"]} span={24}>
         <Col className={fail["first-col"]}>
           <Row><ExclamationCircleFilled style={{ fontSize: '80px', color: '#EE5D6C' }} /></Row>
@@ -16,7 +19,7 @@ const Fail = () => {
           </Row>
         </Col>
 
-        <Button className={fail["btn-return"]}>بازگشت به فروشگاه</Button>
+        <Button className={fail["btn-return"]} onClick={()=>router.push("store/list")}>بازگشت به فروشگاه</Button>
 
       </Col>
   );
