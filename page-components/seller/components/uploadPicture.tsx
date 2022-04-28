@@ -1,6 +1,7 @@
 import { Upload, message } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import React from "react";
+import styles from "./index.module.scss";
 
 function getBase64(img, callback) {
     const reader = new FileReader();
@@ -59,6 +60,7 @@ class UploadPicture extends React.Component {
                 action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                 beforeUpload={beforeUpload}
                 onChange={this.handleChange}
+
             >
                 {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
             </Upload>

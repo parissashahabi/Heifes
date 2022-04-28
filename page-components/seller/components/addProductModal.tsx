@@ -37,8 +37,8 @@ const AddProductModal = ({setVisible, visible}) => {
                 width={600}
             >
                 <Row>
-                    <Col span={14}><ProductInfoForm /></Col>
-                    <Col span={6} ><UploadPicture /></Col>
+                    <Col flex="320px"><ProductInfoForm /></Col>
+                    <Col flex="auto" className={styles["upload-col"]}><UploadPicture  /></Col>
                 </Row>
             </Modal>
 
