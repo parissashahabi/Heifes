@@ -6,9 +6,13 @@ import {
 EyeInvisibleFilled ,EyeFilled
 } from "@ant-design/icons";
 const TabPaneContentSeller = ({activeTab}:{activeTab:string}) => {
-  const [passwordShown, setPasswordShown] = useState(false);
+  const [passwordShown, setPasswordShown ] = useState(false);
+  const [repeatPasswordShown, setRepeatPasswordShown ] = useState(false);
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
+  };
+  const toggleRepeatPassword = () => {
+    setRepeatPasswordShown(!repeatPasswordShown);
   };
   const handleSubmit = (dto: any) => {
    console.log("login data: ",dto)
@@ -36,8 +40,8 @@ const TabPaneContentSeller = ({activeTab}:{activeTab:string}) => {
           </Form.Item>
           <Form.Item name="repeatPassword">
             <Row className={styles["password-container"]}>
-              <Input placeholder="تکرار رمز عبور" type={passwordShown ? "text" : "password"}/>
-              <i onClick={togglePassword}>{passwordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
+              <Input placeholder="تکرار رمز عبور" type={repeatPasswordShown ? "text" : "repeatPassword"}/>
+              <i onClick={toggleRepeatPassword}>{repeatPasswordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
             </Row>
           </Form.Item>
           <Button htmlType="submit">ثبت نام</Button>
