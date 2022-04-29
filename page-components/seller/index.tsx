@@ -16,10 +16,10 @@ const Seller = () => {
     const router = useRouter();
     const [activeTab, setActiveTab] = useState(router?.query?.activeTab?.toString() || '1')
 
-    useEffect(()=>{
-        router.query.activeTab=activeTab;
-        router.push(router);
-    },[activeTab])
+    // useEffect(()=>{
+    //     router.query.activeTab=activeTab;
+    //     router.push(router);
+    // },[activeTab])
     const operations = {
         left: <Title level={5} style={{color:"#707070", fontWeight:"600", fontSize:"18px" }}>منوی کاربری</Title>,
     };
@@ -41,9 +41,9 @@ const Seller = () => {
     return(
     <Col className={styles["container"]}>
         <Row className={styles["container-header"]}>
-            <Col flex="100px"  className={styles["return"]}>
+            <Col flex="100px"  className={styles["return"]} onClick={()=>router.back()}>
                 <ArrowRight/>
-                <Text onClick={()=>router.back()}> بازگشت</Text>
+                <Text > بازگشت</Text>
             </Col>
             <Col flex="auto" className={styles["title"]} >
                 <Title level={5}>{genTitle()}</Title>

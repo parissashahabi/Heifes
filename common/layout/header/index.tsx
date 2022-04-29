@@ -17,7 +17,7 @@ import { CSSProperties, useState } from "react";
 import Basket from "../../../public/icons/basket.svg"
 // import useUser from "@/store/user";
 import { SizeProps, sizes } from "../../../common/miscellaneous/sizes";
-import { UserOutlined } from "@ant-design/icons";
+import {ShopOutlined, UserOutlined} from "@ant-design/icons";
 import useCart from "../../../store/cart/index";
 // import { getCartItemsCount } from "@/common/layout/header/services";
 
@@ -55,7 +55,7 @@ const Header = (props: PropTypes & SizeProps) => {
   //     },
   //   });
   // };
-
+const userIcon = router.pathname.includes("seller") ? <ShopOutlined style={{fontSize:"17px", color:"#707070", margin: "0 0.5px"}}/>: <UserOutlined style={{fontSize:"17px", color:"#707070", margin: "0 0.5px"}}/>;
   const dropDown = (
     <Menu style={DropDownStyles}>
        <Menu.Item> {"حسین علیزاده"}</Menu.Item>
@@ -101,18 +101,19 @@ const Header = (props: PropTypes & SizeProps) => {
           >
             {!props.sm ? (
                 <Row>
-                      <NextLink href="/cart">
+                    {router.pathname.includes("seller")?null :<NextLink href="/cart">
                         <a>
-                          <Button className={styles["cart"]}>
-                            {/* {count !== 0 && (*/}
-                            {/*  <div className={styles["cart-count"]}>*/}
-                            {/*    <span>{count}</span>*/}
-                            {/*  </div>*/}
-                            {/*)}*/}
-                            <Basket />
-                          </Button>
+                            <Button className={styles["cart"]}>
+                                {/* {count !== 0 && (*/}
+                                {/*  <div className={styles["cart-count"]}>*/}
+                                {/*    <span>{count}</span>*/}
+                                {/*  </div>*/}
+                                {/*)}*/}
+                                <Basket/>
+                            </Button>
                         </a>
-                      </NextLink>
+                    </NextLink>}
+
                   <Dropdown overlay={dropDown}>
                     <Row className={styles["user"]}>
                       <Row />
@@ -120,24 +121,24 @@ const Header = (props: PropTypes & SizeProps) => {
                         {/* {member?.userFullName || "مهمان"} */}
                         حسین علیزاده
                       </Typography.Text>
-                      <UserOutlined />
+                        {userIcon}
                     </Row>
                   </Dropdown>
                 </Row>
               )
             :  (
-                <NextLink href="/cart">
-                  <a>
-                    <Button className={styles["cart"]}>
-                      {/*{count !== 0 && (*/}
-                      {/*  <div className={styles["cart-count"]}>*/}
-                      {/*    <span>{count}</span>*/}
-                      {/*  </div>*/}
-                      {/*)}*/}
-                      <Basket />
-                    </Button>
-                  </a>
-                </NextLink>
+                    router.pathname.includes("seller")?null :<NextLink href="/cart">
+                            <a>
+                                <Button className={styles["cart"]}>
+                                    {/* {count !== 0 && (*/}
+                                    {/*  <div className={styles["cart-count"]}>*/}
+                                    {/*    <span>{count}</span>*/}
+                                    {/*  </div>*/}
+                                    {/*)}*/}
+                                    <Basket/>
+                                </Button>
+                            </a>
+                        </NextLink>
               )}
             {!props.sm && !router.pathname.includes("offer") ? (
               <Row className={styles["links"]} justify="space-between"></Row>
@@ -155,7 +156,7 @@ const Header = (props: PropTypes & SizeProps) => {
                   onClick={() => setShowDrawer(!showDrawer)}
                 >
                   <Row />
-                  {/* <Profile /> */}
+                    {userIcon}
                 </Row>
               </>
             ) :  (
