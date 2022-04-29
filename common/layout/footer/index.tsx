@@ -70,7 +70,10 @@ const Footer = (props: SizeProps) => {
                 </Typography.Text>
               </Row>
               <Row>
-                <Instagram/>
+                <span  onClick={()=>router.push("https://www.instagram.com/")}>
+                  <Instagram/>
+                </span>
+
                 <Twitter />
                 <Youtube />
                 <Linkedin />
@@ -79,11 +82,20 @@ const Footer = (props: SizeProps) => {
             </Col>
           ) : (
             <Row justify="end" className={styles["social-media"]}>
-              <Instagram />
-              <Twitter />
-              <Youtube />
-              <Linkedin />
+              <a target="_blank" href="https://www.instagram.com/" rel="noopener noreferrer">
+                <Instagram/>
+              </a>
+              <a target="_blank" href="https://twitter.com/?lang=en" rel="noopener noreferrer">
+                <Twitter />
+              </a>
+              <a target="_blank" href="https://www.youtube.com/" rel="noopener noreferrer">
+                <Youtube />
+              </a>
+              <a target="_blank" href="https://www.linkedin.com/feed/" rel="noopener noreferrer">
+                <Linkedin />
+              </a><a target="_blank" href="https://www.whatsapp.com/" rel="noopener noreferrer">
               <WhatsApp />
+              </a>
             </Row>
           )}
         </Row>

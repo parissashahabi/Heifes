@@ -1,50 +1,77 @@
-import {Button, Row, Col, Typography} from "antd";
-import React, {useEffect} from "react";
-import AddProductModal from "./components/addProductModal";
-import Link from "next/link";
-const { Title } = Typography;
+import { Row, Col, Typography, Tabs} from "antd";
+import React, {useEffect, useState} from "react";
+import {useRouter} from "next/router";
 import styles from "./index.module.scss";
-import SideMenu from "./components/sideMenu";
-import {ArrowRightOutlined} from "@ant-design/icons";
-import axios from "axios";
-
+import ArrowRight from "../../public/icons/arrowRight.svg";
+import Dashboard from "../../public/icons/dashboard.svg";
+import List from "../../public/icons/list.svg";
+import Exit from "../../public/icons/exit.svg";
+import Password from "../../public/icons/password.svg";
+import Product from "../../public/icons/product.svg";
+import User from "../../public/icons/User.svg";
+import Products from "./components/products";
+const { Title, Text } = Typography;
 
 const Seller = () => {
-    const [visible, setVisible] = React.useState(false);
-    const showModal = () => {
-        setVisible(true);
-    };
+    const router = useRouter();
+    const [activeTab, setActiveTab] = useState(router?.query?.activeTab?.toString() || '1')
+
     useEffect(()=>{
-        axios.post("http://localhost:8000/registerC")
-    },[])
+        router.query.activeTab=activeTab;
+        router.push(router);
+    },[activeTab])
+    const operations = {
+        left: <Title level={5} style={{color:"#707070", fontWeight:"600", fontSize:"18px" }}>منوی کاربری</Title>,
+    };
+    const genTitle = ()=>{
+        switch (activeTab){
+            case "1":
+                return "داشبورد";
+            case "2":
+                return "ویرایش پروفایل";
+            case "3":
+                return "لیست سفارشات";
+            case "4":
+                return "محصولات فروشگاه";
+            case "5":
+                return "تغییر رمز عبور";
+            default: return ;
+        }
+    }
     return(
-    <>
+    <Col className={styles["container"]}>
         <Row className={styles["container-header"]}>
             <Col flex="100px"  className={styles["return"]}>
-                <ArrowRightOutlined />
-                <Link  href="/" > بازگشت</Link>
+                <ArrowRight/>
+                <Text onClick={()=>router.back()}> بازگشت</Text>
             </Col>
             <Col flex="auto" className={styles["title"]} >
-                <Title  level={5} >محصولات فروشگاه</Title>
+                <Title level={5}>{genTitle()}</Title>
             </Col>
         </Row>
-        <Row className={styles["container"]}>
-            <SideMenu />
-            <Col flex="auto" className={styles["container-items"]}>
-                <Button className={styles["btn"]} onClick={showModal}>
-                    + افزودن کالا
-                </Button>
-                <AddProductModal setVisible={setVisible} visible={visible} />
-            </Col>
+            <Tabs tabPosition="left" className={styles["container-content"]} tabBarExtraContent={operations} defaultActiveKey={activeTab}
+                  onChange={(activeKey) => {
+                      setActiveTab(activeKey);
+                  }}>
 
-        </Row>
+                <Tabs.TabPane tab={<span><Dashboard/>داشبورد</span>} key="1">
 
+                </Tabs.TabPane>
+                <Tabs.TabPane tab={<span><User/>ویرایش پروفایل</span>} key="2">
 
-    </>
+                </Tabs.TabPane>
+                <Tabs.TabPane tab={<span><List/>لیست سفارشات</span>} key="3">
 
+                </Tabs.TabPane>
+                <Tabs.TabPane tab={<span><Product/>محصولات فروشگاه</span>} key="4">
+                   <Products/>
+                </Tabs.TabPane>
+                <Tabs.TabPane tab={<span><Password/>تغییر رمز عبور</span>} key="5">
 
-
-    )
+                </Tabs.TabPane>
+                <Tabs.TabPane tab={<span><Exit/>خروج</span>} key="6" />
+            </Tabs>
+    </Col>)
 }
 export default Seller;
 

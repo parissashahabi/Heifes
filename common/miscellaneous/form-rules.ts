@@ -22,7 +22,7 @@ export const isPhoneNumber: Rule = {
     }
     return Promise.resolve();
   },
-  message: "فرمت شماره موبایل صحیح نمی باشد",
+  message: "فرمت شماره موبایل صحیح نمی‌باشد",
 };
 
 export const isRequired: Rule = {
@@ -32,7 +32,7 @@ export const isRequired: Rule = {
     }
     return Promise.resolve(true);
   },
-  message: "وارد کردن این فیلد اجباری می باشد",
+  message: "وارد کردن این فیلد اجباری می‌باشد",
 };
 
 export const isNationalId = {
@@ -45,7 +45,7 @@ export const isNationalId = {
     }
     return Promise.resolve();
   },
-  message: "کد ملی وارد شده صحیح نمی باشد",
+  message: "کد ملی وارد شده صحیح نمی‌باشد",
 };
 
 export const isNumber = {
@@ -57,7 +57,7 @@ export const isNumber = {
     }
     return Promise.resolve();
   },
-  message: "فرمت عدد وارد شده صحیح نمی باشد",
+  message: "فرمت عدد وارد شده صحیح نمی‌باشد",
 };
 
 export const isPositiveNumber = {

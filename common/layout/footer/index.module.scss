@@ -24,6 +24,12 @@ span[class="ant-typography"]{
     .about-logo {
       .social-media{
         width: 100%;
+        a{
+          transition: 0.5s;
+        }
+        a:hover, a:focus{
+          transform: scale(1.2);
+        }
         svg{
           color: #FFE8C6;
           font-size: 2.4rem;

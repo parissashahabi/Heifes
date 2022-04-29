@@ -1,35 +1,45 @@
 import { Form, Input, InputNumber } from 'antd';
 import styles from "./index.module.scss";
-/* eslint-disable no-template-curly-in-string */
-
-const validateMessages = {
-    required: '${label} is required!',
-    types: {
-        email: '${label} is not a valid email!',
-        number: '${label} is not a valid number!',
-    },
-    number: {
-        range: '${label} must be between ${min} and ${max}',
-    },
-};
-/* eslint-enable no-template-curly-in-string */
-
-const ProductInfoForm = () => {
-    const onFinish = (values) => {
-        console.log(values);
-    };
-
+import {isPositiveNumber, isRequired} from "../../../common/miscellaneous/form-rules";
+import DatePicker from "react-datepicker2";
+import momentJalaali from "jalali-moment";
+// import GrayCalendar from "../../../public/icons/greyCalendar.svg"
+const ProductInfoForm = ({formRef,onFinish,productionDate,expirationDate,setProductionDate,setExpirationDate}:{formRef:any;onFinish:any,productionDate:string;expirationDate:string;setExpirationDate:any;setProductionDate:any}) => {
     return (
-        <Form  name="nest-messages" className={styles["form"]} onFinish={onFinish} validateMessages={validateMessages}>
-
-            <Form.Item name="productName">
+        <Form form={formRef} name="nest-messages" className={styles["form"]} onFinish={onFinish}>
+            <Form.Item name="productName" rules={[isRequired]}>
                 <Input placeholder="نام کالا" />
             </Form.Item>
-            <Form.Item name="productionDate">
-                <Input placeholder="تاریخ تولید" />
+            <Form.Item name="productionDate" className={styles["date-picker"]}>
+                {/*<GrayCalendar />*/}
+                <DatePicker
+                    value={productionDate ? momentJalaali(productionDate, "jYYYY/jM/jD") : undefined}
+                    isGregorian={false}
+                    timePicker={false}
+                    inputReadOnly
+                    // @ts-ignore
+                    placeholder="تاریخ تولید"
+                    onChange={(e) => {
+                        setProductionDate(e?._d);
+                        // formRef.setFieldsValue({ productionDate: e?._d });
+                    }}
+                />
             </Form.Item>
-            <Form.Item name="expirationDate">
-                <Input placeholder="تاریخ انقضا" />
+            <Form.Item name="expirationDate" className={styles["date-picker"]}>
+                {/*<GrayCalendar />*/}
+                <DatePicker
+                    value={expirationDate ? momentJalaali(expirationDate, "jYYYY/jM/jD") : undefined}
+                    isGregorian={false}
+                    timePicker={false}
+                    inputReadOnly
+                    // tetherAttachment={ "position"}
+                    // @ts-ignore
+                    placeholder="تاریخ انقضا"
+                    onChange={(e) => {
+                        setExpirationDate(e?._d)
+                        // formRef.setFieldsValue({ expirationDate: e?._d });
+                    }}
+                />
             </Form.Item>
             <Form.Item name="originalPrice">
                 <Input placeholder="قیمت روی کالا" />
@@ -37,17 +47,12 @@ const ProductInfoForm = () => {
             <Form.Item name="heyfesPrice">
                 <Input placeholder="قیمت حیفه‌س" />
             </Form.Item>
-            <Form.Item name="number">
+            <Form.Item name="quantity" rules={[isPositiveNumber]}>
                 <InputNumber placeholder="تعداد" />
             </Form.Item>
             <Form.Item name="description" >
                 <Input.TextArea placeholder="توضیحات" />
             </Form.Item>
-            {/*<Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>*/}
-            {/*    <Button type="primary" htmlType="submit">*/}
-            {/*        Submit*/}
-            {/*    </Button>*/}
-            {/*</Form.Item>*/}
         </Form>
     );
 };
