@@ -7,11 +7,7 @@
     padding: 20px 0 20px 20px;
   }
   ul{
-    //transition: transform 400ms ease-in-out 0s;
-    overflow: unset;
-    transform: translate3d(-884px, 0px, 0px);
-    transition: unset !important;
-    //transform: unset !important;
+ direction: rtl;
   }
   li{
     padding: 0 20px;
@@ -20,9 +16,6 @@
     justify-content: center;
     display: flex;
   }
-.description{
-
-}
   :global{
     .react-multi-carousel-list{
       padding: 20px;
@@ -33,6 +26,9 @@
     }
     .ant-card-body{
       padding: 12px;
+    }
+    .react-multi-carousel-list{
+      direction: ltr;
     }
     .ant-card{
       padding: 20px;
