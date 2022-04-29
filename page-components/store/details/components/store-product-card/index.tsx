@@ -10,20 +10,24 @@ const ProductCard = ({product}:{product: object})=>{
             cover={
                 <img
                     alt="example"
+                    // @ts-ignore
                     src={product.img}
                 />
             }
-            actions={[<Button id="info" icon={<Info/>}></Button>,
+            actions={[<Button id="info" icon={<Info/>}/>,
               <Button id="add-to-card">افزودن به سبد</Button>
             ]}
             className={styles["card"]}
         >
+            {/*@ts-ignore*/}
             <Card.Meta title={product.name} description={
                 <Row className={styles["description"]}>
                     <Typography.Text id="price">
+                        {/*@ts-ignore*/}
                         {product.price} تومان
                     </Typography.Text>
                     <Typography.Text id="old-price">
+                        {/*@ts-ignore*/}
                         {product.oldPrice} تومان
                     </Typography.Text>
                 </Row>
