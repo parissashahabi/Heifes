@@ -1,25 +1,39 @@
-import {Button, Card} from "antd";
-
+import {Button, Card, Row, Typography} from "antd";
+import styles from "./index.module.scss"
+import Info from "../../../../../public/icons/info.svg"
 const ProductCard = ({product}:{product: object})=>{
-    return <>
+    return <div className={styles["container"]}>
         {/*@ts-ignore*/}
         <Card
             hoverable
-            style={{ width: 300 }}
+            style={{ width: 290 }}
             cover={
                 <img
                     alt="example"
-                    src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                    // @ts-ignore
+                    src={product.img}
                 />
             }
-            actions={[
-
-
-              <Button>افزودن به سبد</Button>, <Button>i</Button>
+            actions={[<Button id="info" icon={<Info/>}/>,
+              <Button id="add-to-card">افزودن به سبد</Button>
             ]}
+            className={styles["card"]}
         >
-            <Card.Meta title="Europe Street beat" description="www.instagram.com" />
+            {/*@ts-ignore*/}
+            <Card.Meta title={product.name} description={
+                <Row className={styles["description"]}>
+                    <Typography.Text id="price">
+                        {/*@ts-ignore*/}
+                        {product.price} تومان
+                    </Typography.Text>
+                    <Typography.Text id="old-price">
+                        {/*@ts-ignore*/}
+                        {product.oldPrice} تومان
+                    </Typography.Text>
+                </Row>
+
+            } />
         </Card>
-    </>
+    </div>
 }
 export default ProductCard;

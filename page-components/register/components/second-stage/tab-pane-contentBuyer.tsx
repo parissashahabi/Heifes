@@ -5,7 +5,7 @@ import {useState} from "react";
 import {
 EyeInvisibleFilled ,EyeFilled
 } from "@ant-design/icons";
-const TabPaneContentBuyer = () => {
+const TabPaneContentBuyer = ({activeTab}:{activeTab:string}) => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -41,7 +41,7 @@ const TabPaneContentBuyer = () => {
           <Row style={{marginBottom: "60px",marginTop: "12px"}}>
             <Typography.Text>
                حساب کاربری دارید؟
-              <Link href="/login">ورود به حساب کاربری</Link>
+              <Link href={`/login?activeTab=${activeTab}`}>ورود به حساب کاربری</Link>
             </Typography.Text>
           </Row>
         </Col>

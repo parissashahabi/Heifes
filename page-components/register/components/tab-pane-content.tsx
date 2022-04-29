@@ -27,12 +27,12 @@ const TabPaneContent = ({ type, activeTab, stage, setStage }: { type: string; ac
                   <Row style={{marginBottom: "60px",marginTop: "12px"}}>
                       <Typography.Text>
                           حساب کاربری دارید؟
-                          <Link href="/login">ورود به حساب کاربری</Link>
+                          <Link href={`/login?activeTab=${activeTab}`}>ورود به حساب کاربری</Link>
                       </Typography.Text>
                   </Row>
               </Col>
           </Row>
-      </Form> : activeTab ==="1" ? <TabPaneContentBuyer/>:<TabPaneContentSeller/>
+      </Form> : activeTab ==="1" ? <TabPaneContentBuyer activeTab={activeTab}/>:<TabPaneContentSeller activeTab={activeTab}/>
   );
 };
 export default TabPaneContent;

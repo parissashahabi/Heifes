@@ -17,7 +17,6 @@ const Register = () => {
         router.push(router);
     },[activeTab,stage])
 
-
     return (
     <>
       <Row justify="center" align="middle" className={styles["container"]}>
