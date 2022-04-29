@@ -56,7 +56,6 @@
     background: transparent;
     height: 8rem;
     // padding: 1.6rem 3.6rem;
-    transform: translateY(-15px);
     padding: 0 3.6rem;
     position: absolute;
     width: 100%;
@@ -96,11 +95,19 @@
     .user-holder {
       display: flex;
     }
-
+    :global{
+      .ant-image{
+        width: 80px;
+        height: 80px;
+      }
+      .ant-btn{
+        background: transparent;
+        box-shadow: unset;
+      }}
     .cart {
       border: none;
       padding-left: 0;
-      margin-right: 4.65rem;
+      margin-right: 2rem;
       display: inline-flex;
 
       &-count {
@@ -123,7 +130,7 @@
       }
 
       > svg {
-        font-size: 2.25rem;
+        transform: translateY(3px);
       }
     }
 

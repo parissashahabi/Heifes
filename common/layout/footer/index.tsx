@@ -4,13 +4,12 @@ import styles from "./index.module.scss";
 import { SizeProps, sizes } from "../../../common/miscellaneous/sizes";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import {
-  InstagramOutlined,
-  LinkedinOutlined,
-  TwitterOutlined,
-  WhatsAppOutlined,
-  YoutubeOutlined,
-} from "@ant-design/icons";
+import Instagram from "../../../public/icons/instagram.svg"
+import Twitter from "../../../public/icons/twitter.svg"
+import Linkedin from "../../../public/icons/linkedin.svg"
+import WhatsApp from "../../../public/icons/whatsapp.svg"
+import Youtube from "../../../public/icons/youtube.svg"
+
 
 const Footer = (props: SizeProps) => {
   const [marginBottom, setMarginBottom] = useState<number>(0);
@@ -44,7 +43,7 @@ const Footer = (props: SizeProps) => {
                 <Col>
                   <Image
                     alt="footer-logo"
-                    src="/images/footer-logo.svg"
+                    src="/images/footerLogo.svg"
                     preview={false}
                   />
                 </Col>
@@ -71,20 +70,20 @@ const Footer = (props: SizeProps) => {
                 </Typography.Text>
               </Row>
               <Row>
-                <InstagramOutlined />
-                <TwitterOutlined />
-                <YoutubeOutlined />
-                <LinkedinOutlined />
-                <WhatsAppOutlined />
+                <Instagram/>
+                <Twitter />
+                <Youtube />
+                <Linkedin />
+                <WhatsApp />
               </Row>
             </Col>
           ) : (
             <Row justify="end" className={styles["social-media"]}>
-              <InstagramOutlined />
-              <TwitterOutlined />
-              <YoutubeOutlined />
-              <LinkedinOutlined />
-              <WhatsAppOutlined />
+              <Instagram />
+              <Twitter />
+              <Youtube />
+              <Linkedin />
+              <WhatsApp />
             </Row>
           )}
         </Row>
