@@ -10,22 +10,20 @@ import {
   Image,
 } from "antd";
 import styles from "./index.module.scss";
-// import { Link } from "react-scroll";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { ROUTES } from "../../../common/enums/routes.enum";
-import { CSSProperties, useEffect, useState } from "react";
+import { CSSProperties, useState } from "react";
+import Basket from "../../../public/icons/basket.svg"
 // import useUser from "@/store/user";
 import { SizeProps, sizes } from "../../../common/miscellaneous/sizes";
 import { UserOutlined } from "@ant-design/icons";
-// import useCart from "@/store/cart";
+import useCart from "../../../store/cart/index";
 // import { getCartItemsCount } from "@/common/layout/header/services";
 
 interface PropTypes {
   ghost?: boolean;
   static?: boolean;
-  showNotif?: boolean;
-  setShowNotif?: any;
 }
 
 const DropDownStyles: CSSProperties = {
@@ -60,13 +58,19 @@ const Header = (props: PropTypes & SizeProps) => {
 
   const dropDown = (
     <Menu style={DropDownStyles}>
-      {/* <Menu.Item> {member?.userFullName || "مهمان"}</Menu.Item>
-      <Menu.Item>{member?.phoneNumber || ""}</Menu.Item> */}
+       <Menu.Item> {"حسین علیزاده"}</Menu.Item>
+      <Menu.Item>{"09132584875"}</Menu.Item>
       <Divider />
       <Menu.Item /*onClick={() => router.push(ROUTES.ORDERS_LIST)}*/>
         <Typography.Text style={{ fontWeight: "500", color: "#5F5F5F" }}>
-          پیگیری خرید
+          پروفایل شما
         </Typography.Text>
+      </Menu.Item>
+        <Menu.Item>
+            <Row justify="space-between">
+                <Typography.Text style={{ fontWeight: "500", color: "#5F5F5F" }}>موجودی</Typography.Text>
+                <Typography.Text style={{ fontWeight: "500", color: "#5CBF8C" }}>120000</Typography.Text>
+            </Row>
       </Menu.Item>
       <Menu.Item /*onClick={handleLogout}*/>
         <Typography.Text type={"red" as any}>
@@ -95,36 +99,20 @@ const Header = (props: PropTypes & SizeProps) => {
             justify="space-between"
             align="middle"
           >
-            {props.ghost ? (
-              <Button
-                className="login-class"
-                onClick={() => router.push(ROUTES.LOGIN)}
-              >
-                {!props.sm ? "ورود / ثبت نام در پنل همکاران" : "ورود / ثبت نام"}
-              </Button>
-            ) : !props.sm ? (
-              // clientApi.isTokenValid ? (
-              true ? (
+            {!props.sm ? (
                 <Row>
-                  {/* {member?.shopState === "CONFIRMED" ? ( */}
-                  {true ? (
-                    router.pathname !== "/payment-process" ? (
                       <NextLink href="/cart">
                         <a>
                           <Button className={styles["cart"]}>
-                            {/* {count !== 0 && (
-                              <div className={styles["cart-count"]}>
-                                {" "}
-                                <span>{count}</span>
-                              </div>
-                            )}
-                            <Cart /> */}
+                            {/* {count !== 0 && (*/}
+                            {/*  <div className={styles["cart-count"]}>*/}
+                            {/*    <span>{count}</span>*/}
+                            {/*  </div>*/}
+                            {/*)}*/}
+                            <Basket />
                           </Button>
                         </a>
                       </NextLink>
-                    ) : null
-                  ) : null}
-
                   <Dropdown overlay={dropDown}>
                     <Row className={styles["user"]}>
                       <Row />
@@ -136,51 +124,29 @@ const Header = (props: PropTypes & SizeProps) => {
                     </Row>
                   </Dropdown>
                 </Row>
-              ) : (
-                <Row
-                  className={styles["user"]}
-                  onClick={() => router.push(ROUTES.LOGIN)}
-                >
-                  <Typography.Text onClick={() => router.push(ROUTES.LOGIN)}>
-                    ورود / ثبت نام
-                  </Typography.Text>
-                  {/* <Person /> */}
-                </Row>
               )
-            ) : // ) : clientApi.isTokenValid ? (
-            true ? (
-              // member?.shopState === "CONFIRMED" &&
-              true && router.pathname !== "/payment-process" ? (
+            :  (
                 <NextLink href="/cart">
                   <a>
-                    {/* <Button className={styles["cart"]}>
-                      {count !== 0 && (
-                        <div className={styles["cart-count"]}>
-                          {" "}
-                          <span>{count}</span>
-                        </div>
-                      )}
-                      <Cart />
-                    </Button> */}
+                    <Button className={styles["cart"]}>
+                      {/*{count !== 0 && (*/}
+                      {/*  <div className={styles["cart-count"]}>*/}
+                      {/*    <span>{count}</span>*/}
+                      {/*  </div>*/}
+                      {/*)}*/}
+                      <Basket />
+                    </Button>
                   </a>
                 </NextLink>
-              ) : (
-                <div />
-              )
-            ) : (
-              <Typography.Text onClick={() => router.push(ROUTES.LOGIN)}>
-                ورود / ثبت نام
-              </Typography.Text>
-            )}
+              )}
             {!props.sm && !router.pathname.includes("offer") ? (
               <Row className={styles["links"]} justify="space-between"></Row>
-            ) : // ) : clientApi.isTokenValid && props.sm ? (
-            true && props.sm ? (
+            ) : props.sm ? (
               <>
                 <Row className={styles["LogoDesktop"]}>
                   <Image
                     alt="header-logo"
-                    src="/images/header-logo.svg"
+                    src="/images/headerLogo.svg"
                     preview={false}
                   />
                 </Row>
@@ -192,12 +158,12 @@ const Header = (props: PropTypes & SizeProps) => {
                   {/* <Profile /> */}
                 </Row>
               </>
-            ) : !router.pathname.includes("offer") ? (
+            ) :  (
               <>
                 <Row className={styles["LogoDesktop"]}>
                   <Image
                     alt="header-logo"
-                    src="/images/header-logo.svg"
+                    src="/images/headerLogo.svg"
                     preview={false}
                   />
                 </Row>
@@ -208,11 +174,11 @@ const Header = (props: PropTypes & SizeProps) => {
                   {/* <Sandwich /> */}
                 </Row>
               </>
-            ) : null}
+            ) }
             {!props.sm ? (
               <Image
                 alt="header-logo"
-                src="/images/header-logo.svg"
+                src="/images/headerLogo.svg"
                 preview={false}
               />
             ) : null}
@@ -225,32 +191,26 @@ const Header = (props: PropTypes & SizeProps) => {
         visible={showDrawer}
         closeIcon={<div className={styles["close"]}>{/* <Close /> */}</div>}
         title={
-          // clientApi.isTokenValid ? (
-          true ? (
             <div>
               <Row style={{ alignItems: "center", marginBottom: "1.6rem" }}>
                 <Col className={styles["avatar"]}>{/* <Avatar /> */}</Col>
                 <Col>
                   <Typography.Paragraph className={styles["username"]}>
-                    {" "}
                     {/* {member?.userFullName || "مهمان"} */}
+                      {"حسین علیزاده"}
                   </Typography.Paragraph>
                   <Typography.Paragraph className={styles["phone-number"]}>
-                    {" "}
+                      {"09132584875"}
                     {/* {member?.phoneNumber || ""} */}
                   </Typography.Paragraph>
                 </Col>
               </Row>
               <Col>
-                {/* <Button className={styles["logout"]} onClick={handleLogout}>
+                <Button className={styles["logout"]} /*onClick={handleLogout}*/>
                   خروج از حساب
-                  <ArrowLeftTailless />
-                </Button> */}
+                </Button>
               </Col>
             </div>
-          ) : (
-            <div />
-          )
         }
       ></Drawer>
     </>

@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
         <meta name="robots" content="noindex,nofollow" />
       </Head>
-      <Layout isLoading={loading} currentPath={pathname} configs={routeConfigs}>
+      <Layout currentPath={pathname} configs={routeConfigs}>
         <Component {...pageProps} />
       </Layout>
     </>

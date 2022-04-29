@@ -1,8 +1,7 @@
 import { Upload, message } from 'antd';
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import { LoadingOutlined } from '@ant-design/icons';
 import React from "react";
-import styles from "./index.module.scss";
-
+import UploadSvg from "../../../public/icons/upload.svg"
 function getBase64(img, callback) {
     const reader = new FileReader();
     reader.addEventListener('load', () => callback(reader.result));
@@ -47,8 +46,8 @@ class UploadPicture extends React.Component {
         const { loading, imageUrl } = this.state;
         const uploadButton = (
             <div>
-                {loading ? <LoadingOutlined /> : <PlusOutlined />}
-                <div style={{ marginTop: 8 }}>Upload</div>
+                {loading ? <LoadingOutlined /> : <UploadSvg />}
+                <div style={{ marginTop: 8, color:"#707070" }}>افزودن پیوست</div>
             </div>
         );
         return (

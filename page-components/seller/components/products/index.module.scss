@@ -1,0 +1,19 @@
+.container{
+  .add-product-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #EE5D6C;
+    border-radius: 8px;
+    width: 150px;
+    height: 40px;
+    font-weight: 500;
+    box-shadow: 0 3px 6px #00000029;
+    border-color: transparent;
+    svg{
+      font-size: 18px;
+      margin-left: 7px;
+    }
+  }
+}

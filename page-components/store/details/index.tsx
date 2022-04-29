@@ -6,6 +6,7 @@ import ArrowLeft from "../../../public/icons/arrowLeft.svg"
 import styles from "./index.module.scss"
 import SearchBarHeader from "../../../common/components/searchBarHeader";
 import ProductCard from "./components/store-product-card/index"
+import CommentsCarousel from "./components/carousel";
 const StoreDetails = () => {
     const router = useRouter();
     useEffect( () => {
@@ -81,6 +82,9 @@ const StoreDetails = () => {
           return <ProductCard product={product}/>
           })}
           </Row>
+
+          <CommentsCarousel/>
+
     </>;
 };
 export default StoreDetails;
