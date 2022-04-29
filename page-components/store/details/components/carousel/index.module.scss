@@ -1,0 +1,51 @@
+.container{
+  background: rgb(224,209, 214, 0.47);
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 20px;
+  .card-item{
+    padding: 20px 0 20px 20px;
+  }
+  ul{
+    //transition: transform 400ms ease-in-out 0s;
+    overflow: unset;
+    transform: translate3d(-884px, 0px, 0px);
+    transition: unset !important;
+    //transform: unset !important;
+  }
+  li{
+    padding: 0 20px;
+  }
+  h4{
+    justify-content: center;
+    display: flex;
+  }
+.description{
+
+}
+  :global{
+    .react-multi-carousel-list{
+      padding: 20px;
+
+    }
+    .ant-card-bordered{
+      border: unset;
+    }
+    .ant-card-body{
+      padding: 12px;
+    }
+    .ant-card{
+      padding: 20px;
+      background: #FAF4EA;
+      box-shadow: 0 3px 6px #00000029;
+      border-radius: 4px;
+    }
+    .react-multiple-carousel__arrow::before{
+      color: #A989AE;
+      font-size: 40px;
+    }
+    .react-multiple-carousel__arrow{
+      background: transparent;
+    }
+  }
+}
