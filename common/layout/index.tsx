@@ -9,15 +9,13 @@ import { useRouter } from "next/router";
 type PropTypes = {
   children: ReactElement[] | ReactElement;
   currentPath: string;
-  isLoading: boolean;
   configs: RouteConfig;
 };
 
-const Layout = ({ children, configs, currentPath, isLoading }: PropTypes) => {
+const Layout = ({ children, configs, currentPath }: PropTypes) => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [isHeaderGhost, setIsHeaderGhost] = useState(false);
   const [isHeaderStatis, setIsHeaderStatis] = useState(false);
-  const [showNotif, setShowNotif] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
@@ -40,44 +38,29 @@ const Layout = ({ children, configs, currentPath, isLoading }: PropTypes) => {
 
   return (
     <>
-      {!isHeaderVisible ? (
-        true ? (
-          children
-        ) : null
-      ) : (
+      {!isHeaderVisible ? (children) : (
         <Col
           className={[
             styles["container"],
             currentPath === "/" ? styles["no-padding"] : "",
           ].join(" ")}
         >
-          {currentPath === "/payment-process" ? (
-            // <HeaderWithStep />
-            <h1>header</h1>
-          ) : (
+          {
             currentPath !== "/" && (
               <Header
                 static={isHeaderStatis}
                 ghost={isHeaderGhost}
-                showNotif={showNotif}
-                setShowNotif={setShowNotif}
               />
             )
-          )}
+          }
           <Col
             className={[
               styles["content"],
               currentPath === "/" ? styles["landing"] : "",
-              router.pathname.includes("payment-process") || currentPath === "/"
-                ? ""
-                : (router.pathname.includes("seller") ||
-                    router.pathname.includes("store")) &&
-                  showNotif
-                ? styles["lg-margin"]
-                : styles["sm-margin"],
+              styles["sm-margin"],
             ].join(" ")}
           >
-            {true ? children : null}
+            {children}
           </Col>
           {currentPath !== "/" && <Footer />}
         </Col>

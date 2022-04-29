@@ -8,9 +8,8 @@ function MyApp({ Component, pageProps }) {
   const routeConfigs: any = {
     login: ["hide", "ghost"],
     register: ["hide", "ghost"],
-    register2: ["hide", "ghost"],
     store: ["protected"],
-    offer: ["protected"],
+    seller: ["protected"],
     home: ["ghost"],
   };
   const router = useRouter();
@@ -31,11 +30,9 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
         <meta name="robots" content="noindex,nofollow" />
       </Head>
-      {/* <Spin spinning={loading} indicator={<LoadingOutlined />}> */}
-      <Layout isLoading={loading} currentPath={pathname} configs={routeConfigs}>
+      <Layout currentPath={pathname} configs={routeConfigs}>
         <Component {...pageProps} />
       </Layout>
-      {/* </Spin> */}
     </>
   );
 }

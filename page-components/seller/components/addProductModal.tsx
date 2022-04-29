@@ -1,31 +1,39 @@
-import {Modal, Col, Row} from 'antd';
-import React from "react";
+import {Modal, Col, Row, Form} from 'antd';
+import React, {useState} from "react";
 import UploadPicture from "./uploadPicture";
 import ProductInfoForm from "./productInfoForm";
 import styles from "./index.module.scss";
 
 const AddProductModal = ({setVisible, visible}) => {
-
+    const [productionDate, setProductionDate] = useState<string>();
+    const [expirationDate, setExpirationDate] = useState<string>();
     const [confirmLoading, setConfirmLoading] = React.useState(false);
-    const [modalText, setModalText] = React.useState('Content of the modal');
-
+    const [formRef] = Form.useForm();
+    const onFinish = (values) => {
+        const query = {
+            ...values,
+            productionDate: productionDate,
+            expirationDate: expirationDate
+        }
+        console.log(query);
+    };
 
     const handleOk = () => {
+        formRef.submit();
         setConfirmLoading(true);
         setTimeout(() => {
             setVisible(false);
             setConfirmLoading(false);
         }, 2000);
+        // formRef.resetFields();
     };
 
     const handleCancel = () => {
-        console.log('Clicked cancel button');
         setVisible(false);
     };
 
     return (
         <>
-
             <Modal className={styles["modal"]}
                 title="افزودن کالا"
                 visible={visible}
@@ -37,7 +45,7 @@ const AddProductModal = ({setVisible, visible}) => {
                 width={600}
             >
                 <Row>
-                    <Col flex="320px"><ProductInfoForm /></Col>
+                    <Col flex="320px"><ProductInfoForm formRef={formRef} onFinish={onFinish} expirationDate={expirationDate} setExpirationDate={setExpirationDate} productionDate={productionDate} setProductionDate={setProductionDate}/></Col>
                     <Col flex="auto" className={styles["upload-col"]}><UploadPicture  /></Col>
                 </Row>
             </Modal>

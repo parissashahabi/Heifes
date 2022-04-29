@@ -63,3 +63,41 @@ a[class="ant-picker-now-btn"] {
 .datepicker-input:focus-visible {
   outline: none !important;
 }
+.calendarContainer {
+  border-radius: 8px !important;
+}
+
+.tether-element {
+  z-index: 3000;
+
+  .calendarButton {
+    background: #99769C !important;
+  }
+
+  .calendarContainer .selected button, .calendarContainer .selected button:active, .calendarContainer .selected button:focus, .calendarContainer .selected button:hover :not([disabled]) {
+    background-color: #99769C !important;
+  }
+
+  .today button {
+    border: 3px solid #99769C !important;
+  }
+
+  .calendarContainer .dayWrapper:not(.selected) button:hover {
+    background-color: rgba(153, 118, 158, 0.2) !important;
+  }
+
+  @media (max-width: 900px) {
+    transform: unset !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: fixed !important;
+    height: 100vh !important;
+    width: 100vw !important;
+  }
+}
+
+//.tether-element-attached-position {
+//  top: calc(25%) !important;
+//  left: calc(47%) !important;
+//}
