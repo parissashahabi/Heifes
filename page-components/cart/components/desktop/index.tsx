@@ -247,12 +247,10 @@ const CartDesktop = (props: PropType & SizeProps) => {
     <div className={styles["container"]}>
       <Row className={styles["header"]}>
         <Button type="text" className={styles["back"]}>
-          <Link href="/store">
-            <a>
+            <a onClick={()=>router.back()}>
               <ArrowRightOutlined />
               بازگشت
             </a>
-          </Link>
         </Button>
         <Text className={styles["your-cart"]}>سبد خرید شما</Text>
       </Row>

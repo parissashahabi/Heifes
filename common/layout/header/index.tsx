@@ -72,7 +72,7 @@ const userIcon = router.pathname.includes("seller") ? <ShopOutlined style={{font
                 <Typography.Text style={{ fontWeight: "500", color: "#5CBF8C" }}>120000</Typography.Text>
             </Row>
       </Menu.Item>
-      <Menu.Item /*onClick={handleLogout}*/>
+      <Menu.Item onClick={()=>router.push("/")}>
         <Typography.Text type={"red" as any}>
           خروج از حساب کاربری
         </Typography.Text>
