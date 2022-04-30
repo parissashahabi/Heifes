@@ -5,6 +5,7 @@ import {useState} from "react";
 import {
 EyeInvisibleFilled ,EyeFilled
 } from "@ant-design/icons";
+import {useRouter} from "next/router";
 const TabPaneContent = ({ type, activeTab }: { type: string; activeTab:string }) => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
@@ -13,6 +14,7 @@ const TabPaneContent = ({ type, activeTab }: { type: string; activeTab:string })
   const handleSubmit = (dto: any) => {
    console.log("login data: ",dto)
   };
+  const router = useRouter();
   return (
     <Form onFinish={handleSubmit}>
       <Row
@@ -34,7 +36,11 @@ const TabPaneContent = ({ type, activeTab }: { type: string; activeTab:string })
           <Row justify="end">
             <Link href="/">رمز عبور خود را فراموش کرده‌اید؟</Link>
           </Row>
-          <Button htmlType="submit">ورود</Button>
+          <Button htmlType="submit" onClick={()=>{
+            if(activeTab === "1") router.push("/store/6546")
+            else router.push("/seller")
+          }
+              }>ورود</Button>
           <Row style={{marginBottom: "60px",marginTop: "12px"}}>
             <Typography.Text>
               حساب کاربری ندارید؟

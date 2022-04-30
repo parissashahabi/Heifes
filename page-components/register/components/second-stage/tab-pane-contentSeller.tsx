@@ -5,6 +5,7 @@ import {useState} from "react";
 import {
 EyeInvisibleFilled ,EyeFilled
 } from "@ant-design/icons";
+import {useRouter} from "next/router";
 const TabPaneContentSeller = ({activeTab}:{activeTab:string}) => {
   const [passwordShown, setPasswordShown ] = useState(false);
   const [repeatPasswordShown, setRepeatPasswordShown ] = useState(false);
@@ -17,6 +18,8 @@ const TabPaneContentSeller = ({activeTab}:{activeTab:string}) => {
   const handleSubmit = (dto: any) => {
    console.log("login data: ",dto)
   };
+  const router = useRouter();
+
   return (
     <Form onFinish={handleSubmit}>
       <Row
@@ -44,7 +47,7 @@ const TabPaneContentSeller = ({activeTab}:{activeTab:string}) => {
               <i onClick={toggleRepeatPassword}>{repeatPasswordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
             </Row>
           </Form.Item>
-          <Button htmlType="submit">ثبت نام</Button>
+          <Button htmlType="submit" onClick={()=>router.push("/seller")}>ثبت نام</Button>
           <Row style={{marginBottom: "60px",marginTop: "12px"}}>
             <Typography.Text>
               حساب کاربری دارید؟
