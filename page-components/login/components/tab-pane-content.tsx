@@ -38,7 +38,7 @@ const TabPaneContent = ({ type, activeTab }: { type: string; activeTab:string })
           </Row>
           <Button htmlType="submit" onClick={()=>{
             if(activeTab === "1") router.push("/store/6546")
-            else router.push("/seller")
+            else router.push("/registration_result?status=DENIED")
           }
               }>ورود</Button>
           <Row style={{marginBottom: "60px",marginTop: "12px"}}>
