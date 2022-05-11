@@ -1,8 +1,16 @@
-import { Form, Input, Button} from 'antd';
+import { Form, Input, Button, notification} from 'antd';
 import styles from "./index.module.scss";
 
 
 const ChangePassword = () => {
+    const openNotification = () => {
+        notification.open({
+            message: 'رمز عبور شما با موفقیت تغییر کرد',
+            onClick: () => {
+                console.log('Notification Clicked!');
+            },
+        });
+    };
     return (
         <Form
             labelCol={{ span: 3 }}
@@ -28,7 +36,7 @@ const ChangePassword = () => {
             </Form.Item>
 
             <Form.Item >
-                <Button  htmlType="submit">
+                <Button  htmlType="submit" onClick={openNotification}>
                     تغییر رمز عبور
                 </Button>
             </Form.Item>
