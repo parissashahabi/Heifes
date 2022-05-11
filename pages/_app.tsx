@@ -8,6 +8,7 @@ function MyApp({ Component, pageProps }) {
   const routeConfigs: any = {
     login: ["hide", "ghost"],
     register: ["hide", "ghost"],
+    recovery: ["hide", "ghost"],
     store: ["protected"],
     seller: ["protected"],
     home: ["ghost"],
