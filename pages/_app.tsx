@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }) {
     store: ["protected"],
     seller: ["protected"],
     home: ["ghost"],
+    city: ["hide", "ghost"],
   };
   const router = useRouter();
   const { pathname } = router;
