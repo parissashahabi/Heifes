@@ -1,7 +1,7 @@
 import { Row } from "antd";
 import styles from "./index.module.scss";
 import { Tabs } from "antd";
-import TabPaneContent from "./components/tab-pane-content";
+import TabContent from "./components/tab-content";
 
 const { TabPane } = Tabs;
 
@@ -13,7 +13,7 @@ const PasswordRecovery = () => {
       <Row justify="center" align="middle" className={styles["container"]}>
         <Tabs>
           <TabPane>
-            <TabPaneContent  />
+            <TabContent  />
           </TabPane>
 
         </Tabs>

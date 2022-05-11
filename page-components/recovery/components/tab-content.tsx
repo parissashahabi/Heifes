@@ -6,7 +6,7 @@ import {
     EyeInvisibleFilled ,EyeFilled
 } from "@ant-design/icons";
 import {useRouter} from "next/router";
-const PasswordRecovery = ({activeTab}:{activeTab:string}) => {
+const PasswordRecovery = () => {
     const [passwordShown, setPasswordShown ] = useState(false);
     const [repeatPasswordShown, setRepeatPasswordShown ] = useState(false);
     const togglePassword = () => {
@@ -61,7 +61,7 @@ const PasswordRecovery = ({activeTab}:{activeTab:string}) => {
                     <Row style={{marginBottom: "60px",marginTop: "12px"}}>
                         <Typography.Text>
                             حساب کاربری دارید؟
-                            <Link href={`/login?activeTab=${activeTab}`}>ورود به حساب کاربری</Link>
+                            <Link href={`/login`}>ورود به حساب کاربری</Link>
                         </Typography.Text>
                     </Row>
                 </Col>

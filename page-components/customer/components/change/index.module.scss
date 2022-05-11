@@ -1,0 +1,24 @@
+.form{
+
+  :global {
+    .ant-input {
+      border-radius: 36px;
+      height: 45px;
+      background-color: #EFE6E9;
+    }
+    .ant-form-item-label > label {
+      color: #707070;
+      font-weight: bold;
+      align-items: end;
+    }
+    .ant-btn {
+      color: #EE5D6C;
+      background-color: #E0D1D6;
+      border: 2px solid #F28077;
+      border-radius: 12px;
+      width: 370px;
+      height: 45px;
+      margin-right: 125px ;
+    }
+  }
+}
