@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }) {
     login: ["hide", "ghost"],
     register: ["hide", "ghost"],
     recovery: ["hide", "ghost"],
+    registration_result: ["hide", "ghost"],
     store: ["protected"],
     seller: ["protected"],
     home: ["ghost"],

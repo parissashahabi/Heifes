@@ -16,7 +16,8 @@ const TabPaneContentSeller = ({activeTab}:{activeTab:string}) => {
     setRepeatPasswordShown(!repeatPasswordShown);
   };
   const handleSubmit = (dto: any) => {
-   console.log("login data: ",dto)
+   console.log("login data: ",dto);
+    router.push("/registration_result?status=successfullySubmitted");
   };
   const router = useRouter();
 
@@ -47,7 +48,7 @@ const TabPaneContentSeller = ({activeTab}:{activeTab:string}) => {
               <i onClick={toggleRepeatPassword}>{repeatPasswordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
             </Row>
           </Form.Item>
-          <Button htmlType="submit" onClick={()=>router.push("/seller")}>ثبت نام</Button>
+          <Button htmlType="submit">ثبت نام</Button>
           <Row style={{marginBottom: "60px",marginTop: "12px"}}>
             <Typography.Text>
               حساب کاربری دارید؟

@@ -1,0 +1,40 @@
+.container {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  direction: rtl;
+  padding: 0 20px;
+  @media (min-width: 1024px) {
+    svg {
+      display: none;
+    }
+  }
+  > div {
+    background-color: rgb(245,174,82,0.3);
+    width: 100%;
+    max-width: 50.7rem;
+    margin: 29.5rem auto 4.6rem;
+    padding: 2rem 3rem;
+    border-radius: 8px;
+    @media (max-width: 1024px) {
+      margin: 8rem auto 3.2rem;
+    }
+    span {
+      color: #FE863C;
+      font-weight: 600;
+      margin: unset;
+    }
+  }
+  @media (max-width: 1024px) {
+    padding: 1.6rem 1.6rem 0;
+    span {
+      font-weight: 500;
+      font-size: 14px !important;
+      line-height: 30px;
+      margin: 0 0.8rem;
+    }
+    > div {
+      padding: 0.9rem 6.5rem;
+    }
+  }
+}
