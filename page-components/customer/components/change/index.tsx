@@ -20,13 +20,13 @@ const ChangePassword = () => {
             <Form.Item
                 label="رمز عبور فعلی"
                 name="password">
-                <Input />
+                <Input type={"password"} />
             </Form.Item>
 
             <Form.Item
                 label="رمز عبور جدید"
                 name="newPassword">
-                <Input />
+                <Input type={"password"}/>
             </Form.Item>
 
             <Form.Item
