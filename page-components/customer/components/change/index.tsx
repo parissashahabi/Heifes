@@ -13,25 +13,25 @@ const ChangePassword = () => {
     };
     return (
         <Form
-            labelCol={{ span: 3 }}
-            wrapperCol={{ span: 9 }}
+            labelCol={{ flex: "150px" }}
+            wrapperCol={{ flex: "400px" }}
             colon={false}
             className={styles["form"]}>
             <Form.Item
                 label="رمز عبور فعلی"
-                name="username">
+                name="password">
                 <Input />
             </Form.Item>
 
             <Form.Item
                 label="رمز عبور جدید"
-                name="password">
+                name="newPassword">
                 <Input />
             </Form.Item>
 
             <Form.Item
                 label="تکرار رمز عبور جدید"
-                name="password">
+                name="repeatNewPassword">
                 <Input />
             </Form.Item>
 
