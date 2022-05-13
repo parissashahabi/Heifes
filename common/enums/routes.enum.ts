@@ -3,4 +3,5 @@ export enum ROUTES {
   HOME = "/",
   STORE = "/store",
   SELLER = "/seller",
+  CITY = "/city",
 }

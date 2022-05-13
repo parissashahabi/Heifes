@@ -41,8 +41,7 @@ const Layout = ({ children, configs, currentPath }: PropTypes) => {
       {!isHeaderVisible ? (children) : (
         <Col
           className={[
-            styles["container"],
-            currentPath === "/" ? styles["no-padding"] : "",
+            currentPath === "/" ? styles["no-padding"] : styles["container"]
           ].join(" ")}
         >
           {

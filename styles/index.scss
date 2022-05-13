@@ -3,3 +3,16 @@
 @import "./antd-types";
 @import "fontiran";
 @import "common";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  html{
+    scroll-behavior: smooth;
+  }
+}
+@variants hover {
+  .us {
+    color: unset;
+  }
+}

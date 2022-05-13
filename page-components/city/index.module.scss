@@ -1,0 +1,51 @@
+.container {
+  padding: 150px 20px;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    max-height: fit-content;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+    background-image: url("/images/map.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  .select{
+    svg path{
+      fill: #A0A0A0;
+    }
+  }
+    .LogoDesktop {
+        img {
+            width: 30.6rem !important;
+            height: 15.9rem;
+            margin-right: 3rem;
+        }
+    }
+    :global{
+      .ant-select-single.ant-select-show-arrow .ant-select-selection-item, .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder{
+        padding-right: 25px;
+        display: flex;
+        align-items: center;
+      }
+      .ant-select{
+        width: 100%;
+      }
+      .ant-select:not(.ant-select-customize-input) .ant-select-selector{
+        border: unset;
+        border-radius: 16px;
+        height: 45px;
+      }
+      .ant-btn{
+        margin-top: 20px;
+        width: 100%;
+        border-radius: 16px;
+        border: 3px solid #707070;
+        height: 45px;
+        background: transparent;
+        color: #707070;
+        font-weight: 600;
+      }
+    }
+  }
+  
