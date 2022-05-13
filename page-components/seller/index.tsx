@@ -10,6 +10,7 @@ import Password from "../../public/icons/password.svg";
 import Product from "../../public/icons/product.svg";
 import User from "../../public/icons/User.svg";
 import Products from "./components/products";
+import Edit_Profile from "./components/edit-profile";
 const { Title, Text } = Typography;
 
 const Seller = () => {
@@ -58,40 +59,10 @@ const Seller = () => {
 
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><User/>ویرایش پروفایل</span>} key="2">
-                <form>
-                    <div className="form-row">
-                        <div className="form-group col-md-6">
-                            <label htmlFor="Name">نام و نام خانوادگی</label>
-                            <input type="text" className="form-control" id="Name" placeholder="محمد سالاری"></input>
-                    </div>
-                    <div className="form-group col-md-6">
-                        <label htmlFor="phoneNumber">شماره همراه</label>
-                        <input type="tel" className="form-control" id="phoneNumber" placeholder="09131111111"></input>
-                    </div>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="nationalID">کد ملی</label>
-                        <input type="number" className="form-control" id="nationalID" placeholder="2981196529"></input>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="inputAddress">آدرس</label>
-                        <input type="text" className="form-control" id="inputAddress" placeholder="اصفهان - اصفهان - شیخ صدوق"></input>
-                    </div>
-                    <div className="form-row">
-                        <div className="md-form md-outline">
-                            <label htmlFor="inputAddress">ساعات کاری </label>
-                            <label htmlFor="default-picker">از</label>
-                            <input type="time" id="default-picker" className="form-control" placeholder="Select time"></input>
-                            <label htmlFor="default-picker">تا</label>
-                            <input type="time" id="default-picker" className="form-control" placeholder="Select time"></input>
-                        </div>
-                    </div>
-                   
-                    <button type="submit" className="btn btn-primary">ویرایش پروفایل</button>
-                </form>
+                  <Edit_Profile/>
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><List/>لیست سفارشات</span>} key="3">
-
+                    
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><Product/>محصولات فروشگاه</span>} key="4">
                    <Products/>
