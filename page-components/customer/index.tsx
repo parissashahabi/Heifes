@@ -1,5 +1,5 @@
 import { Row, Col, Typography, Tabs} from "antd";
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import {useRouter} from "next/router";
 import styles from "./index.module.scss";
 import ArrowRight from "../../public/icons/arrowRight.svg";
@@ -7,9 +7,8 @@ import Dashboard from "../../public/icons/dashboard.svg";
 import List from "../../public/icons/list.svg";
 import Exit from "../../public/icons/exit.svg";
 import Password from "../../public/icons/password.svg";
-import Product from "../../public/icons/product.svg";
 import User from "../../public/icons/User.svg";
-import ChangePassword from "./components/change";
+import ChangePassword from "./components/change-password";
 
 
 const { Title, Text } = Typography;
@@ -61,10 +60,10 @@ const Seller = () => {
                 <Tabs.TabPane tab={<span><List/>سابقه خرید</span>} key="3">
 
                 </Tabs.TabPane>
-                <Tabs.TabPane tab={<span><Password/>تغییر رمز عبور</span>} key="5">
+                <Tabs.TabPane tab={<span><Password/>تغییر رمز عبور</span>} key="4">
                     <ChangePassword />
                 </Tabs.TabPane>
-                <Tabs.TabPane tab={<span><Exit/>خروج</span>} key="6" />
+                <Tabs.TabPane tab={<span><Exit/>خروج</span>} key="5" />
             </Tabs>
     </Col>)
 }

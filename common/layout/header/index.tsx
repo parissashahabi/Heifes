@@ -61,7 +61,7 @@ const userIcon = router.pathname.includes("seller") ? <ShopOutlined style={{font
        <Menu.Item> {"حسین علیزاده"}</Menu.Item>
       <Menu.Item>{"09132584875"}</Menu.Item>
       <Divider />
-      <Menu.Item /*onClick={() => router.push(ROUTES.ORDERS_LIST)}*/>
+      <Menu.Item onClick={() => router.push(ROUTES.CUSTOMER)}>
         <Typography.Text style={{ fontWeight: "500", color: "#5F5F5F" }}>
           پروفایل شما
         </Typography.Text>
