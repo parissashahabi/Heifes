@@ -1,0 +1,463 @@
+.container {
+  flex-flow: row nowrap !important;
+  background: white;
+  //box-shadow: 0px 0px 30px rgba(56, 71, 109, 0.09);
+  border-radius: 8px;
+  height: 7.6rem;
+  margin: 1.2rem 0 0;
+  padding: 0 2rem;
+  width: 100%;
+
+  span[id="oldPrice"] {
+    font-weight: 500 !important;
+  }
+
+  span[id="price"] {
+    font-weight: 500 !important;
+  }
+
+  .date-picker {
+    svg {
+      font-size: 3rem;
+      margin: 0 0.5rem 0 0.7rem;
+    }
+
+    div[class="ant-form-item-control-input-content"] {
+      border: 1px solid #7E7E7E;
+      border-radius: 0 8px 8px 0;
+      border-left: none;
+    }
+
+    input {
+      width: 6.5rem;
+    }
+
+    :global {
+      .tether-element {
+        transform: unset !important;
+      }
+
+      .ant-form-item-control-input-content {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+
+  .is-expiring {
+    :global {
+      .ant-statistic {
+        span {
+          color: red;
+        }
+      }
+    }
+  }
+
+  div[id="sold"] {
+    position: absolute;
+    width: max-content;
+    top: 2.5rem;
+    font-weight: normal;
+    font-size: 1.3rem;
+    line-height: 2.8rem;
+    color: #F37E5D;
+    align-items: center;
+
+    svg {
+      margin-left: 0.3rem;
+      font-size: 1.4rem;
+      transform: translateY(-3px);
+    }
+  }
+
+  span {
+    font-weight: normal;
+    color: #7E7E7E;
+  }
+
+  span[id="id"] {
+    color: #7E7E7E;
+  }
+
+  span[id="unit"] {
+    color: #7E7E7E;
+  }
+
+  span[id="warehouseName"] {
+    color: #7E7E7E;
+  }
+
+  .edit-btn {
+    width: 57px;
+    height: 30px;
+    border-color: #E2E2E2;
+    background: #E2E2E2;
+    border-radius: 4px;
+    box-shadow: unset !important;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    svg {
+      font-size: 1.6rem;
+    }
+
+    svg path {
+      fill: #7E7E7E;
+    }
+  }
+
+  .details-btn {
+    svg {
+      font-size: 2rem;
+    }
+
+    svg path {
+      fill: #7E7E7E;
+    }
+  }
+
+  .btn-container {
+    flex-wrap: nowrap;
+
+    button[id="submit"] {
+      width: 5.7rem;
+      height: 3rem;
+      background: #E2FFE5;
+      border-radius: 4px;
+      border: none;
+      margin-left: 1.2rem;
+
+      span {
+        font-weight: normal;
+        font-size: 1.3rem;
+        line-height: 2.8rem;
+        color: #7E7E7E;
+      }
+    }
+
+    button[id="cancel"] {
+      background: #F7F7F7;
+      width: 5.7rem;
+      height: 3rem;
+      border-radius: 4px;
+      border: none;
+
+      span {
+        font-weight: normal;
+        font-size: 1.1rem;
+        line-height: 2.8rem;
+        color: #7E7E7E;
+      }
+    }
+  }
+
+
+  :global {
+    div[id="max-quantity"] {
+      .ant-form-item-control-input-content {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .ant-checkbox-disabled .ant-checkbox-inner {
+      background-color: white;
+      border-color: #7E7E7E !important;
+      border-radius: 4px;
+    }
+
+    .ant-input {
+      width: 9rem;
+      height: 5rem;
+      border: 1px solid #7E7E7E;
+      border-radius: 8px;
+      color: #7E7E7E;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+
+    .ant-picker-input > input {
+      font-size: 1.3rem;
+      font-weight: normal !important;
+      direction: rtl;
+      //padding-right: .8rem;
+      color: #7E7E7E;
+    }
+
+    .ant-picker {
+      border-radius: 8px 0 0 8px;
+      direction: initial;
+      height: 5rem !important;
+      border: 1px solid #7E7E7E !important;
+    }
+
+    .ant-picker-suffix {
+      padding-right: .1rem;
+
+      svg {
+        font-size: 1.8rem;
+      }
+
+      svg path {
+        fill: #7E7E7E;
+      }
+    }
+
+    .datepicker-input {
+      height: 4.8rem;
+      border: none;
+      width: 100%;
+      justify-content: center;
+      color: #7E7E7E;
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+
+    .ant-picker-time-panel {
+      width: 9rem;
+      direction: initial;
+    }
+
+    .ant-picker-clear {
+      left: -3px;
+      right: unset;
+    }
+
+    ::placeholder {
+      color: #7E7E7E;
+    }
+
+    .ant-picker-content {
+      width: 14rem;
+    }
+
+    .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner {
+      background-color: #0086B3;
+      border-color: #0086B3 !important;
+    }
+
+    .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner::after {
+      border-color: white !important;
+    }
+
+    .ant-checkbox.ant-checkbox-checked .ant-checkbox-inner {
+      background-color: #0086B3;
+      border-color: #0086B3 !important;
+    }
+
+    .ant-checkbox.ant-checkbox-checked .ant-checkbox-inner::after {
+      border-color: white !important;
+    }
+
+    .ant-col {
+      display: flex;
+      justify-content: center;
+
+      &:nth-child(11) {
+        justify-content: start;
+      }
+
+      &:nth-child(2) {
+        justify-content: start;
+        overflow: hidden !important;
+
+        div {
+          text-overflow: ellipsis !important;
+          white-space: nowrap !important;
+          overflow: hidden !important;
+        }
+      }
+    }
+
+    .ant-form-item {
+      margin-bottom: unset !important;
+    }
+
+    .ant-form-item-control {
+      justify-content: center;
+    }
+
+    .ant-btn:hover, .ant-btn:focus {
+      color: unset !important;
+      border-color: #E2E2E2 !important;
+    }
+
+    .ant-statistic-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        font-size: 2.8rem;
+      }
+
+      span[class="ant-statistic-content-suffix"] {
+        display: flex;
+      }
+    }
+
+    .ant-statistic {
+      background-color: white;
+
+
+      span {
+        color: #7E7E7E;
+      }
+    }
+  }
+
+}
+
+.drop-down {
+  text-align: right;
+  border-radius: 4px;
+  padding: 1.3rem 0;
+  min-width: 15.5rem;
+  box-shadow: 0 0 30px rgba(56, 71, 109, 0.09);
+
+  svg {
+    margin-left: 0.7rem;
+    color: #7E7E7E;
+  }
+
+  svg[id="arrow"] path {
+    fill: #7E7E7E;
+  }
+
+  svg[id="arrow"] {
+    margin-right: 1.8rem;
+    font-size: 0.8rem;
+  }
+
+  span[class="ant-dropdown-menu-title-content"] {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 13px;
+    color: #7E7E7E;
+
+  }
+}
+
+.drawers {
+  z-index: 1;
+
+  .btn-container {
+    height: 7.2rem;
+    background: white;
+    box-shadow: 0px -4px 8px -4px rgba(0, 0, 0, 0.15);
+    padding: 1.1rem 3.5rem 1.3rem;
+    justify-content: space-between;
+
+    button {
+      width: 13.9rem;
+      height: 4.8rem;
+      border-radius: 8px;
+      color: white;
+    }
+
+    button[id="submit"] {
+      background-color: #0086B3;
+      border-color: #0086B3;
+    }
+
+    button[id="cancel"] {
+      background-color: #7E7E7E;
+      border-color: #7E7E7E;
+    }
+  }
+
+  .sub-title {
+    svg {
+      margin-left: 0.4rem;
+      font-size: 1rem;
+    }
+
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #7E7E7E !important;
+      opacity: 0.9;
+      font-size: 1.1rem !important;
+
+      &:first-of-type {
+        margin-left: 1.6rem;
+      }
+    }
+  }
+
+  .close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(6px);
+
+    svg {
+      font-size: 1.1rem;
+    }
+  }
+
+  :global {
+    .ant-btn:hover, .ant-btn:focus {
+      color: white !important;
+      border-color: unset;
+    }
+
+    .ant-btn {
+      font-weight: 500;
+    }
+
+    .ant-drawer-footer {
+      padding: 0 !important;
+      border-top: unset !important;
+    }
+
+    .ant-drawer-header-title {
+      justify-content: flex-end;
+    }
+
+    .ant-drawer-content-wrapper {
+      width: 37.5rem !important;
+    }
+
+    .ant-drawer-header {
+      padding: 10.3rem 3.7rem 2.4rem 2.1rem;
+      border-bottom: unset !important;
+
+      span {
+        font-size: 1.3rem;
+        color: #7E7E7E;
+      }
+    }
+
+    .ant-drawer-body {
+      padding: 0 2rem 0 3rem;
+    }
+
+    .ant-drawer-close {
+      order: 2;
+      align-self: flex-start;
+    }
+  }
+}
+
+.modal {
+  :global {
+    .ant-modal-close-x {
+      display: none;
+    }
+
+    .ant-modal-footer {
+      direction: ltr;
+    }
+  }
+}
+
+.tether-element-attached-position {
+  left: 0 !important;
+}

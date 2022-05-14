@@ -4,19 +4,8 @@ import UploadPicture from "./uploadPicture";
 import ProductInfoForm from "./productInfoForm";
 import styles from "./index.module.scss";
 
-const AddProductModal = ({setVisible, visible}) => {
-    const [productionDate, setProductionDate] = useState<string>();
-    const [expirationDate, setExpirationDate] = useState<string>();
-    const [confirmLoading, setConfirmLoading] = React.useState(false);
-    const [formRef] = Form.useForm();
-    const onFinish = (values) => {
-        const query = {
-            ...values,
-            productionDate: productionDate,
-            expirationDate: expirationDate
-        }
-        console.log(query);
-    };
+const AddProductModal = ({setVisible, visible, formRef, setConfirmLoading, confirmLoading, onFinish,expirationDate,setExpirationDate,productionDate,setProductionDate}) => {
+
 
     const handleOk = () => {
         formRef.submit();
