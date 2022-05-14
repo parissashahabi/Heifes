@@ -34,7 +34,7 @@ const TabPaneContent = ({ type, activeTab }: { type: string; activeTab:string })
           </Row>
             </Form.Item>
           <Row justify="end">
-            <Link href="/">رمز عبور خود را فراموش کرده‌اید؟</Link>
+            <Link href="/recovery">رمز عبور خود را فراموش کرده‌اید؟</Link>
           </Row>
           <Button htmlType="submit" onClick={()=>{
             if(activeTab === "1") router.push("/store/6546")
