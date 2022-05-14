@@ -43,7 +43,7 @@ const TabPaneContentBuyer = ({activeTab}:{activeTab:string}) => {
               <i onClick={toggleRepeatPassword}>{repeatPasswordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
             </Row>
           </Form.Item>
-          <Button htmlType="submit" onClick={()=>router.push("/store/5634")}>ثبت نام</Button>
+          <Button htmlType="submit" onClick={()=>router.push("/city")}>ثبت نام</Button>
           <Row style={{marginBottom: "60px",marginTop: "12px"}}>
             <Typography.Text>
                حساب کاربری دارید؟

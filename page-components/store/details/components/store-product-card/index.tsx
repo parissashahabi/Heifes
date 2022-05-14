@@ -1,7 +1,13 @@
 import {Button, Card, Row, Typography} from "antd";
 import styles from "./index.module.scss"
 import Info from "../../../../../public/icons/info.svg"
+import ProductInfo from "../modal";
+import React, {useState} from "react";
 const ProductCard = ({product}:{product: object})=>{
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
     return <div className={styles["container"]}>
         {/*@ts-ignore*/}
         <Card
@@ -14,7 +20,7 @@ const ProductCard = ({product}:{product: object})=>{
                     src={product.img}
                 />
             }
-            actions={[<Button id="info" icon={<Info/>}/>,
+            actions={[<Button id="info" icon={<Info/>} onClick={()=>setIsModalVisible(true)}/>,
               <Button id="add-to-card">افزودن به سبد</Button>
             ]}
             className={styles["card"]}
@@ -34,6 +40,7 @@ const ProductCard = ({product}:{product: object})=>{
 
             } />
         </Card>
+        <ProductInfo isModalVisible={isModalVisible} product={product} handleCancel={handleCancel}/>
     </div>
 }
 export default ProductCard;

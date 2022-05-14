@@ -28,7 +28,7 @@ const RegistrationResult = () => {
         // switch (member?.shopState) {
         switch (router?.query?.status) {
             case "CONFIRMED":
-                 return router.replace(ROUTES.SELLER);
+                 return router.replace(ROUTES.CITY);
             case "PENDING":
                 return setCurrentStage(StageEnum.AWAITING_VERIFICATION);
             case "DENIED":

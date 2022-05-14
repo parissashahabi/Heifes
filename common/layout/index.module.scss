@@ -35,5 +35,25 @@
 }
 
 .no-padding {
+  overflow-x: hidden;
+  @media (min-width: 768px) {
+    padding-bottom: unset;
+  }
+
+  .content {
+    width: 100vw;
+    max-width: 1366px;
+    margin: 0 auto;
+    @media (min-width: 768px) {
+      min-height: 68.9rem;
+      height: 100%;
+    }
+  }
+  .no-margin{
+    margin-top: unset !important;
+  }
+  .landing {
+    max-width: 100%;
+  }
   padding-bottom: unset;
 }
