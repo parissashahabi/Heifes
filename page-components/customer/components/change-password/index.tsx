@@ -13,9 +13,7 @@ const ChangePassword = () => {
     const openNotification = () => {
         notification.open({
             message: 'رمز عبور شما با موفقیت تغییر کرد',
-            onClick: () => {
-                console.log('Notification Clicked!');
-            },
+            className: styles["success-notification"],
         });
     };
     return (
