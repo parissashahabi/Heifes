@@ -7,6 +7,7 @@ const handler = nc();
 
 handler.get(async (req, res) => {
     // return res.send({ message: 'already seeded' });
+
     await db.connect();
     await Product.deleteMany();
     await Product.insertMany(data.products);
