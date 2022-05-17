@@ -4,6 +4,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Layout from "../common/layout";
+import {StoreProvider} from "../utils/store"
 function MyApp({ Component, pageProps }) {
   const routeConfigs: any = {
     login: ["hide", "ghost"],
@@ -33,9 +34,11 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
         <meta name="robots" content="noindex,nofollow" />
       </Head>
-      <Layout currentPath={pathname} configs={routeConfigs}>
-        <Component {...pageProps} />
-      </Layout>
+      <StoreProvider>
+        <Layout currentPath={pathname} configs={routeConfigs}>
+          <Component {...pageProps} />
+        </Layout>
+      </StoreProvider>
     </>
   );
 }
