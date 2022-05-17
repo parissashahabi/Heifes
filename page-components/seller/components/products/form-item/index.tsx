@@ -13,8 +13,6 @@ import Edit from "../../../../../public/icons/edit.svg";
 import moment from "jalali-moment";
 import { Dispatch,SetStateAction,useEffect, useState } from "react";
 import styles from "./index.module.scss";
-import { Property } from "csstype";
-import Direction = Property.Direction;
 import rialiNumber from "../../../../../common/functions/riali-number"
 const FormItem = ({
   initialValues,
@@ -201,7 +199,7 @@ const FormItem = ({
         cancelText="انصراف"
         okText="تایید"
         okType="danger"
-        style={{ textAlign: "right", direction: "rtl !important" as Direction }}
+        style={{ textAlign: "right" }}
         className={styles["modal"]}
         closeIcon={false}
       >
