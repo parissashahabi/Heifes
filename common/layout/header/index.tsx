@@ -9,11 +9,12 @@ import {
   Typography,
   Image,
 } from "antd";
+import {Store} from "../../../utils/store"
 import styles from "./index.module.scss";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { ROUTES } from "../../../common/enums/routes.enum";
-import { CSSProperties, useState } from "react";
+import { CSSProperties, useState,useContext } from "react";
 import Basket from "../../../public/icons/basket.svg"
 // import useUser from "@/store/user";
 import { SizeProps, sizes } from "../../../common/miscellaneous/sizes";
@@ -34,6 +35,8 @@ const DropDownStyles: CSSProperties = {
 };
 
 const Header = (props: PropTypes & SizeProps) => {
+    const { state, dispatch } = useContext(Store);
+    const { cart } = state;
   // const { member, setUser } = useUser<Record<string, any>>((state) => state);
   // const { count, setCartItemCount } = useCart((state) => state);
   const [showDrawer, setShowDrawer] = useState(false);
@@ -104,11 +107,11 @@ const userIcon = router.pathname.includes("seller") ? <ShopOutlined style={{font
                     {router.pathname.includes("seller")?null :<NextLink href="/cart">
                         <a>
                             <Button className={styles["cart"]}>
-                                {/* {count !== 0 && (*/}
-                                {/*  <div className={styles["cart-count"]}>*/}
-                                {/*    <span>{count}</span>*/}
-                                {/*  </div>*/}
-                                {/*)}*/}
+                                 {cart.cartItems.length !== 0 && (
+                                  <div className={styles["cart-count"]}>
+                                    <span>{cart.cartItems.length}</span>
+                                  </div>
+                                )}
                                 <Basket/>
                             </Button>
                         </a>
@@ -130,11 +133,11 @@ const userIcon = router.pathname.includes("seller") ? <ShopOutlined style={{font
                     router.pathname.includes("seller")?null :<NextLink href="/cart">
                             <a>
                                 <Button className={styles["cart"]}>
-                                    {/* {count !== 0 && (*/}
-                                    {/*  <div className={styles["cart-count"]}>*/}
-                                    {/*    <span>{count}</span>*/}
-                                    {/*  </div>*/}
-                                    {/*)}*/}
+                                    {cart.cartItems.length !== 0 && (
+                                        <div className={styles["cart-count"]}>
+                                            <span>{cart.cartItems.length}</span>
+                                        </div>
+                                    )}
                                     <Basket/>
                                 </Button>
                             </a>

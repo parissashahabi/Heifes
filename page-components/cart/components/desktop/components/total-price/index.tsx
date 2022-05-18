@@ -8,7 +8,7 @@ type PropType = {
   totalAmount: number;
   title: string;
   actionTitle: string;
-  action: () => void;
+  action?: () => void;
 };
 
 const TotalPrice = (props: PropType) => {
