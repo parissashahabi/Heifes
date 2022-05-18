@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Layout from "../common/layout";
-import {StoreProvider} from "../utils/store"
+import { StoreProvider } from '../utils/store';
 function MyApp({ Component, pageProps }) {
   const routeConfigs: any = {
     login: ["hide", "ghost"],

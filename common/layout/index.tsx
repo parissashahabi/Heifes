@@ -17,8 +17,9 @@ const Layout = ({ children, configs, currentPath }: PropTypes) => {
   const [isHeaderGhost, setIsHeaderGhost] = useState(false);
   const [isHeaderStatis, setIsHeaderStatis] = useState(false);
   const router = useRouter();
-const {state, dispatch} = useContext(Store);
-
+  const { state, dispatch } = useContext(Store);
+const {darkMode} = state;
+console.log("dark mode: ",darkMode)
   useEffect(() => {
     const pathConfigs =
       configs[currentPath === "/" ? "home" : currentPath.replace("/", "")];

@@ -10,7 +10,7 @@ const ProductInfo = ({isModalVisible, product, handleCancel}:{isModalVisible: bo
                 <Row gutter={[24, 16]}>
                     <Col span={12}>
                         <Image  // @ts-ignore
-                            src={product.img}/>
+                            src={product.image}/>
                     </Col>
                     <Col span={12} >
                         <Row justify="space-between" align="middle" style={{
@@ -22,17 +22,17 @@ const ProductInfo = ({isModalVisible, product, handleCancel}:{isModalVisible: bo
                             {product.name}
                             </Typography.Title>
                             <Typography.Title level={4} className={styles["discount"]}>
-                                {product.discount}%
+                                {product.discountPercentage}%
                             </Typography.Title>
                         </Row>
                         <Col style={{padding: "10px"}}>
                             <Row justify="space-between">
                                 <Typography.Text>تاریخ تولید</Typography.Text>
-                                <Typography.Text>{product.p_date}</Typography.Text>
+                                <Typography.Text>{product.productionDate}</Typography.Text>
                             </Row>
                             <Row justify="space-between">
                                 <Typography.Text>تاریخ انقضا</Typography.Text>
-                                <Typography.Text>{product.e_date}</Typography.Text>
+                                <Typography.Text>{product.expiryDate}</Typography.Text>
                             </Row>
                             <Row justify="space-between">
                                 <Typography.Text>قیمت روی کالا</Typography.Text>
@@ -44,7 +44,7 @@ const ProductInfo = ({isModalVisible, product, handleCancel}:{isModalVisible: bo
                             </Row>
                             <Row justify="space-between">
                                 <Typography.Text>موجودی</Typography.Text>
-                                <Typography.Text>{product.quantity}</Typography.Text>
+                                <Typography.Text>{product.countInStock}</Typography.Text>
                             </Row>
 
                                 <Typography.Title level={5} style={{marginTop: "16px", color:"#1E252B7A"}}>توضیحات فروشنده</Typography.Title>

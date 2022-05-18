@@ -7,11 +7,22 @@ import styles from "./index.module.scss"
 import SearchBarHeader from "../../../common/components/searchBarHeader";
 import ProductCard from "./components/store-product-card/index"
 import CommentsCarousel from "./components/carousel";
-import db from "../../../utils/db";
-import Product from "../../../models/product"
-const StoreDetails = ({products}) => {
-    const router = useRouter();
+import db from '../../../utils/db';
+import Product from '../../../models/product';
+import axios from "axios";
 
+export default function StoreDetails(props)  {
+    // const [products, setProducts] = useState([]);
+    const router = useRouter();
+    const { products } = props;
+// useEffect(()=>{
+//     const fetch = async () =>{
+//         const p = await axios.get("/api/products");
+//         setProducts([...p.data]);
+//     }
+//     fetch();
+//
+// },[])
     // useEffect(  () => {
     //     const fetchData = async () => {
     //         try {
@@ -69,14 +80,4 @@ const storeName = "سوپرمارکت ستاره"
           <CommentsCarousel/>
     </>;
 };
-export default StoreDetails;
-export async function getServerSideProps(context) {
-    await db.connect();
-    const products = await Product.find({}).lean();
-    await db.disconnect();
-    return {
-        props: {
-            products: products?.map(db.convertDocToObj),
-        },
-    };
-}
+

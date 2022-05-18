@@ -17,7 +17,7 @@ const ProductCard = ({product}:{product: object})=>{
                 <img
                     alt="example"
                     // @ts-ignore
-                    src={product.img}
+                    src={product.image}
                 />
             }
             actions={[<Button id="info" icon={<Info/>} onClick={()=>setIsModalVisible(true)}/>,

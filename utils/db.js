@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+var mongoose = require('mongoose');
 
 const connection = {};
 
@@ -15,12 +15,14 @@ async function connect() {
         }
         await mongoose.disconnect();
     }
-    const db = await mongoose?.connect(process.env.MONGODB_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    });
-    console.log('new connection');
-    connection.isConnected = db.connections[0].readyState;
+    try {
+        const db = await mongoose.connect(process.env.MONGODB_URI);
+        console.log('new connection');
+        connection.isConnected = db.connections[0].readyState;
+    } catch (error) {
+        console.log(error);
+        process.exit(1);
+    }
 }
 
 async function disconnect() {
