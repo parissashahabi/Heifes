@@ -1,4 +1,21 @@
+import bcrypt from 'bcryptjs';
 const data = {
+    customers: [
+        {
+            name: 'پریسا شهابی نژاد',
+            city: 3,
+            balance: 120000,
+            phoneNumber: '09367205062',
+            password: bcrypt.hashSync('123456'),
+        },
+        {
+            name: 'seller',
+            city: 10,
+            balance: 100000000,
+            phoneNumber: '09999999999',
+            password: bcrypt.hashSync('123456'),
+        },
+    ],
      products:[
          {
              name: "تن ماهی گوهرانه2",

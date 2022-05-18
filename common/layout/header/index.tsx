@@ -16,11 +16,11 @@ import { useRouter } from "next/router";
 import { ROUTES } from "../../../common/enums/routes.enum";
 import { CSSProperties, useState,useContext } from "react";
 import Basket from "../../../public/icons/basket.svg"
-// import useUser from "@/store/user";
 import { SizeProps, sizes } from "../../../common/miscellaneous/sizes";
 import {ShopOutlined, UserOutlined} from "@ant-design/icons";
 import useCart from "../../../store/cart/index";
-// import { getCartItemsCount } from "@/common/layout/header/services";
+import {parseAmount} from "../../functions/parse-amount";
+import Cookies from 'js-cookie';
 
 interface PropTypes {
   ghost?: boolean;
@@ -36,46 +36,36 @@ const DropDownStyles: CSSProperties = {
 
 const Header = (props: PropTypes & SizeProps) => {
     const { state, dispatch } = useContext(Store);
-    const { cart } = state;
-  // const { member, setUser } = useUser<Record<string, any>>((state) => state);
-  // const { count, setCartItemCount } = useCart((state) => state);
+    const { cart, userInfo } = state;
   const [showDrawer, setShowDrawer] = useState(false);
   const router = useRouter();
 
-  // useEffect(() => {
-  //   if (member && member?.shopState === "CONFIRMED") {
-  //     getCartItemsCount(setCartItemCount);
-  //   }
-  // }, [member]);
+    const logoutClickHandler = () => {
+        dispatch({ type: 'USER_LOGOUT' });
+        Cookies.remove('userInfo');
+        Cookies.remove('cartItems');
+        router.push('/');
+    };
 
-  // const handleLogout = async () => {
-  //   clientApi.logOut();
-  //   setUser(undefined, undefined);
-  //   await router.push({
-  //     pathname: ROUTES.LOGIN,
-  //     query: {
-  //       redirect: router.asPath,
-  //     },
-  //   });
-  // };
 const userIcon = router.pathname.includes("seller") ? <ShopOutlined style={{fontSize:"17px", color:"#707070", margin: "0 0.5px"}}/>: <UserOutlined style={{fontSize:"17px", color:"#707070", margin: "0 0.5px"}}/>;
   const dropDown = (
     <Menu style={DropDownStyles}>
-       <Menu.Item> {"حسین علیزاده"}</Menu.Item>
-      <Menu.Item>{"09132584875"}</Menu.Item>
+       <Menu.Item> {userInfo?.name}</Menu.Item>
+      <Menu.Item>{userInfo?.phoneNumber}</Menu.Item>
       <Divider />
-      <Menu.Item onClick={() => router.push(ROUTES.CUSTOMER)}>
-        <Typography.Text style={{ fontWeight: "500", color: "#5F5F5F" }}>
-          پروفایل شما
-        </Typography.Text>
-      </Menu.Item>
-        <Menu.Item>
+        {router.pathname.includes("seller") ? null:<Menu.Item onClick={() => router.push(ROUTES.CUSTOMER)}>
+            <Typography.Text style={{ fontWeight: "500", color: "#5F5F5F" }}>
+                پروفایل شما
+            </Typography.Text>
+        </Menu.Item>}
+        {router.pathname.includes("seller") ? null : <Menu.Item>
             <Row justify="space-between">
                 <Typography.Text style={{ fontWeight: "500", color: "#5F5F5F" }}>موجودی</Typography.Text>
-                <Typography.Text style={{ fontWeight: "500", color: "#5CBF8C" }}>120000</Typography.Text>
+                <Typography.Text style={{ fontWeight: "500", color: "#5CBF8C" }}>{parseAmount(userInfo?.balance)}</Typography.Text>
             </Row>
-      </Menu.Item>
-      <Menu.Item onClick={()=>router.push("/")}>
+        </Menu.Item>}
+
+      <Menu.Item onClick={()=>logoutClickHandler()}>
         <Typography.Text type={"red" as any}>
           خروج از حساب کاربری
         </Typography.Text>
@@ -121,8 +111,7 @@ const userIcon = router.pathname.includes("seller") ? <ShopOutlined style={{font
                     <Row className={styles["user"]}>
                       <Row />
                       <Typography.Text style={{ fontSize: "12px" }}>
-                        {/* {member?.userFullName || "مهمان"} */}
-                        حسین علیزاده
+                          {userInfo?.name}
                       </Typography.Text>
                         {userIcon}
                     </Row>
@@ -200,17 +189,15 @@ const userIcon = router.pathname.includes("seller") ? <ShopOutlined style={{font
                 <Col className={styles["avatar"]}>{/* <Avatar /> */}</Col>
                 <Col>
                   <Typography.Paragraph className={styles["username"]}>
-                    {/* {member?.userFullName || "مهمان"} */}
-                      {"حسین علیزاده"}
+                      {userInfo?.name}
                   </Typography.Paragraph>
                   <Typography.Paragraph className={styles["phone-number"]}>
-                      {"09132584875"}
-                    {/* {member?.phoneNumber || ""} */}
+                      {userInfo?.phoneNumber}
                   </Typography.Paragraph>
                 </Col>
               </Row>
               <Col>
-                <Button className={styles["logout"]} /*onClick={handleLogout}*/>
+                <Button className={styles["logout"]} onClick={()=>logoutClickHandler()}>
                   خروج از حساب
                 </Button>
               </Col>

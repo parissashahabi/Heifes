@@ -1,10 +1,10 @@
 import "../styles/index.scss";
 import "antd/dist/antd.css";
 import Head from "next/head";
-import { useState } from "react";
+import {useContext, useState} from "react";
 import { useRouter } from "next/router";
 import Layout from "../common/layout";
-import { StoreProvider } from '../utils/store';
+import {Store, StoreProvider} from '../utils/store';
 function MyApp({ Component, pageProps }) {
   const routeConfigs: any = {
     login: ["hide", "ghost"],
@@ -16,6 +16,8 @@ function MyApp({ Component, pageProps }) {
     home: ["ghost"],
     city: ["hide", "ghost"],
   };
+  // const { state, dispatch } = useContext(Store);
+  // const { userInfo } = state;
   const router = useRouter();
   const { pathname } = router;
   const [loading, setLoading] = useState(isCurrentPathProtected());

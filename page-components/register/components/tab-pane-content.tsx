@@ -1,16 +1,28 @@
 import { Col, Row, Input, Typography, Button ,Form} from "antd";
 import Link from "next/link";
 import styles from "./index.module.scss";
-import {Dispatch, SetStateAction} from "react";
+import {Dispatch, SetStateAction, useState,useEffect, useContext} from "react";
 import TabPaneContentBuyer from "./second-stage/tab-pane-contentBuyer";
 import TabPaneContentSeller from "./second-stage/tab-pane-contentSeller";
-
+import Cookies from 'js-cookie';
+import axios from 'axios';
+import {Store} from "../../../utils/store";
+import { useRouter } from 'next/router';
 const TabPaneContent = ({ type, activeTab, stage, setStage }: { type: string; activeTab?: string; stage?: string;setStage: Dispatch<SetStateAction<string>>; }) => {
-
+const [phoneNumber, setPhoneNumber] = useState(undefined);
   const handleSubmit = (dto: any) => {
       setStage("2")
-   console.log("register data: ",dto);
+      setPhoneNumber(dto);
   };
+    const router = useRouter();
+    const { redirect } = router.query;
+    const { state, dispatch } = useContext(Store);
+    const { userInfo } = state;
+    useEffect(() => {
+        if (userInfo) {
+            router.push('/');
+        }
+    }, []);
   return (
       stage === "1" ? <Form onFinish={handleSubmit}>
           <Row
@@ -32,7 +44,7 @@ const TabPaneContent = ({ type, activeTab, stage, setStage }: { type: string; ac
                   </Row>
               </Col>
           </Row>
-      </Form> : activeTab ==="1" ? <TabPaneContentBuyer activeTab={activeTab}/>:<TabPaneContentSeller activeTab={activeTab}/>
+      </Form> : activeTab ==="1" ? <TabPaneContentBuyer activeTab={activeTab} phoneNumber={phoneNumber}/>:<TabPaneContentSeller activeTab={activeTab} phoneNumber={phoneNumber}/>
   );
 };
 export default TabPaneContent;

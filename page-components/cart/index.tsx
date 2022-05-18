@@ -4,11 +4,13 @@ import {useContext} from "react";
 import dynamic from 'next/dynamic';
 import {Store} from "../../utils/store";
 import axios from 'axios';
+import { useRouter } from 'next/router';
 const Cart = () => {
     const { state, dispatch } = useContext(Store);
   const {
     cart: { cartItems },
   } = state;
+    const router = useRouter();
     const updateCartHandler = async (item, quantity) => {
         const { data } = await axios.get(`/api/products/${item._id}`);
         if (data.countInStock < quantity) {
@@ -20,11 +22,13 @@ const Cart = () => {
     const removeItemHandler = (item) => {
         dispatch({ type: 'CART_REMOVE_ITEM', payload: item });
     };
-
+    const checkoutHandler = () => {
+        router.push('/receipt?result=success');
+    };
   return (
     <div>
-      <CartDesktop cartItems={cartItems} updateCartHandler={updateCartHandler} removeItemHandler={removeItemHandler}/>
-      <CartMobile cartItems={cartItems} updateCartHandler={updateCartHandler} removeItemHandler={removeItemHandler}/>
+      <CartDesktop cartItems={cartItems} updateCartHandler={updateCartHandler} removeItemHandler={removeItemHandler} checkoutHandler={checkoutHandler}/>
+      <CartMobile cartItems={cartItems} updateCartHandler={updateCartHandler} removeItemHandler={removeItemHandler} checkoutHandler={checkoutHandler}/>
     </div>
   );
 };

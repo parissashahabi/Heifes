@@ -6,7 +6,7 @@ import {
 EyeInvisibleFilled ,EyeFilled
 } from "@ant-design/icons";
 import {useRouter} from "next/router";
-const TabPaneContentSeller = ({activeTab}:{activeTab:string}) => {
+const TabPaneContentSeller = ({activeTab, phoneNumber}:{activeTab:string; phoneNumber:string}) => {
   const [passwordShown, setPasswordShown ] = useState(false);
   const [repeatPasswordShown, setRepeatPasswordShown ] = useState(false);
   const togglePassword = () => {

@@ -9,7 +9,7 @@ import Delete from "../../../../public/icons/delete.svg"
 import {useEffect, useState} from "react";
 const { Text } = Typography;
 
-const CartMobile = ({cartItems, removeItemHandler, updateCartHandler}: { cartItems: any[]; removeItemHandler: any; updateCartHandler:any}) => {
+const CartMobile = ({cartItems, removeItemHandler, updateCartHandler, checkoutHandler}: { cartItems: any[]; removeItemHandler: any; updateCartHandler:any; checkoutHandler:any}) => {
   const router = useRouter();
   const [totalAmount, setTotalAmount] = useState(0);
   useEffect(()=>{
@@ -39,7 +39,7 @@ const CartMobile = ({cartItems, removeItemHandler, updateCartHandler}: { cartIte
         <Affix offsetBottom={0} className={styles["bottom-box"]}>
           <Row className={styles["holder"]}>
             <Col>
-              <Button className={styles["proceed"]}>ادامه
+              <Button className={styles["proceed"]} onClick={checkoutHandler}>ادامه
                 فرایند
                 خرید</Button>
             </Col>

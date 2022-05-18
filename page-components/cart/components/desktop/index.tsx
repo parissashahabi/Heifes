@@ -1,10 +1,6 @@
 import React, {
-  Dispatch,
-  SetStateAction,
-  useCallback,
   useEffect,
   useState,
-  useContext
 } from "react";
 import {
   Button,
@@ -32,7 +28,7 @@ import TotalPrice from "./components/total-price";
 import { SizeProps, sizes } from "../../../../common/miscellaneous/sizes";
 import { ColumnsType } from "antd/lib/table/Table";
 
-const CartDesktop = ({cartItems, removeItemHandler, updateCartHandler}: { cartItems: any[]; removeItemHandler: any; updateCartHandler:any} & SizeProps) => {
+const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHandler}: { cartItems: any[]; removeItemHandler: any; updateCartHandler:any; checkoutHandler:any}) => {
   const { Text } = Typography;
   const router = useRouter();
   const columns: ColumnsType<any> = [
@@ -158,6 +154,7 @@ const CartDesktop = ({cartItems, removeItemHandler, updateCartHandler}: { cartIt
                 totalAmount={totalAmount}
                 title="جمع کالاها"
                 actionTitle="ادامه فرایند خرید"
+                action={checkoutHandler}
               />
             </Row>
           ) : (
@@ -186,4 +183,4 @@ const CartDesktop = ({cartItems, removeItemHandler, updateCartHandler}: { cartIt
   );
 };
 
-export default sizes(CartDesktop);
+export default CartDesktop;
