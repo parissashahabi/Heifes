@@ -61,7 +61,7 @@ const Layout = ({ children, configs, currentPath }: PropTypes) => {
           >
             {children}
           </Col>
-          {currentPath !== "/" && <Footer />}
+           <Footer />
         </Col>
       )}
     </>
