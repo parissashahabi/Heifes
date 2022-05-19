@@ -9,6 +9,8 @@ const supermarketSchema = new mongoose.Schema(
         phoneNumber: { type: String, required: true, unique: true },
         nationalId: { type: String, required: true, unique: true },
         password: { type: String, required: true },
+        ranking: { type: Number, required: true },
+        status: { type: String, required: true }
     },
     {
         timestamps: true,
