@@ -1,6 +1,6 @@
 import nc from 'next-connect';
 import bcrypt from 'bcryptjs';
-import Customer from '../../../models/customer';
+import Supermarket from '../../../models/supermarket';
 import db from '../../../utils/db';
 import { signToken } from '../../../utils/auth';
 
@@ -8,20 +8,23 @@ const handler = nc();
 
 handler.post(async (req, res) => {
     await db.connect();
-    const customer = await Customer.findOne({ phoneNumber: req.body.phoneNumber });
+    const supermarket = await Supermarket.findOne({ phoneNumber: req.body.phoneNumber });
     await db.disconnect();
-    if (customer && bcrypt.compareSync(req.body.password, customer.password)) {
-        const token = signToken(customer);
+    if (supermarket && bcrypt.compareSync(req.body.password, supermarket.password)) {
+        const token = signToken(supermarket);
         res.send({
             token,
-            _id: customer._id,
-            name: customer.name,
-            city: customer.city,
-            balance: customer.balance,
-            phoneNumber: customer.phoneNumber,
+            _id: supermarket._id,
+            name: supermarket.name,
+            city: supermarket.city,
+            address: supermarket.address,
+            phoneNumber: supermarket.phoneNumber,
+            nationalId: supermarket.nationalId,
+            ranking: supermarket.ranking,
+            status: supermarket.status,
         });
     } else {
-        res.status(401).send({ message: 'کاربر تایید نشده است.' });
+        res.status(401).send({ message: 'فروشگاه تایید نشده است.' });
     }
 });
 
