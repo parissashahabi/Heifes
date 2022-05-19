@@ -1,3 +1,17 @@
+.success-notification {
+  [class="ant-notification-notice-message"]{
+    color: #FFFFFF ;
+  }
+  background-color: #5CBF8C;
+}
+
+.fail-notification {
+  [class="ant-notification-notice-message"]{
+    color: #FFFFFF ;
+  }
+  background-color: #EE5D6C;
+}
+
 .tab-pane-container {
   h4{
     padding: 60px 0 34px;
@@ -52,6 +66,7 @@
     border-radius: 16px;
     padding: 12px;
   }
+
 }
 }
   
