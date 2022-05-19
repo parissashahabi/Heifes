@@ -1,7 +1,7 @@
 import { Col, Row, Input, Typography, Button ,Form} from "antd";
 import Link from "next/link";
 import styles from "./index.module.scss";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {
 EyeInvisibleFilled ,EyeFilled
 } from "@ant-design/icons";
@@ -19,6 +19,9 @@ const TabPaneContentBuyer = ({activeTab, phoneNumber}:{activeTab:string; phoneNu
    console.log("login data: ",dto)
   };
   const router = useRouter();
+  useEffect(()=>{
+    console.log(phoneNumber)
+  },[phoneNumber])
   return (
     <Form onFinish={handleSubmit}>
       <Row
