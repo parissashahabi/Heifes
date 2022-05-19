@@ -18,7 +18,6 @@ import { CSSProperties, useState,useContext } from "react";
 import Basket from "../../../public/icons/basket.svg"
 import { SizeProps, sizes } from "../../../common/miscellaneous/sizes";
 import {ShopOutlined, UserOutlined} from "@ant-design/icons";
-import useCart from "../../../store/cart/index";
 import {parseAmount} from "../../functions/parse-amount";
 import Cookies from 'js-cookie';
 
