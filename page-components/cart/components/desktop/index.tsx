@@ -9,7 +9,6 @@ import {
   Row,
   Table,
   Typography,
-  Modal,
   Select
 } from "antd";
 import Login from "../../../../public/icons/login.svg"
@@ -25,7 +24,6 @@ import {
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import TotalPrice from "./components/total-price";
-import { SizeProps, sizes } from "../../../../common/miscellaneous/sizes";
 import { ColumnsType } from "antd/lib/table/Table";
 
 const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHandler}: { cartItems: any[]; removeItemHandler: any; updateCartHandler:any; checkoutHandler:any}) => {
@@ -37,10 +35,10 @@ const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHa
       dataIndex: "action",
       render: (action: any, cartItem: any) => {
         return (
-          <span
-            className={styles["remove"]}
-            onClick={()=>removeItemHandler(cartItem)}
-          >
+            <span
+                className={styles["remove"]}
+                onClick={()=>removeItemHandler(cartItem)}
+            >
             X
           </span>
         );
@@ -62,16 +60,16 @@ const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHa
       dataIndex: "quantity",
       render: (quantity: any, cartItem: any) => {
         return  (
-          <Row className={styles["counter"]}>
-            <Select value={quantity} style={{ width: 120 }} onChange={(e)=>updateCartHandler(cartItem, e)}>
-              {/*@ts-ignore*/}
-              {[...Array(cartItem.countInStock).keys()].map((x) => (
-                  <Select.Option key={x + 1} value={x + 1}>
-                    {x + 1}
-                  </Select.Option>
-              ))}
-            </Select>
-          </Row>
+            <Row className={styles["counter"]}>
+              <Select value={quantity} style={{ width: 120 }} onChange={(e)=>updateCartHandler(cartItem, e)}>
+                {/*@ts-ignore*/}
+                {[...Array(cartItem.countInStock).keys()].map((x) => (
+                    <Select.Option key={x + 1} value={x + 1}>
+                      {x + 1}
+                    </Select.Option>
+                ))}
+              </Select>
+            </Row>
         );
       },
     },
@@ -124,45 +122,45 @@ const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHa
     setTotalAmount(cartItems.reduce((a, c) => a + c.quantity * c.price, 0))
   },[cartItems]);
   return (
-    <div className={styles["container"]}>
-      <Row className={styles["header"]}>
-        <Button type="text" className={styles["back"]}>
+      <div className={styles["container"]}>
+        <Row className={styles["header"]}>
+          <Button type="text" className={styles["back"]}>
             <a onClick={()=>router.back()}>
               <ArrowRightOutlined />
               بازگشت
             </a>
-        </Button>
-        <Text className={styles["your-cart"]}>سبد خرید شما</Text>
-      </Row>
-          {cartItems.length ? (
+          </Button>
+          <Text className={styles["your-cart"]}>سبد خرید شما</Text>
+        </Row>
+        {cartItems.length ? (
             <Row>
               <Col span={18} className={styles["list"]}>
                 <Table
-                  className={styles["item"]}
-                  pagination={false}
-                  columns={columns}
-                  dataSource={cartItems}
+                    className={styles["item"]}
+                    pagination={false}
+                    columns={columns}
+                    dataSource={cartItems}
                 />
                 <Button className={styles["add-items"]} onClick={()=>router.back()}>
-                    <a>
-                      <InstagramOutlined />
-                      افزودن کالاهای دیگر
-                    </a>
+                  <a>
+                    <InstagramOutlined />
+                    افزودن کالاهای دیگر
+                  </a>
                 </Button>
               </Col>
               <TotalPrice
-                totalAmount={totalAmount}
-                title="جمع کالاها"
-                actionTitle="ادامه فرایند خرید"
-                action={checkoutHandler}
+                  totalAmount={totalAmount}
+                  title="جمع کالاها"
+                  actionTitle="ادامه فرایند خرید"
+                  action={checkoutHandler}
               />
             </Row>
-          ) : (
+        ) : (
             <EmptyCart />
-          )}
-          <Row className={styles["steps"]}>
-            {steps.map((item) => {
-              return (
+        )}
+        <Row className={styles["steps"]}>
+          {steps.map((item) => {
+            return (
                 <Col key={item.id} className={styles["step"]}>
                   <Col className={styles["step-icon"]}>
                     {item.icon}
@@ -176,10 +174,10 @@ const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHa
                     {item.subtitle}
                   </Text>
                 </Col>
-              );
-            })}
-          </Row>
-    </div>
+            );
+          })}
+        </Row>
+      </div>
   );
 };
 

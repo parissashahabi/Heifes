@@ -1,4 +1,4 @@
-import {Button, Card, Row, Typography} from "antd";
+import {Button, Card, message, Row, Typography} from "antd";
 import styles from "./index.module.scss"
 import Info from "../../../../../public/icons/info.svg"
 import ProductInfo from "../modal";
@@ -18,8 +18,8 @@ const ProductCard = ({product}:{product: object})=>{
         // @ts-ignore
         const { data } = await axios.get(`/api/products/${product._id}`);
         if (data.countInStock < quantity) {
-            // TODO change window.alert with antd notification or modal
-            window.alert('Sorry. Product is out of stock');
+            // TODO change window.alert with antd notification or modal ---> DONE
+            message.info('موجودی کالا به اتمام رسیده است.');
             return;
         }
         dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
@@ -36,7 +36,7 @@ const ProductCard = ({product}:{product: object})=>{
                 />
             }
             actions={[<Button id="info" icon={<Info/>} onClick={()=>setIsModalVisible(true)}/>,
-              <Button id="add-to-card" onClick={addToCartHandler}>افزودن به سبد</Button>
+                <Button id="add-to-card" onClick={addToCartHandler}>افزودن به سبد</Button>
             ]}
             className={styles["card"]}
         >
