@@ -5,11 +5,11 @@ export const Store = createContext();
 const initialState = {
     cart: {
         cartItems: Cookies.get('cartItems')
-            ? JSON.parse(Cookies.get('cartItems'))
+            ? JSON.parse(JSON.stringify(Cookies.get('cartItems')))
             : [],
     },
     userInfo: Cookies.get('userInfo')
-        ? JSON.parse(Cookies.get('userInfo'))
+        ? JSON.parse(JSON.stringify(Cookies.get('userInfo')))
         : null,
 };
 
