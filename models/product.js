@@ -5,8 +5,8 @@ const productSchema = new mongoose.Schema(
     {
         name: { type: String, required: true },
         slug: { type: String, required: true, unique: true },
-        productionDate: { type: String, required: true },
-        expiryDate: { type: String, required: true },
+        productionDate: { type: Date, required: true },
+        expiryDate: { type: Date, required: true },
         discountPercentage: { type: Number, required: true },
         category: { type: String, required: true },
         image: { type: String, required: true },
