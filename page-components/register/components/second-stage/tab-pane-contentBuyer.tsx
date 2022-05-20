@@ -1,61 +1,56 @@
 import { Col, Row, Input, Typography, Button ,Form} from "antd";
 import Link from "next/link";
 import styles from "./index.module.scss";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {
-EyeInvisibleFilled ,EyeFilled
+  EyeInvisibleFilled ,EyeFilled
 } from "@ant-design/icons";
-import {useRouter} from "next/router";
-const TabPaneContentBuyer = ({activeTab, phoneNumber}:{activeTab:string; phoneNumber:string}) => {
+import {isRequired} from "../../../../common/miscellaneous/form-rules";
+
+const TabPaneContentBuyer = ({activeTab,handleRegisterBuyer,setIsButtonClicked}:{activeTab:string; handleRegisterBuyer:any;setIsButtonClicked:any}) => {
   const [passwordShown, setPasswordShown] = useState(false);
-  const [repeatPasswordShown, setRepeatPasswordShown ] = useState(false);
+  const [confirmPasswordShown, setConfirmPasswordShown ] = useState(false);
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
   const toggleRepeatPassword = () => {
-    setRepeatPasswordShown(!repeatPasswordShown);
+    setConfirmPasswordShown(!confirmPasswordShown);
   };
-  const handleSubmit = (dto: any) => {
-   console.log("login data: ",dto)
-  };
-  const router = useRouter();
-  useEffect(()=>{
-    console.log(phoneNumber)
-  },[phoneNumber])
+
   return (
-    <Form onFinish={handleSubmit}>
-      <Row
-        justify="center"
-        align="middle"
-        className={styles["tab-pane-container"]}
-      >
-        <Col span={18}>
-          <Typography.Title level={4}>عضویت در حیفه‌س</Typography.Title>
-          <Form.Item name="phoneNumber">
-            <Input placeholder="کد تایید پیامک شده" />
-          </Form.Item>
-          <Form.Item name="password">
-            <Row className={styles["password-container"]}>
-              <Input placeholder="رمز عبور" type={passwordShown ? "text" : "password"}/>
-              <i onClick={togglePassword}>{passwordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
+      <Form onFinish={handleRegisterBuyer}>
+        <Row
+            justify="center"
+            align="middle"
+            className={styles["tab-pane-container"]}
+        >
+          <Col span={18}>
+            <Typography.Title level={4}>عضویت در حیفه‌س</Typography.Title>
+            <Form.Item name="validationCode" rules={[isRequired]}>
+              <Input placeholder="کد تایید پیامک شده" />
+            </Form.Item>
+            <Form.Item name="password" rules={[isRequired]}>
+              <Row className={styles["password-container"]}>
+                <Input placeholder="رمز عبور" type={passwordShown ? "text" : "password"}/>
+                <i onClick={togglePassword}>{passwordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
+              </Row>
+            </Form.Item>
+            <Form.Item name="confirmPassword" rules={[isRequired]}>
+              <Row className={styles["password-container"]}>
+                <Input placeholder="تکرار رمز عبور" type={confirmPasswordShown ? "text" : "password"}/>
+                <i onClick={toggleRepeatPassword}>{confirmPasswordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
+              </Row>
+            </Form.Item>
+            <Button htmlType="submit" onClick={()=>setIsButtonClicked(true)}>ثبت نام</Button>
+            <Row style={{marginBottom: "60px",marginTop: "12px"}}>
+              <Typography.Text>
+                حساب کاربری دارید؟
+                <Link href={`/login?activeTab=${activeTab}`}>ورود به حساب کاربری</Link>
+              </Typography.Text>
             </Row>
-          </Form.Item>
-          <Form.Item name="repeatPassword">
-            <Row className={styles["password-container"]}>
-              <Input placeholder="تکرار رمز عبور" type={repeatPasswordShown ? "text" : "password"}/>
-              <i onClick={toggleRepeatPassword}>{repeatPasswordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
-            </Row>
-          </Form.Item>
-          <Button htmlType="submit" onClick={()=>router.push("/city")}>ثبت نام</Button>
-          <Row style={{marginBottom: "60px",marginTop: "12px"}}>
-            <Typography.Text>
-               حساب کاربری دارید؟
-              <Link href={`/login?activeTab=${activeTab}`}>ورود به حساب کاربری</Link>
-            </Typography.Text>
-          </Row>
-        </Col>
-      </Row>
-    </Form>
+          </Col>
+        </Row>
+      </Form>
   );
 };
 export default TabPaneContentBuyer;

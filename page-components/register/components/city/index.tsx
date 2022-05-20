@@ -1,22 +1,17 @@
 import {Col, Image, Row, Select, Button} from "antd";
 import styles from "./index.module.scss"
 import {useEffect, useState} from "react";
-import Location from "../../public/icons/location.svg"
+import Location from "../../../../public/icons/location.svg"
 import {useRouter} from "next/router";
 
 const { Option } = Select;
 
-const CitySelection = ()=>{
-    const [selectedCity, setSelectedCity] =useState("");
-const {  ostan } = require('iran-cities-json');
-    const router = useRouter();
+const CitySelection = ({setSelectedCity,submitHandler,selectedCity}:{setSelectedCity:any;submitHandler:any;selectedCity:number})=>{
+
+    const {  ostan } = require('iran-cities-json');
     function handleChange(value) {
         setSelectedCity(value)
-        console.log(`selected ${value}`);
     }
-    useEffect(()=>{
-        console.log(ostan);
-    },[ostan])
     return <Col className={styles["container"]}>
         <Row className={styles["LogoDesktop"]} justify="center">
             <Image
@@ -36,7 +31,7 @@ const {  ostan } = require('iran-cities-json');
                         <Option key={item.id}>{item.name}</Option>
                     ))}
                 </Select>
-                <Button onClick={()=>router.push("/store/65")}>ورود به حیفه‌‌س</Button>
+                <Button onClick={()=>{ if(selectedCity) submitHandler() }}>ورود به حیفه‌‌س</Button>
             </Col>
 
         </Row>

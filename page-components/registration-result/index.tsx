@@ -11,8 +11,6 @@ import VerificationRejected from "./components/verification-rejected";
 import {Store} from "../../utils/store";
 
 const RegistrationResult = () => {
-
-
     const [currentStage, setCurrentStage] = useState<StageEnum>(StageEnum.DEFAULT);
     const router = useRouter();
     const { state, dispatch } = useContext(Store);
@@ -22,20 +20,23 @@ const RegistrationResult = () => {
     }, []);
 
     const handleDefaultStage = (userInfo?: any) => {
-        // if (!userInfo) {
-        //     return setCurrentStage(StageEnum.PHONE_NUMBER);
-        // }
+        if (!userInfo) {
+            return setCurrentStage(StageEnum.PHONE_NUMBER);
+        }
+        // register fot the first time
         if(router?.query?.status === "successfullySubmitted") return setCurrentStage(StageEnum.RESULTS);
-        // switch (userInfo?.shopState) {
-        switch (router?.query?.status) {
-            case "CONFIRMED":
-                 return router.replace(ROUTES.CITY);
-            case "PENDING":
-                return setCurrentStage(StageEnum.AWAITING_VERIFICATION);
-            case "DENIED":
-                return setCurrentStage(StageEnum.VERIFICATION_REJECTED);
-            default:
-                return setCurrentStage(StageEnum.PHONE_NUMBER);
+        // log in
+        else{
+            switch (userInfo?.status) {
+                case "CONFIRMED":
+                    return router.replace(ROUTES.SELLER);
+                case "PENDING":
+                    return setCurrentStage(StageEnum.AWAITING_VERIFICATION);
+                case "DENIED":
+                    return setCurrentStage(StageEnum.VERIFICATION_REJECTED);
+                default:
+                    return setCurrentStage(StageEnum.PHONE_NUMBER);
+            }
         }
     };
 

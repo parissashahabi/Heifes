@@ -1,4 +1,4 @@
-import { Col, Row, Input, Typography, Button ,Form} from "antd";
+import {Col, Row, Input, Typography, Button, Form, message} from "antd";
 import Link from "next/link";
 import styles from "./index.module.scss";
 import {useState,useContext,useEffect} from "react";
@@ -9,6 +9,7 @@ import {
 } from "@ant-design/icons";
 import axios from 'axios';
 import {useRouter} from "next/router";
+import {isMobileNumber, isRequired} from "../../../common/miscellaneous/form-rules";
 const TabPaneContent = ({ type, activeTab }: { type: string; activeTab:string }) => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
@@ -20,7 +21,7 @@ const TabPaneContent = ({ type, activeTab }: { type: string; activeTab:string })
   useEffect(() => {
     if (userInfo) {
       if(activeTab === "1") router.push('/store/6546');
-      else router.push("/registration_result?status=DENIED")
+      else router.push("/seller")
     }
   }, []);
   const handleSubmit = async (dto: any) => {
@@ -29,7 +30,7 @@ const TabPaneContent = ({ type, activeTab }: { type: string; activeTab:string })
         const { data } = await axios.post('/api/customers/login', dto);
         dispatch({ type: 'USER_LOGIN', payload: data });
         Cookies.set('userInfo', data);
-        router.push("/store/6546");
+        router.push(`/store/434?city=${data?.city}`);
       }
       else {
         const { data } = await axios.post('/api/supermarkets/login', dto);
@@ -38,7 +39,7 @@ const TabPaneContent = ({ type, activeTab }: { type: string; activeTab:string })
         router.push(`/registration_result?status=${data?.status}`);
       }
     } catch (err) {
-      alert(err.response.data ? err.response.data.message : err.message);
+      message.error(err.response.data ? err.response.data.message : err.message);
     }
   };
   return (
@@ -50,10 +51,10 @@ const TabPaneContent = ({ type, activeTab }: { type: string; activeTab:string })
         >
           <Col span={18}>
             <Typography.Title level={4}>ورود به حساب کاربری</Typography.Title>
-            <Form.Item name="phoneNumber">
+            <Form.Item name="phoneNumber" rules={[isRequired,isMobileNumber]}>
               <Input placeholder="شماره همراه" />
             </Form.Item>
-            <Form.Item name="password">
+            <Form.Item name="password" rules={[isRequired]}>
               <Row className={styles["password-container"]}>
                 <Input placeholder="رمز عبور" type={passwordShown ? "text" : "password"}/>
                 <i onClick={togglePassword}>{passwordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
