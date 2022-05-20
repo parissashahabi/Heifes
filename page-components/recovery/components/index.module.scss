@@ -1,3 +1,17 @@
+.success-notification {
+  [class="ant-notification-notice-message"]{
+    color: #FFFFFF ;
+  }
+  background-color: #5CBF8C;
+}
+
+.fail-notification {
+  [class="ant-notification-notice-message"]{
+    color: #FFFFFF ;
+  }
+  background-color: #EE5D6C;
+}
+
 .tab-pane-container {
   h4{
     padding: 60px 0 34px;
@@ -40,18 +54,19 @@
   }
   .ant-btn {
     width: 100%;
-    background: #FF9800 0% 0% no-repeat padding-box;
+    background: #FF9800 0 0 no-repeat padding-box;
     border: 1px solid #FFE8C6;
     border-radius: 16px;
     height: 48px;
     //margin-top: 19px;
   }
   .ant-input{
-    background: #FFE8C6 0% 0% no-repeat padding-box;
+    background: #FFE8C6 0 0 no-repeat padding-box;
     border: 1px solid #FFE8C6;
     border-radius: 16px;
     padding: 12px;
   }
+
 }
 }
   

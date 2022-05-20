@@ -1,4 +1,4 @@
-import { Col, Row, Input, Typography, Button ,Form} from "antd";
+import { Col, Row, Input, Typography, Button ,Form, notification } from "antd";
 import Link from "next/link";
 import styles from "./index.module.scss";
 import {useState} from "react";
@@ -15,13 +15,39 @@ const PasswordRecovery = () => {
     const toggleRepeatPassword = () => {
         setRepeatPasswordShown(!repeatPasswordShown);
     };
+
+
     const handleSubmit = (dto: any) => {
         console.log("login data: ",dto)
+        const openNotificationWithIcon = () => {
+            notification.open({
+                message: ' رمز عبور شما با موفقیت تغییر کرد',
+                className: styles["success-notification"],
+
+
+            });
+        };
+        openNotificationWithIcon();
+    };
+
+    const onFinishFailed = (errorInfo: any) => {
+        console.log('Failed:', errorInfo);
+        const openNotificationWithIcon = () => {
+            notification.open({
+                message: 'خطا در تغییر رمز عبور',
+                className: styles["fail-notification"],
+
+            });
+        };
+        openNotificationWithIcon();
     };
     const router = useRouter();
 
+
     return (
-        <Form onFinish={handleSubmit}>
+        <Form
+            onFinish={handleSubmit}
+            onFinishFailed={onFinishFailed}>
             <Row
                 justify="center"
                 align="middle"
@@ -57,11 +83,11 @@ const PasswordRecovery = () => {
 
 
                     </Form.Item>
-                    <Button htmlType="submit" onClick={()=>router.push("/seller")} style={{marginTop: "19px"}}>تغییر رمز عبور</Button>
+                    <Button htmlType="submit" onClick={()=>router.push("/login")} style={{marginTop: "19px"}}>تغییر رمز عبور</Button>
                     <Row style={{marginBottom: "60px",marginTop: "12px"}}>
                         <Typography.Text>
                             حساب کاربری دارید؟
-                            <Link href={`/login`}>ورود به حساب کاربری</Link>
+                            <Link href={"/login"}>ورود به حساب کاربری</Link>
                         </Typography.Text>
                     </Row>
                 </Col>
@@ -70,3 +96,5 @@ const PasswordRecovery = () => {
     );
 };
 export default PasswordRecovery;
+
+

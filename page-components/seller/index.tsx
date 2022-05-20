@@ -1,5 +1,5 @@
 import { Row, Col, Typography, Tabs} from "antd";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {useRouter} from "next/router";
 import styles from "./index.module.scss";
 import ArrowRight from "../../public/icons/arrowRight.svg";
@@ -10,6 +10,7 @@ import Password from "../../public/icons/password.svg";
 import Product from "../../public/icons/product.svg";
 import User from "../../public/icons/User.svg";
 import Products from "./components/products";
+import ChangePassword from "./components/change-password";
 const { Title, Text } = Typography;
 
 const Seller = () => {
@@ -67,6 +68,7 @@ const Seller = () => {
                    <Products/>
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><Password/>تغییر رمز عبور</span>} key="5">
+                    <ChangePassword />
 
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><Exit/>خروج</span>} key="6" />
