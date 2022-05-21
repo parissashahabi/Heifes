@@ -23,7 +23,7 @@ const ChangePassword = () => {
             wrapperCol={{ flex: "400px" }}
             colon={false}
             className={styles["form"]}
-        onFinish={onFinish}>
+            onFinish={onFinish}>
             <Form.Item
                 label="رمز عبور فعلی"
                 name="password">
@@ -38,11 +38,11 @@ const ChangePassword = () => {
 
             <Form.Item
                 label="تکرار رمز عبور جدید"
-                name="repeatNewPassword">
+                name="confirmNewPassword">
                 <Input type={"password"}/>
             </Form.Item>
 
-            <Form.Item >
+            <Form.Item label=" ">
                 <Button  htmlType="submit" onClick={openNotification} style={{fontWeight:500}}>
                     تغییر رمز عبور
                 </Button>

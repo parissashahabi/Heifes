@@ -9,6 +9,7 @@ import Exit from "../../public/icons/exit.svg";
 import Password from "../../public/icons/password.svg";
 import User from "../../public/icons/User.svg";
 import ChangePassword from "./components/change-password";
+import EditProfile from "./components/edit-profile";
 import OrderHistory from "./components/order-history";
 
 
@@ -56,7 +57,7 @@ const Dashboard = () => {
 
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><User/>ویرایش پروفایل</span>} key="2">
-
+                    <EditProfile/>
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><List/>سابقه خرید</span>} key="3">
                     <OrderHistory/>

@@ -1,5 +1,4 @@
 .form{
-
   :global {
     .ant-input {
       border-radius: 36px;
@@ -24,4 +23,10 @@
       color: #FFFFFF;
     }
   }
+}
+.success-notification {
+  [class="ant-notification-notice-message"]{
+    color: #FFFFFF ;
+  }
+  background-color: #5CBF8C;
 }
