@@ -29,13 +29,13 @@ const TabPaneContent = ({ type, activeTab }: { type: string; activeTab:string })
       if(activeTab === "1") {
         const { data } = await axios.post('/api/customers/login', dto);
         dispatch({ type: 'USER_LOGIN', payload: data });
-        Cookies.set('userInfo', data);
+        Cookies.set('userInfo', JSON.stringify(data));
         router.push(`/store/434?city=${data?.city}`);
       }
       else {
         const { data } = await axios.post('/api/supermarkets/login', dto);
         dispatch({ type: 'USER_LOGIN', payload: data });
-        Cookies.set('userInfo', data);
+        Cookies.set('userInfo', JSON.stringify(data));
         router.push(`/registration_result?status=${data?.status}`);
       }
     } catch (err) {

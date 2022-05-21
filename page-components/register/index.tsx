@@ -54,7 +54,7 @@ const Register = () => {
       try {
         const { data } = await axios.post('/api/customers/register',{...customerDTO, city: selectedCity} );
         dispatch({ type: 'USER_LOGIN', payload: data });
-        Cookies.set('userInfo', data);
+        Cookies.set('userInfo', JSON.stringify(data));
         router.push(`/store/343?city=${data?.city}`);
       } catch (err) {
         message.error(err.response.data ? err.response.data.message : err.message);
@@ -63,7 +63,7 @@ const Register = () => {
       try {
         const { data } = await axios.post('/api/supermarkets/register',{...supermarketDTO, city: selectedCity} );
         dispatch({ type: 'USER_LOGIN', payload: data });
-        Cookies.set('userInfo', data);
+        Cookies.set('userInfo', JSON.stringify(data));
         router.push("/registration_result?status=successfullySubmitted")
       } catch (err) {
         message.error(err.response.data ? err.response.data.message : err.message);
