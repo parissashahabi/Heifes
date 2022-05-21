@@ -81,8 +81,7 @@ const OrderHistory = () => {
                                     {order?.trackingCode}
                                 </Col>
                                 <Col flex="180px" className={styles["detail"]}>
-                                    {order?.isTaken ?<Button disabled>دریافت شده</Button> :<Button>ثبت وضعیت</Button>}
-
+                                    {order?.isConfirmed ?<Button disabled>ثبت شده</Button> :<Button>ثبت وضعیت</Button>}
                                 </Col>
                             </Row>
                         );
