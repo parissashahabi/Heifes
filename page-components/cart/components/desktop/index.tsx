@@ -118,9 +118,11 @@ const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHa
     },
   ];
   const [totalAmount, setTotalAmount] = useState(0);
+
   useEffect(()=>{
     setTotalAmount(cartItems.reduce((a, c) => a + c.quantity * c.price, 0))
   },[cartItems]);
+
   return (
       <div className={styles["container"]}>
         <Row className={styles["header"]}>
@@ -132,7 +134,7 @@ const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHa
           </Button>
           <Text className={styles["your-cart"]}>سبد خرید شما</Text>
         </Row>
-        {cartItems.length ? (
+        {cartItems?.length ? (
             <Row>
               <Col span={18} className={styles["list"]}>
                 <Table

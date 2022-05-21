@@ -32,10 +32,10 @@ const Cart = () => {
             const { data } = await axios.post(
                 '/api/orders',
                 {
-                    orderOItems: [...cartItems],
+                    orderItems: [...cartItems],
                     itemsPrice: cartItems.reduce((a, c) => a + c.quantity * c.price, 0),
                     taxPrice: round2(cartItems.reduce((a, c) => a + c.quantity * c.price, 0) * 0.09),
-                    totalPrice: cartItems.reduce((a, c) => a + c.quantity * c.price, 0) + round2(cartItems.reduce((a, c) => a + c.quantity * c.price, 0) * 0.09) - userInfo?.balance,
+                    totalPrice: cartItems.reduce((a, c) => a + c.quantity * c.price, 0) + round2(cartItems.reduce((a, c) => a + c.quantity * c.price, 0) * 0.09),
                 },
                 {
                     headers: {

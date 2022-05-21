@@ -55,7 +55,7 @@ const TotalPrice = (props: PropType) => {
                 <Text>جمع سبد خرید:</Text>
               </Col>
               <Col className={styles["sum-cart"]}>
-                <Text>{parseAmount(totalAmount + taxPrice - userInfo?.balance)} ریال</Text>
+                <Text>{parseAmount(totalAmount + taxPrice)} ریال</Text>
               </Col>
             </Row>
             <Button className={styles["proceed"]} disabled={isButtonClicked} onClick={()=> {
