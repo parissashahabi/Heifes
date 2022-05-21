@@ -1,10 +1,3 @@
-.success-notification {
-  [class="ant-notification-notice-message"]{
-    color: #FFFFFF ;
-  }
-  background-color: #5CBF8C;
-}
-
 .form{
 
   :global {
@@ -15,7 +8,6 @@
     }
     .ant-form-item-label > label {
       color: #707070;
-      font-weight: bold;
       align-items: end;
     }
     .ant-btn {
@@ -23,9 +15,8 @@
       background-color: #E0D1D6;
       border: 3px solid #F28077;
       border-radius: 12px;
-      width: 400px;
+      width: 100%;
       height: 45px;
-      margin-right: 150px ;
     }
 
     .ant-notification {

@@ -4,5 +4,5 @@ export enum ROUTES {
   STORE = "/store",
   SELLER = "/seller",
   CITY = "/city",
-  CUSTOMER= "/customer"
+  DASHBOARD= "/dashboard"
 }

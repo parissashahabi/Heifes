@@ -3,17 +3,18 @@ import React, { useState} from "react";
 import {useRouter} from "next/router";
 import styles from "./index.module.scss";
 import ArrowRight from "../../public/icons/arrowRight.svg";
-import Dashboard from "../../public/icons/dashboard.svg";
+import DashboardSvg from "../../public/icons/dashboard.svg";
 import List from "../../public/icons/list.svg";
 import Exit from "../../public/icons/exit.svg";
 import Password from "../../public/icons/password.svg";
 import User from "../../public/icons/User.svg";
 import ChangePassword from "./components/change-password";
+import OrderHistory from "./components/order-history";
 
 
 const { Title, Text } = Typography;
 
-const Seller = () => {
+const Dashboard = () => {
     const router = useRouter();
     const [activeTab, setActiveTab] = useState(router?.query?.activeTab?.toString() || '1')
 
@@ -51,14 +52,14 @@ const Seller = () => {
                       setActiveTab(activeKey);
                   }}>
 
-                <Tabs.TabPane tab={<span><Dashboard/>داشبورد</span>} key="1">
+                <Tabs.TabPane tab={<span><DashboardSvg/>داشبورد</span>} key="1">
 
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><User/>ویرایش پروفایل</span>} key="2">
 
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><List/>سابقه خرید</span>} key="3">
-
+                    <OrderHistory/>
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><Password/>تغییر رمز عبور</span>} key="4">
                     <ChangePassword />
@@ -67,5 +68,5 @@ const Seller = () => {
             </Tabs>
     </Col>)
 }
-export default Seller;
+export default Dashboard;
 

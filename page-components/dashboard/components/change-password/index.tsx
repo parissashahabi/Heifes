@@ -38,11 +38,11 @@ const ChangePassword = () => {
 
             <Form.Item
                 label="تکرار رمز عبور جدید"
-                name="repeatNewPassword">
+                name="confirmNewPassword">
                 <Input type={"password"}/>
             </Form.Item>
 
-            <Form.Item >
+            <Form.Item label=" ">
                 <Button  htmlType="submit" onClick={openNotification} style={{fontWeight:500}}>
                     تغییر رمز عبور
                 </Button>

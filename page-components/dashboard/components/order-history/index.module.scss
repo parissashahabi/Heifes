@@ -1,0 +1,71 @@
+.container{
+  display: flex;
+  margin-top: 3.3rem;
+  :global{
+    .ant-btn{
+      span{
+        color: black;
+      }
+    }
+    .ant-typography{
+      color: #7E7E7E !important;
+      font-size: 1.3rem !important;
+
+    }
+  }
+  .form{
+    width: 100%;
+    display: inline;
+  }
+  .row-of-table{
+    margin: 2rem 0;
+    background-color: white;
+    padding: 2rem 0;
+    border-radius: 8px;
+    div[class="ant-col"]:not(:nth-of-type(2)){
+      //background-color: lightcoral;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+
+    }
+    div[class="ant-col"]{
+      display: flex;
+      align-items: center;
+    }
+    div[class="ant-button"]{
+      span{
+        color: black !important;
+      }
+    }
+    button{
+      background-color: white !important;
+      border: none !important;
+      color: black;
+    }
+    .detail{
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      margin-left: 4rem;
+      div{
+        cursor: pointer;
+        height: 100%;
+      }
+    }
+
+
+  }
+  .title{
+    div[class="ant-col"]:first-of-type{
+
+      display: flex;
+      justify-content: start;
+    }
+    div[class="ant-col"]:not(:nth-of-type(2)){
+      justify-content: center;
+      display: flex;
+    }
+  }
+}
