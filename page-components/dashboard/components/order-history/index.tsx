@@ -4,9 +4,10 @@ import dynamic from 'next/dynamic';
 import {useContext,useReducer,useEffect} from "react";
 import {Store} from "../../../../utils/store";
 import {getError} from "../../../../utils/error";
-import {Button, Col, Row, Typography} from "antd";
+import {Button, Col, Row, Typography, Skeleton} from "antd";
 import {parseAmount} from "../../../../common/functions/parse-amount";
 import convertToJalali from "../../../../common/functions/convert-to-jalali";
+
 function reducer(state, action) {
     switch (action.type) {
         case 'FETCH_REQUEST':
@@ -48,12 +49,14 @@ const OrderHistory = () => {
                 <Col span={24}>
                     <Row gutter={5} justify="space-between" className={styles["title"]}>
                         <Col flex="20px"> </Col>
-                        <Col flex="200px">شناسه سفارش </Col>
-                        <Col flex="130px">تاریخ ثبت</Col>
-                        <Col flex="250px">مبلغ کل</Col>
+                        <Col flex="180px">شناسه سفارش </Col>
+                        <Col flex="150px">تاریخ ثبت</Col>
+                        <Col flex="240px">مبلغ کل</Col>
                         <Col flex="170px">کد پیگیری</Col>
                         <Col flex="210px">وضعیت سفارش</Col>
+
                     </Row>
+                            <Skeleton loading={loading} style={{ marginTop: "2rem" }}>
                     {orders?.map((order: any, index: number) => {
                         return (
                             <Row
@@ -67,25 +70,26 @@ const OrderHistory = () => {
                                 <Col flex="150px">
                                     <Typography.Text>{order?._id.substring(20,24)}</Typography.Text>
                                 </Col>
-                                <Col flex="170px">
+                                <Col flex="160px">
                                     <Typography.Text>
                                         {convertToJalali(order?.createdAt)}
                                     </Typography.Text>
                                 </Col>
-                                <Col flex="230px">
+                                <Col flex="260px">
                                     <Typography.Text>
                                         {parseAmount(order?.totalPrice)}
                                     </Typography.Text>
                                 </Col>
-                                <Col flex="180px">
+                                <Col flex="130px">
                                     {order?.trackingCode}
                                 </Col>
                                 <Col flex="180px" className={styles["detail"]}>
-                                    {order?.isConfirmed ?<Button disabled>ثبت شده</Button> :<Button>ثبت وضعیت</Button>}
+                                    {order?.isConfirmed ?<Button disabled style={{background: "#5CBF8C"}}>ثبت شده</Button> :<Button>ثبت وضعیت</Button>}
                                 </Col>
                             </Row>
                         );
                     })}
+                            </Skeleton>
                 </Col>
             </Col>
         </Row>
