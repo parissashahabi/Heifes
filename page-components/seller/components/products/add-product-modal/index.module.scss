@@ -1,18 +1,18 @@
 .modal {
   button[class="ant-btn ant-btn-default"]{
-    background: #7E7E7E 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
+    background: #7E7E7E 0 0 no-repeat padding-box;
+    box-shadow: 0 3px 6px #00000029;
     border-color:#7E7E7E  !important ;
     border-radius: 8px;
   } button[class="ant-btn ant-btn-primary"]{
-        background: #5CBF8C 0% 0% no-repeat padding-box !important;
+        background: #5CBF8C 0 0 no-repeat padding-box !important;
   border-color:#5CBF8C !important ;
-        box-shadow: 0px 3px 6px #00000029;
+        box-shadow: 0 3px 6px #00000029;
         border-radius: 8px;
   }
   :global {
     .ant-upload.ant-upload-select-picture-card{
-      background: #FFFFFF 0% 0% no-repeat padding-box;
+      background: #FFFFFF 0 0 no-repeat padding-box;
       border: 2px dashed #A0A0A0;
       border-radius: 16px;
       width: 140px;
