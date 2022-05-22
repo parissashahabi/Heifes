@@ -1,7 +1,7 @@
 import { Upload, message } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import React from "react";
-import UploadSvg from "../../../public/icons/upload.svg"
+import UploadSvg from "../../../../../public/icons/upload.svg"
 function getBase64(img, callback) {
     const reader = new FileReader();
     reader.addEventListener('load', () => callback(reader.result));
