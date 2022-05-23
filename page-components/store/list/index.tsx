@@ -22,6 +22,12 @@ const StoreList = () => {
             address: "اصفهان، شیخ مفید، نبش فرعی لاله ",
             img: "https://statics.basalam.com/public/users/AgPpB/2106/e6uTwceQpMXSognejk21fuan5ikIxXYWJHRTyXHO.jpeg_512X512X70.jpeg",
         },
+        {
+            name: "سوپر مارکت ستاره",
+            rate: "4.6",
+            address: "اصفهان، شیخ مفید، نبش فرعی لاله ",
+            img: "https://statics.basalam.com/public/users/AgPpB/2106/e6uTwceQpMXSognejk21fuan5ikIxXYWJHRTyXHO.jpeg_512X512X70.jpeg",
+        },
     ]
 
     return <>
