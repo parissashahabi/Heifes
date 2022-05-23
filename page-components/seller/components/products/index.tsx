@@ -1,4 +1,4 @@
-import {Button, Col, Row, Form, message} from "antd";
+import {Button, Col, Row, Form, message, Typography} from "antd";
 import styles from "./index.module.scss";
 import AddProductModal from "./add-product-modal/addProductModal";
 import React, {useContext, useEffect, useState} from "react";
@@ -61,14 +61,16 @@ return  <Col className={styles["container"]}>
         افزودن کالا
     </Button>
     </Row>
-    <Row>
+    {listData.length ? <Row>
         <FormList
             listData={listData}
             // fetchData={fetchData}
             formRef={formRefList}
             setListData={setListData}
         />
-    </Row>
+    </Row> : <Row>
+        <Typography.Text>تا کنون کالایی اضافه نشده است.</Typography.Text>
+    </Row>}
     <AddProductModal setVisible={setVisible} visible={visible} formRef={formRef} onFinish={onFinish} expirationDate={expirationDate} setExpirationDate={setExpirationDate} productionDate={productionDate} setProductionDate={setProductionDate} confirmLoading={confirmLoading} setConfirmLoading={setConfirmLoading} setSelectedProductId={setSelectedProductId}/>
 </Col>
 }
