@@ -1,0 +1,29 @@
+.address-row{
+  background-color: rgb(224,209,214,0.47);
+  padding: 20px 45px;
+  border-radius: 8px;
+
+    :global{
+      .ant-modal-footer{
+        display: none;
+      }
+      .ant-typography{
+    color: #99769C;
+      }
+      .ant-btn{
+        background-color: #EE5D6C;
+        border-radius: 50px;
+        span{
+          color: white;
+        }
+        svg{
+          margin-right: 15px;
+          transform: rotate(90deg);
+        }
+      }
+
+  }
+}
+.cards{
+  padding: 30px 0;
+}
