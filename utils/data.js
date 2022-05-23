@@ -20,23 +20,31 @@ const data = {
     supermarkets: [
         {
             name: "سوپر مارکت ستاره",
-            city: 10,
+            city: 3,
             address: "اصفهان، شیخ مفید، نبش فرعی لاله",
             phoneNumber: "09132402742",
             nationalId: "2981196520",
             password: bcrypt.hashSync('123456'),
             ranking: 4.2,
-            status: "CONFIRMED"
+            status: "CONFIRMED",
+            workingHours: {
+                from: Date.now(),
+                to: Date.now()
+            }
         },
         {
             name: "فروشگاه سر کوچه",
-            city: 10,
+            city: 3,
             address: "اصفهان، باغ زیار، ته کوچه ۱۴",
             phoneNumber: "09133426982",
             nationalId: "2981196529",
             password: bcrypt.hashSync('123456'),
             ranking: 3.8,
-            status: "PENDING"
+            status: "PENDING",
+            workingHours: {
+                from: Date.now(),
+                to: Date.now()
+            }
         },
     ],
     products:[

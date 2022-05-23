@@ -1,31 +1,33 @@
 import {Row} from "antd";
 import { useRouter } from "next/router";
-import React, {useEffect} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import styles from "./index.module.scss"
 import SearchBarHeader from "../../../common/components/searchBarHeader";
-import ProductCard from "./components/store-product-card/index"
+import SupermarketDetailsCard from "./components/supermarket-details-card/index"
 import Banner from "./components/store-banner/index";
+import axios from "axios";
+import {Store} from "../../../utils/store";
 
 
 const StoreList = () => {
-
     const router = useRouter();
-    useEffect( () => {
-        const { id } = router.query;
-        // getStoreDetails(id);
+    const { state } = useContext(Store);
+    const {userInfo} = state;
+    const [supermarkets, setSupermarkets] = useState([]);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const { data } = await axios.get(`/api/supermarkets/${userInfo.city}`, {
+                headers: { authorization: `Bearer ${userInfo.token}` },
+            });
+            setSupermarkets(data);
+        };
+        fetchProducts();
     }, []);
 
-    const stores=[
-        {
-            name: "سوپر مارکت ستاره",
-            rate: "4.6",
-            address: "اصفهان، شیخ مفید، نبش فرعی لاله ",
-            img: "https://statics.basalam.com/public/users/AgPpB/2106/e6uTwceQpMXSognejk21fuan5ikIxXYWJHRTyXHO.jpeg_512X512X70.jpeg",
-        },
-    ]
 
     return <>
-        <Banner stores={stores} />
+        <Banner />
         <Row style={{marginTop: "30px"}}>
             <SearchBarHeader
                 inputPlaceholderLabel="جستجوی نام فروشگاه..."
@@ -35,8 +37,8 @@ const StoreList = () => {
             />
         </Row>
         <Row className={styles["cards"]}>
-            {stores.map(store => {
-                return <ProductCard store={store}/>
+            {supermarkets.map(supermarket => {
+                return <SupermarketDetailsCard supermarket={supermarket} />
             })}
         </Row>
 
