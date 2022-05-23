@@ -5,7 +5,7 @@ import React, {useEffect} from "react";
 import ArrowLeft from "../../../public/icons/arrowLeft.svg"
 import styles from "./index.module.scss"
 import SearchBarHeader from "../../../common/components/searchBarHeader";
-import ProductCard from "./components/store-product-card/index"
+import ProductCard from "./components/store-card/index"
 import Banner from "./components/store-banner/index";
 
 
@@ -34,7 +34,7 @@ const StoreList = () => {
 
     return <>
         <Banner stores={stores} />
-        <Row style={{marginTop: "30px"}}>
+        <Row style={{marginTop: '30px'} } >
             <SearchBarHeader
                 inputPlaceholderLabel="جستجوی نام فروشگاه..."
                 page={`store-${router.query.id}`}
