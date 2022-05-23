@@ -38,7 +38,7 @@ const storeName = "سوپرمارکت ستاره"
           page={`store-${router.query.id}`}
           // onSearch={onSearch}
           title="لیست محصولات"
-          listCount={2}
+          listCount={products?.length}
       />
       </Row>
           <Row className={styles["cards"]}>
