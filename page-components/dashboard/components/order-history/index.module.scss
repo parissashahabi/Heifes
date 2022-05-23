@@ -1,11 +1,19 @@
 .container{
+  font-weight: 500;
   display: flex;
   margin-top: 3.3rem;
   :global{
     .ant-btn{
-      span{
-        color: black;
-      }
+      background-color: #A0A0A0;
+      border-radius: 16px;
+      color: white;
+      font-weight: 500;
+      padding: 0 2rem;
+      box-shadow: inset 0px 3px 6px #00000029;
+    }
+    .ant-btn:hover, .ant-btn:focus, .ant-btn:active{
+      border-color: transparent;
+      color: white;
     }
     .ant-typography{
       color: #7E7E7E !important;
@@ -20,29 +28,17 @@
   .row-of-table{
     margin: 2rem 0;
     background-color: white;
-    padding: 2rem 0;
+    padding: 1.1rem 0;
     border-radius: 8px;
     div[class="ant-col"]:not(:nth-of-type(2)){
-      //background-color: lightcoral;
+      color: #EE5D6C;
       display: flex;
       justify-content: center;
       align-items: center;
-
-
     }
     div[class="ant-col"]{
       display: flex;
       align-items: center;
-    }
-    div[class="ant-button"]{
-      span{
-        color: black !important;
-      }
-    }
-    button{
-      background-color: white !important;
-      border: none !important;
-      color: black;
     }
     .detail{
       display: flex;
@@ -58,11 +54,14 @@
 
   }
   .title{
+    div[class="ant-col"]{
+    color: #707070;
+    }
     div[class="ant-col"]:first-of-type{
-
       display: flex;
       justify-content: start;
     }
+
     div[class="ant-col"]:not(:nth-of-type(2)){
       justify-content: center;
       display: flex;

@@ -1,47 +1,16 @@
 import StoreBanner from "./components/store-banner/index"
 import {Button, Row, Typography,Col} from "antd";
 import { useRouter } from "next/router";
-import React, {useEffect, useState} from "react";
 import ArrowLeft from "../../../public/icons/arrowLeft.svg"
 import styles from "./index.module.scss"
 import SearchBarHeader from "../../../common/components/searchBarHeader";
 import ProductCard from "./components/store-product-card/index"
 import CommentsCarousel from "./components/carousel";
-import db from '../../../utils/db';
-import Product from '../../../models/product';
-import axios from "axios";
 
 export default function StoreDetails(props)  {
-    // const [products, setProducts] = useState([]);
     const router = useRouter();
     const { products } = props;
-// useEffect(()=>{
-//     const fetch = async () =>{
-//         const p = await axios.get("/api/products");
-//         setProducts([...p.data]);
-//     }
-//     fetch();
-//
-// },[])
-    // useEffect(  () => {
-    //     const fetchData = async () => {
-    //         try {
-    //             await db.connect();
-    //             const products = await Product.find({}).lean();
-    //             console.log(products);
-    //             // setProducts([...productsList.map(db.convertDocToObj)]);
-    //             await db.disconnect();
-    //         } catch (e){
-    //             console.error(e)
-    //         }
-    //
-    //     }
-    //     fetchData().catch(console.error);
-    //     const { id } = router.query;
-    //     // getStoreDetails(id);
-    // }, []);
-useEffect(()=>{console.log(products)},[products])
-    // دیتای آزمایشی
+
   const stores = [
       "1",
       "2",

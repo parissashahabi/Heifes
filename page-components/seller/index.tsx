@@ -21,6 +21,7 @@ const Seller = () => {
     //     router.query.activeTab=activeTab;
     //     router.push(router);
     // },[activeTab])
+
     const operations = {
         left: <Title level={5} style={{color:"#707070", fontWeight:"600", fontSize:"18px" }}>منوی کاربری</Title>,
     };
@@ -69,7 +70,6 @@ const Seller = () => {
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><Password/>تغییر رمز عبور</span>} key="5">
                     <ChangePassword />
-
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><Exit/>خروج</span>} key="6" />
             </Tabs>

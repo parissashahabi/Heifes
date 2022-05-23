@@ -6,12 +6,10 @@ import FormItem from "../form-item/index";
 
 const FormList = ({
                          listData,
-                         fetchData,
                          formRef,
                          setListData,
                        }: {
   listData: any[];
-  fetchData?: () => void;
   formRef?: any;
 
   setListData: Dispatch<SetStateAction<any[]>>;
@@ -44,11 +42,11 @@ const FormList = ({
           <Col flex="129px">نام کالا</Col>
           <Col flex="65px">تاریخ تولید</Col>
           <Col flex="65px">تاریخ انقضا</Col>
-          <Col flex={"38px"}>تعداد</Col>
+          <Col flex="38px">تعداد</Col>
           <Col flex="123px">قیمت بدون تخفیف (ریال)</Col>
           <Col flex="104px">قیمت با تخفیف (ریال)</Col>
           <Col flex="38px">ویرایش</Col>
-          <Col flex="38px">حذف</Col>
+          <Col flex="78px">حذف</Col>
         </Row>
         <Form.List name="items" initialValue={[1]}>
           {(fields) => (
