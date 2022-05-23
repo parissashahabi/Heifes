@@ -38,7 +38,7 @@ const FormList = ({
     >
       <Col span={24} className={styles["container"]}>
         <Row gutter={width <= 1230 ? 10 : 5} justify="space-between">
-          <Col flex="46px"></Col>
+          <Col flex="46px">شناسه</Col>
           <Col flex="129px">نام کالا</Col>
           <Col flex="65px">تاریخ تولید</Col>
           <Col flex="65px">تاریخ انقضا</Col>
