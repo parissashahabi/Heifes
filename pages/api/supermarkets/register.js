@@ -24,6 +24,7 @@ handler.post(async (req, res) => {
         city: supermarket.city,
         phoneNumber: supermarket.phoneNumber,
         nationalId: supermarket.nationalId,
+        isAdmin: supermarket.isAdmin,
     });
 });
 

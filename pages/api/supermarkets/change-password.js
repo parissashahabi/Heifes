@@ -27,6 +27,7 @@ handler.put(async (req, res) => {
             status: supermarket.status,
             workingHours: supermarket.workingHours,
             comments: supermarket.comments,
+            isAdmin: supermarket.isAdmin,
         });
     } else {
         res.status(401).send({ message: 'عملیات با خطا مواجه شد.' });

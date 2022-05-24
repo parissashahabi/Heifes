@@ -19,6 +19,7 @@ handler.post(async (req, res) => {
             city: customer.city,
             balance: customer.balance,
             phoneNumber: customer.phoneNumber,
+            isAdmin: customer.isAdmin,
         });
     } else {
         res.status(401).send({ message: 'کاربر تایید نشده است.' });

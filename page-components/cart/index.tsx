@@ -47,6 +47,9 @@ const Cart = () => {
                     },
                 }
             );
+            // await axios.put(
+            //     `/api/stocks/update/${initialValues._id}`, query, { headers: { authorization: `Bearer ${userInfo.token}` } }
+            // );
             dispatch({ type: 'CART_CLEAR' });
             Cookies.remove('cartItems');
             router.push(`/receipt?result=success&orderId=${data._id}`);

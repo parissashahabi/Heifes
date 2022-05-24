@@ -22,6 +22,7 @@ handler.post(async (req, res) => {
         _id: customer._id,
         city: customer.city,
         phoneNumber: customer.phoneNumber,
+        isAdmin: customer.isAdmin,
     });
 });
 

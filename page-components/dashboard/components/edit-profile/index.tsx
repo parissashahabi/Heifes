@@ -16,14 +16,17 @@ const EditProfile = () => {
     const { state, dispatch } = useContext(Store);
     const { userInfo } = state;
     const [isEditing, setIsEditing] = useState(false);
+    const [city, setCity] = useState(userInfo?.city);
     const [formRef] = Form.useForm();
 
     const onFinish = async (values) => {
+        console.log("values", values)
 
         const query = {
             ...values,
-            city: typeof(values.city) === "string" ? userInfo.city : values.city,
+            city: city,
         }
+        console.log("query", query)
         try {
             const { data } = await axios.put(
                 '/api/customers/profile',
@@ -51,7 +54,9 @@ const EditProfile = () => {
         });
     };
 
-
+    const handleChangeCity = (e) => {
+        setCity(e);
+    }
     return (
         <Row justify="space-between">
             <Col span={16}>
@@ -78,6 +83,7 @@ const EditProfile = () => {
                         label="شهر"
                         name="city">
                         <Select
+                            onChange={handleChangeCity}
                             suffixIcon={<Location/>}
                             disabled={!isEditing}
                             placeholder="شهر خود را انتخاب کنید"

@@ -1,11 +1,22 @@
 import styles from "./index.module.scss";
 import { Col, Typography } from "antd";
-import { useEffect } from "react";
+import {useContext, useEffect} from "react";
+import {Store} from "../../../../utils/store";
+import Cookies from 'js-cookie';
 
 const VerificationRejected = () => {
-  // useEffect(() => {
-  //   clientApi.logOut();
-  // }, []);
+    const { dispatch } = useContext(Store);
+
+    const logoutClickHandler = () => {
+        dispatch({ type: 'USER_LOGOUT' });
+        Cookies.remove('userInfo');
+        Cookies.remove('cartItems');
+    };
+
+  useEffect(() => {
+      logoutClickHandler();
+  }, []);
+
   return (
     <Col className={styles["container"]}>
       <Col>

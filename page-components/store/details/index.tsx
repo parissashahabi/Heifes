@@ -1,5 +1,5 @@
 import StoreBanner from "./components/store-banner/index"
-import {Button, Row, Typography, Col, message} from "antd";
+import {Button, Row, Typography, Col, message, Empty} from "antd";
 import { useRouter } from "next/router";
 import ArrowLeft from "../../../public/icons/arrowLeft.svg"
 import styles from "./index.module.scss"
@@ -7,7 +7,7 @@ import SearchBarHeader from "../../../common/components/searchBarHeader";
 import ProductCard from "./components/store-product-card/index"
 import CommentsCarousel from "./components/carousel";
 import axios from "axios";
-import {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Store} from "../../../utils/store";
 
 export default function StoreDetails()  {
@@ -77,11 +77,12 @@ export default function StoreDetails()  {
           listCount={stocks?.length}
       />
       </Row>
-          <Row className={styles["cards"]}>
+      {stocks?.length ? <Row className={styles["cards"]}>
           {stocks?.map((stock, index) => {
-          return <ProductCard product={stock} key={index}/>
+              return <ProductCard product={stock} key={index}/>
           })}
-          </Row>
+      </Row> : <Empty description={<span>اطلاعاتی وجود ندارد</span>} className={styles["empty"]}/>}
+
       {supermarket ?  <CommentsCarousel comments={supermarket?.comments}/>:null}
 
     </>;

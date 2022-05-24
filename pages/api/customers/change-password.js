@@ -22,6 +22,7 @@ handler.put(async (req, res) => {
             city: customer.city,
             balance: customer.balance,
             phoneNumber: customer.phoneNumber,
+            isAdmin: customer.isAdmin,
         });
     } else {
         res.status(401).send({ message: 'عملیات با خطا مواجه شد.' });

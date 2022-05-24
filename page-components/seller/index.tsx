@@ -1,8 +1,7 @@
-import { Row, Col, Typography, Tabs} from "antd";
-import React, {useContext, useState} from "react";
+import {Row, Col, Typography, Tabs, message} from "antd";
+import React, {useContext, useState,useEffect} from "react";
 import {useRouter} from "next/router";
 import styles from "./index.module.scss";
-import ArrowRight from "../../public/icons/arrowRight.svg";
 import Dashboard from "../../public/icons/dashboard.svg";
 import List from "../../public/icons/list.svg";
 import Exit from "../../public/icons/exit.svg";
@@ -15,17 +14,20 @@ import EditProfile from "./components/edit-profile";
 import {Store} from "../../utils/store";
 import Cookies from 'js-cookie';
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 const Seller = () => {
     const router = useRouter();
     const [activeTab, setActiveTab] = useState(router?.query?.activeTab?.toString() || '1')
-    const { dispatch } = useContext(Store);
+    const { state, dispatch } = useContext(Store);
+    const { userInfo } = state;
 
-    // useEffect(()=>{
-    //     router.query.activeTab=activeTab;
-    //     router.push(router);
-    // },[activeTab])
+    useEffect(() => {
+        if(!userInfo?.isAdmin) {
+            message.error("اجازه دسترسی به این صفحه برای شما وجود ندارد.");
+            logoutClickHandler();
+        }
+    },[])
 
     const logoutClickHandler = () => {
         dispatch({ type: 'USER_LOGOUT' });
@@ -54,10 +56,6 @@ const Seller = () => {
     return(
     <Col className={styles["container"]}>
         <Row className={styles["container-header"]}>
-            <Col flex="100px"  className={styles["return"]} onClick={()=>router.back()}>
-                <ArrowRight/>
-                <Text > بازگشت</Text>
-            </Col>
             <Col flex="auto" className={styles["title"]} >
                 <Title level={5}>{genTitle()}</Title>
             </Col>

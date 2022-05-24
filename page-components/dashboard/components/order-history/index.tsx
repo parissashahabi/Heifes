@@ -56,7 +56,7 @@ const OrderHistory = () => {
                         <Col flex="210px">وضعیت سفارش</Col>
 
                     </Row>
-                    {!orders?.length? <Skeleton loading={loading} style={{ marginTop: "2rem" }}>
+                    {orders?.length? <Skeleton loading={loading} style={{ marginTop: "2rem" }}>
                         {orders?.map((order: any, index: number) => {
                             return (
                                 <Row

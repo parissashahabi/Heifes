@@ -7,15 +7,15 @@ const AddProductModal = ({setVisible, visible, formRef, setConfirmLoading, confi
 
 
     const handleOk = () => {
-        console.log("v", formRef.validateFields())
         formRef.validateFields().then(()=>{
             formRef.submit();
             setConfirmLoading(true);
             setTimeout(() => {
                 setVisible(false);
                 setConfirmLoading(false);
+                formRef.resetFields();
             }, 2000);
-            formRef.resetFields();
+
         }).catch((err)=>console.log(err))
 
     };

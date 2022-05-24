@@ -24,6 +24,7 @@ handler.put(async (req, res) => {
         city: customer.city,
         balance: customer.balance,
         phoneNumber: customer.phoneNumber,
+        isAdmin: customer.isAdmin,
     });
 });
 

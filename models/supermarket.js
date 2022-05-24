@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 const supermarketSchema = new mongoose.Schema(
     {
         name: { type: String},
+        isAdmin: { type: Boolean, required: true, default: true },
         city: { type: Number, required: true },
         address: { type: String},
         phoneNumber: { type: String, required: true, unique: true },

@@ -1,7 +1,10 @@
 .container{
   :global{
     .ant-empty{
-      margin-top: 7rem ;
+      margin: 5rem auto 0;
+      padding: 5rem 0;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 16px ;
     }
   }
   .add-product-btn {

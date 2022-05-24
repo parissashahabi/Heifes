@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 const customerSchema = new mongoose.Schema(
     {
         name: { type: String },
+        isAdmin: { type: Boolean, required: true, default: false },
         city: { type: Number, required: true },
         balance: { type: Number, required: true, default: 0 },
         phoneNumber: { type: String, required: true, unique: true },
