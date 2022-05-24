@@ -25,9 +25,7 @@
       display: flex;
       align-items: center;
     }
-    .ant-select-selector{
-      background-color: #EFE6E9;
-    }
+
     .ant-select{
       width: 100%;
     }
@@ -35,6 +33,7 @@
       border: unset;
       border-radius: 36px;
       height: 45px;
+      background-color: #EFE6E9;
     }
     .ant-input {
       border-radius: 36px;

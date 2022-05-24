@@ -30,7 +30,7 @@ const TabPaneContent = ({ type, activeTab }: { type: string; activeTab:string })
         const { data } = await axios.post('/api/customers/login', dto);
         dispatch({ type: 'USER_LOGIN', payload: data });
         Cookies.set('userInfo', JSON.stringify(data));
-        router.push(`/store/434?city=${data?.city}`);
+        router.push(`/store/list`);
       }
       else {
         const { data } = await axios.post('/api/supermarkets/login', dto);

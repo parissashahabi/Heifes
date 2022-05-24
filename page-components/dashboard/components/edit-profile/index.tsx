@@ -51,9 +51,6 @@ const EditProfile = () => {
         });
     };
 
-    function handleChange(value) {
-        console.log(value)
-    }
 
     return (
         <Row justify="space-between">
@@ -83,7 +80,6 @@ const EditProfile = () => {
                         <Select
                             suffixIcon={<Location/>}
                             disabled={!isEditing}
-                            onChange={handleChange}
                             placeholder="شهر خود را انتخاب کنید"
                         >
                             {ostan.map(item => (

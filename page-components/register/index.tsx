@@ -55,7 +55,7 @@ const Register = () => {
         const { data } = await axios.post('/api/customers/register',{...customerDTO, city: selectedCity} );
         dispatch({ type: 'USER_LOGIN', payload: data });
         Cookies.set('userInfo', JSON.stringify(data));
-        router.push(`/store/343?city=${data?.city}`);
+        router.push(`/store/list`);
       } catch (err) {
         message.error(err.response.data ? err.response.data.message : err.message);
       }

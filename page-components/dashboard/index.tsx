@@ -1,5 +1,5 @@
 import { Row, Col, Typography, Tabs} from "antd";
-import React, { useState} from "react";
+import React, {useContext, useState} from "react";
 import {useRouter} from "next/router";
 import styles from "./index.module.scss";
 import ArrowRight from "../../public/icons/arrowRight.svg";
@@ -11,14 +11,15 @@ import User from "../../public/icons/User.svg";
 import ChangePassword from "./components/change-password";
 import EditProfile from "./components/edit-profile";
 import OrderHistory from "./components/order-history";
-
+import {Store} from "../../utils/store";
+import Cookies from 'js-cookie';
 
 const { Title, Text } = Typography;
 
 const Dashboard = () => {
     const router = useRouter();
     const [activeTab, setActiveTab] = useState(router?.query?.activeTab?.toString() || '1')
-
+    const { dispatch } = useContext(Store);
 
     const operations = {
         left: <Title level={5} style={{color:"#707070", fontWeight:"600", fontSize:"18px" }}>منوی کاربری</Title>,
@@ -37,6 +38,12 @@ const Dashboard = () => {
             default: return ;
         }
     }
+    const logoutClickHandler = () => {
+        dispatch({ type: 'USER_LOGOUT' });
+        Cookies.remove('userInfo');
+        Cookies.remove('cartItems');
+        router.push('/');
+    };
     return(
     <Col className={styles["container"]}>
         <Row className={styles["container-header"]}>
@@ -65,7 +72,7 @@ const Dashboard = () => {
                 <Tabs.TabPane tab={<span><Password/>تغییر رمز عبور</span>} key="4">
                     <ChangePassword />
                 </Tabs.TabPane>
-                <Tabs.TabPane tab={<span><Exit/>خروج</span>} key="5" />
+                <Tabs.TabPane tab={<span onClick={logoutClickHandler}><Exit/>خروج</span>} key="5" />
             </Tabs>
     </Col>)
 }

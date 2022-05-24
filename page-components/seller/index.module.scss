@@ -9,6 +9,7 @@
     .return {
       padding-right: 30px;
       svg{
+        display: unset;
         cursor: pointer;
         margin-left: 3px;
       }
@@ -71,6 +72,7 @@
     .ant-tabs-tab-btn{
       svg{
         margin-left: 10px;
+        display: unset;
       }
 
     }

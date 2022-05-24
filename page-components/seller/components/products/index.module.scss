@@ -1,4 +1,9 @@
 .container{
+  :global{
+    .ant-empty{
+      margin-top: 7rem ;
+    }
+  }
   .add-product-btn {
     display: flex;
     justify-content: center;
