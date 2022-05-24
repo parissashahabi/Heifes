@@ -1,14 +1,19 @@
 .modal {
+  .upload-col{
+    display: flex;
+    justify-content: center;
+  }
   button[class="ant-btn ant-btn-default"]{
     background: #7E7E7E 0 0 no-repeat padding-box;
     box-shadow: 0 3px 6px #00000029;
     border-color:#7E7E7E  !important ;
     border-radius: 8px;
-  } button[class="ant-btn ant-btn-primary"]{
-        background: #5CBF8C 0 0 no-repeat padding-box !important;
+  }
+  button[class="ant-btn ant-btn-primary"]{
+  background: #5CBF8C 0 0 no-repeat padding-box !important;
   border-color:#5CBF8C !important ;
-        box-shadow: 0 3px 6px #00000029;
-        border-radius: 8px;
+  box-shadow: 0 3px 6px #00000029;
+  border-radius: 8px;
   }
   :global {
     .ant-upload.ant-upload-select-picture-card{
@@ -69,6 +74,9 @@
     height: 80px;
   }
   :global{
+    .ant-select.ant-select-in-form-item{
+      width: 98%;
+    }
     .ant-form-item-control-input-content {
       display: flex;
       align-items: center;

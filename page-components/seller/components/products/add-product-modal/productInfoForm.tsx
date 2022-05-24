@@ -7,7 +7,7 @@ import {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import {Store} from "../../../../../utils/store";
 
-const ProductInfoForm = ({setSelectedProductId,formRef,onFinish,productionDate,expirationDate,setProductionDate,setExpirationDate}:{formRef:any;onFinish:any,productionDate:string;expirationDate:string;setExpirationDate:any;setProductionDate:any; setSelectedProductId:any}) => {
+const ProductInfoForm = ({setProductImageUrl,setSelectedProductId,formRef,onFinish,productionDate,expirationDate,setProductionDate,setExpirationDate}:{formRef:any;onFinish:any,productionDate:string;expirationDate:string;setExpirationDate:any;setProductionDate:any; setSelectedProductId:any; setProductImageUrl:any;}) => {
     const { state } = useContext(Store);
     const {userInfo} = state;
     const [productList, setProductList] = useState([]);
@@ -34,6 +34,7 @@ const ProductInfoForm = ({setSelectedProductId,formRef,onFinish,productionDate,e
         formRef.setFieldsValue({productName: selectedProduct[0].name, description: selectedProduct[0].description});
         // @ts-ignore
         setSelectedProductId(selectedProduct[0]._id);
+        setProductImageUrl(selectedProduct[0].image);
     };
 
     return (

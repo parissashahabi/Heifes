@@ -1,0 +1,17 @@
+.container{
+  :global{
+    .ant-card-bordered{
+      border-radius: 16px;
+    }
+    .ant-card{
+      background: rgb(255,255,255, 0.8);
+    }
+    .ant-statistic-content-prefix{
+      svg{
+        display: block;
+        margin-right: 0;
+        margin-left: 10px;
+      }
+    }
+  }
+}
