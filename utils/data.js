@@ -20,23 +20,75 @@ const data = {
     supermarkets: [
         {
             name: "سوپر مارکت ستاره",
-            city: 10,
+            city: 3,
             address: "اصفهان، شیخ مفید، نبش فرعی لاله",
             phoneNumber: "09132402742",
             nationalId: "2981196520",
             password: bcrypt.hashSync('123456'),
             ranking: 4.2,
-            status: "CONFIRMED"
+            comments: [
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                }
+            ],
+            status: "CONFIRMED",
+            workingHours: {
+                from: Date.now(),
+                to: Date.now()
+            }
         },
         {
             name: "فروشگاه سر کوچه",
-            city: 10,
+            city: 3,
             address: "اصفهان، باغ زیار، ته کوچه ۱۴",
             phoneNumber: "09133426982",
             nationalId: "2981196529",
             password: bcrypt.hashSync('123456'),
             ranking: 3.8,
-            status: "PENDING"
+            comments: [
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                }
+            ],
+            status: "PENDING",
+            workingHours: {
+                from: Date.now(),
+                to: Date.now()
+            }
         },
     ],
     products:[
@@ -99,7 +151,7 @@ const data = {
     ],
     stocks: [
         {
-            supermarketId: '6287371b943525d22fd07c51',
+            supermarketId: '628bb602a292241a6526db94',
             productId: '6287371b943525d22fd07c55',
             productionDate: Date.now(),
             expiryDate: Date.now(),
@@ -108,7 +160,7 @@ const data = {
             countInStock: 10,
         },
         {
-            supermarketId: '6287371b943525d22fd07c51',
+            supermarketId: '628bb602a292241a6526db94',
             productId: '6287371b943525d22fd07c57',
             productionDate: Date.now(),
             expiryDate: Date.now(),

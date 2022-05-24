@@ -4,15 +4,26 @@ var mongoose = require('mongoose');
 const orderSchema = new mongoose.Schema(
     {
         customer: { type: mongoose.Schema.Types.ObjectId, ref: 'Customer', required: true },
+        supermarketId: { type: mongoose.Schema.Types.ObjectId, required: true },
         orderItems: [
             {
-                name: { type: String, required: true },
+                productId: { type: mongoose.Schema.Types.ObjectId, required: true},
+                product_details_list: {
+                    name: { type: String, required: true },
+                    slug: { type: String, required: true, unique: true },
+                    category: {
+                        name: {type: String, required: true},
+                        id: {type: Number, required: true}
+                    },
+                    image: { type: String, required: true },
+                    description: { type: String, required: true },
+                },
                 productionDate: { type: Date, required: true },
                 expiryDate: { type: Date, required: true },
-                category: { type: String, required: true },
                 quantity: { type: Number, required: true },
                 price: { type: Number, required: true },
                 isTaken: { type: Boolean, required: true, default: false },
+
             },
         ],
         itemsPrice: { type: Number, required: true },

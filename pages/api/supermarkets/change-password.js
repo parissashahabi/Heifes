@@ -26,6 +26,7 @@ handler.put(async (req, res) => {
             ranking: supermarket.ranking,
             status: supermarket.status,
             workingHours: supermarket.workingHours,
+            comments: supermarket.comments,
         });
     } else {
         res.status(401).send({ message: 'عملیات با خطا مواجه شد.' });

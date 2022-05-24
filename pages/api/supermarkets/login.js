@@ -23,6 +23,7 @@ handler.post(async (req, res) => {
             ranking: supermarket.ranking,
             status: supermarket.status,
             workingHours: supermarket.workingHours,
+            comments: supermarket.comments,
         });
     } else {
         res.status(401).send({ message: 'فروشگاه تایید نشده است.' });

@@ -2,10 +2,13 @@ import {Button, Card, message, Row, Typography} from "antd";
 import styles from "./index.module.scss"
 import Info from "../../../../../public/icons/info.svg"
 import ProductInfo from "../modal";
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useEffect} from "react";
 import axios from "axios";
 import {Store} from "../../../../../utils/store"
 const ProductCard = ({product}:{product: object})=>{
+    useEffect(()=>{
+        console.log("product",product)
+    },[product])
     const { state, dispatch } = useContext(Store);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const handleCancel = () => {
@@ -16,14 +19,15 @@ const ProductCard = ({product}:{product: object})=>{
         const existItem = state.cart.cartItems.find((x) => x._id === product._id);
         const quantity = existItem ? existItem.quantity + 1 : 1;
         // @ts-ignore
-        const { data } = await axios.get(`/api/products/${product._id}`);
-        if (data.countInStock < quantity) {
+        const { data } = await axios.post(`/api/stocks/find-one`, {supermarketId: product?.supermarketId, productId:product?.productId });
+        if (data.product_details_list?.countInStock < quantity) {
             // TODO change window.alert with antd notification or modal ---> DONE
             message.info('موجودی کالا به اتمام رسیده است.');
             return;
         }
         dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
     };
+
     return <div className={styles["container"]}>
         <Card
             hoverable
@@ -32,7 +36,7 @@ const ProductCard = ({product}:{product: object})=>{
                 <img
                     alt="example"
                     // @ts-ignore
-                    src={product.image}
+                    src={product.product_details_list?.image}
                 />
             }
             actions={[<Button id="info" icon={<Info/>} onClick={()=>setIsModalVisible(true)}/>,
@@ -41,7 +45,7 @@ const ProductCard = ({product}:{product: object})=>{
             className={styles["card"]}
         >
             {/*@ts-ignore*/}
-            <Card.Meta title={product.name} description={
+            <Card.Meta title={product.product_details_list?.name} description={
                 <Row className={styles["description"]}>
                     <Typography.Text id="price">
                         {/*@ts-ignore*/}
