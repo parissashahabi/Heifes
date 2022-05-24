@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import {message} from "antd";
 import Cookies from 'js-cookie';
+import {getError} from "../../utils/error";
 
 const Cart = () => {
     const { state, dispatch } = useContext(Store);
@@ -35,6 +36,7 @@ const Cart = () => {
                 '/api/orders',
                 {
                     orderItems: [...cartItems],
+                    supermarketId: cartItems[0].supermarketId,
                     itemsPrice: cartItems.reduce((a, c) => a + c.quantity * c.price, 0),
                     taxPrice: round2(cartItems.reduce((a, c) => a + c.quantity * c.price, 0) * 0.09),
                     totalPrice: cartItems.reduce((a, c) => a + c.quantity * c.price, 0) + round2(cartItems.reduce((a, c) => a + c.quantity * c.price, 0) * 0.09),
@@ -50,7 +52,7 @@ const Cart = () => {
             router.push(`/receipt?result=success&orderId=${data._id}`);
         } catch (err) {
             router.push('/receipt?result=fail');
-            // message.error(getError(err));
+            message.error(getError(err));
         }
 
     };

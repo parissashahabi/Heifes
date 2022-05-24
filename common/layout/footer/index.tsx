@@ -1,7 +1,7 @@
 import { Col, Image, Row, Typography } from "antd";
 
 import styles from "./index.module.scss";
-import { SizeProps, sizes } from "../../../common/miscellaneous/sizes";
+import { SizeProps, sizes } from "../../miscellaneous/sizes";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Instagram from "../../../public/icons/instagram.svg"
@@ -61,7 +61,6 @@ const Footer = (props: SizeProps) => {
           {props.sm ? (
             <Col>
               <Row id="mobile-footer">
-                <Image alt="enamad" src="/images/enamad.png" preview={false} />
                 {/* <Phone /> */}
                 <Typography.Text id="red-box">02154031031</Typography.Text>
                 <Typography.Text>
