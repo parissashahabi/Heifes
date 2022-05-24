@@ -4,12 +4,10 @@ import dynamic from 'next/dynamic';
 import {useContext, useEffect, useState} from "react";
 import {Store} from "../../../../utils/store";
 import {getError} from "../../../../utils/error";
-import {Button, Col, Form, Input, notification, Row, Select, Avatar, TimePicker} from "antd";
-import Location from "../../../../public/icons/location.svg";
+import {Button, Col, Form, Input, notification, Row, Avatar, TimePicker} from "antd";
 import StoreIcon from "../../../../public/icons/store.svg";
 import Cookies from 'js-cookie';
 
-const { Option } = Select;
 
 const EditProfile = () => {
     const { ostan } = require('iran-cities-json');

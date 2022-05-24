@@ -1,8 +1,6 @@
 import {Col, Image, Row, Select, Button} from "antd";
 import styles from "./index.module.scss"
-import {useEffect, useState} from "react";
 import Location from "../../../../public/icons/location.svg"
-import {useRouter} from "next/router";
 
 const { Option } = Select;
 
