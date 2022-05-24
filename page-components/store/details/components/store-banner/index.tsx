@@ -38,7 +38,7 @@ const StoreBanner = ({storeName, stores, storeAddress, storeOpenHours}:{storeNam
            </Select>
        </Row>
           <Row>
-              <Location id="loaction"/>
+              <Location id="location"/>
         <Typography.Text id="address">
             {storeAddress}
         </Typography.Text>
