@@ -2,7 +2,6 @@ import React, {useContext, useState} from "react";
 import { Button, Col, Divider, Row, Typography } from "antd";
 import { parseAmount } from "../../../../../../common/functions/parse-amount";
 import styles from "./styles/total-price.module.scss";
-import ArrowLeft from "../../../../../../public/icons/arrowLeft.svg";
 import {Store} from "../../../../../../utils/store";
 type PropType = {
   totalAmount: number;
@@ -13,7 +12,7 @@ type PropType = {
 
 const TotalPrice = (props: PropType) => {
   const { totalAmount, title, actionTitle, action } = props;
-  const { Text } = Typography;
+  const { Text, Title } = Typography;
   const { state } = useContext(Store);
   const {userInfo} = state;
   const [isButtonClicked, setIsButtonClicked] = useState(false);
@@ -23,47 +22,39 @@ const TotalPrice = (props: PropType) => {
       <Col className={styles["total"]}>
         <Row style={{ justifyContent: "space-between" }}>
           <Col span={8} className={styles["sum"]}>
-            <Text>{title}</Text>
+            <Title level={5}>{title}</Title>
           </Col>
           <Col span={15}>
             <Divider />
           </Col>
-          <Row
-              style={{ width: "100%", justifyContent: "center", marginTop: "1rem" }}
-          >
-            <Row>
-              <Col className={styles["price-txt"]}>
+          <Row justify="center">
+            <Col span={24}>
+              <Row justify="space-between" className={styles["price-txt"]}>
                 <Text>قیمت کالاها با ارزش افزوده:</Text>
-              </Col>
-              <Col className={styles["price"]}>
                 <Text>{parseAmount(totalAmount)} ریال</Text>
-              </Col>
-              <Col className={styles["price-txt"]}>
+              </Row>
+              <Row justify="space-between" className={styles["price-txt"]}>
                 <Text>مالیات:</Text>
-              </Col>
-              <Col className={styles["price"]}>
                 <Text>{parseAmount(taxPrice)} ریال</Text>
-              </Col>
-              <Col className={styles["price-txt"]}>
+              </Row>
+
+              <Row justify="space-between" className={styles["price-txt"]}>
                 <Text>موجودی کیف پول:</Text>
-              </Col>
-              <Col className={styles["price"]}>
                 <Text>{parseAmount(userInfo?.balance)} ریال</Text>
-              </Col>
+              </Row>
+
               <Divider className={styles["divider"]} />
-              <Col className={styles["sum-cart-txt"]}>
-                <Text>جمع سبد خرید:</Text>
-              </Col>
-              <Col className={styles["sum-cart"]}>
-                <Text>{parseAmount(totalAmount + taxPrice)} ریال</Text>
-              </Col>
-            </Row>
+              <Row  justify="space-between">
+                <Text className={styles["sum-cart-txt"]}>جمع سبد خرید:</Text>
+                <Text className={styles["sum-cart"]}>{parseAmount(totalAmount + taxPrice)} ریال</Text>
+              </Row>
+
+            </Col>
             <Button className={styles["proceed"]} disabled={isButtonClicked} onClick={()=> {
               setIsButtonClicked(true);
               action();
             }}>
               {actionTitle}
-              <ArrowLeft />
             </Button>
           </Row>
         </Row>

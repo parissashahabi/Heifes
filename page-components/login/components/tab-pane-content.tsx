@@ -20,7 +20,7 @@ const TabPaneContent = ({ type, activeTab }: { type: string; activeTab:string })
   const { userInfo } = state;
   useEffect(() => {
     if (userInfo) {
-      if(activeTab === "1") router.push('/store/6546');
+      if(activeTab === "1") router.push('/store/list');
       else router.push("/seller")
     }
   }, []);

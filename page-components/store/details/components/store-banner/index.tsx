@@ -6,14 +6,18 @@ import {
     ClockCircleOutlined,
 } from '@ant-design/icons';
 import moment from "jalali-moment";
+import {router} from "next/client";
 const StoreBanner = ({storeName, stores, storeAddress, storeOpenHours}:{storeName: string; stores: any[]; storeAddress: string; storeOpenHours}) => {
+    const handleChange = (value: string) => {
+        router.replace(`/store/${value}`)
+    };
   return (
     <>
       <Row className={styles["container"]}>
        <Row align="middle">
         <Typography.Title level={5}>خرید از {storeName}</Typography.Title>
            <Select
-               // onChange={handleCheckBox}
+               onChange={handleChange}
                maxTagCount="responsive"
                placeholder="تغییر فروشگاه"
                dropdownMatchSelectWidth={350}

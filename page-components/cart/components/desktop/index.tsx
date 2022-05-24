@@ -11,44 +11,48 @@ import {
   Typography,
   Select
 } from "antd";
-import Login from "../../../../public/icons/login.svg"
 import styles from "./styles/cart.module.scss";
 import EmptyCart from "../common/empty-cart";
 import { useRouter } from "next/router";
 import {
-  ArrowRightOutlined,
+  PlusOutlined,
   CarryOutOutlined,
   FileTextOutlined,
-  InstagramOutlined,
   ShopOutlined,
   ShoppingCartOutlined,
+  CloseOutlined,
+  LoginOutlined
 } from "@ant-design/icons";
 import TotalPrice from "./components/total-price";
 import { ColumnsType } from "antd/lib/table/Table";
+import ArrowRight from "../../../../public/icons/arrowRight.svg";
 
 const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHandler}: { cartItems: any[]; removeItemHandler: any; updateCartHandler:any; checkoutHandler:any}) => {
   const { Text } = Typography;
   const router = useRouter();
+  const [totalAmount, setTotalAmount] = useState(0);
   const columns: ColumnsType<any> = [
     {
       key: "action",
       dataIndex: "action",
+      width: 1,
       render: (action: any, cartItem: any) => {
         return (
             <span
                 className={styles["remove"]}
                 onClick={()=>removeItemHandler(cartItem)}
             >
-            X
+            <CloseOutlined />
           </span>
         );
       },
     },
     {
       title: "نام کالا",
-      dataIndex: "name",
-      width: 200,
+      dataIndex: ["product_details_list","name"],
+      width: 300,
       key: "name",
+      align: "right",
       render: (name: any) => {
         return <Text>{name}</Text>;
       },
@@ -56,8 +60,9 @@ const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHa
     {
       title: "تعداد",
       key: "quantity",
-      width: 120,
+      width: 220,
       dataIndex: "quantity",
+      align: "center",
       render: (quantity: any, cartItem: any) => {
         return  (
             <Row className={styles["counter"]}>
@@ -76,8 +81,9 @@ const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHa
     {
       title: "قیمت (ریال)",
       dataIndex: "price",
-      width: 140,
+      width: 240,
       key: "price",
+      align: "center",
       render: (price: any) => {
         return (
             <Text className={styles["name-cell"]}>{price}</Text>
@@ -87,7 +93,7 @@ const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHa
   ];
   const steps = [
     {
-      icon: <Login/>,
+      icon: <LoginOutlined />,
       id: 1,
       title: "عضویت",
       subtitle: "و ورود به فروشگاه",
@@ -117,7 +123,7 @@ const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHa
       subtitle: "در محل فروشگاه",
     },
   ];
-  const [totalAmount, setTotalAmount] = useState(0);
+
 
   useEffect(()=>{
     setTotalAmount(cartItems.reduce((a, c) => a + c.quantity * c.price, 0));
@@ -125,14 +131,14 @@ const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHa
 
   return (
       <div className={styles["container"]}>
-        <Row className={styles["header"]}>
-          <Button type="text" className={styles["back"]}>
-            <a onClick={()=>router.back()}>
-              <ArrowRightOutlined />
-              بازگشت
-            </a>
-          </Button>
-          <Text className={styles["your-cart"]}>سبد خرید شما</Text>
+        <Row className={styles["container-header"]}>
+          <Col flex="100px"  className={styles["return"]} onClick={()=>router.back()}>
+            <ArrowRight/>
+            <Text > بازگشت</Text>
+          </Col>
+          <Col flex="auto" className={styles["title"]} >
+            <Text className={styles["your-cart"]}>سبد خرید شما</Text>
+          </Col>
         </Row>
         {cartItems?.length ? (
             <Row>
@@ -143,11 +149,8 @@ const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHa
                     columns={columns}
                     dataSource={cartItems}
                 />
-                <Button className={styles["add-items"]} onClick={()=>router.back()}>
-                  <a>
-                    <InstagramOutlined />
+                <Button className={styles["add-items"]} onClick={()=>router.push(`/store/${cartItems[0].supermarketId}`)} icon={<PlusOutlined />}>
                     افزودن کالاهای دیگر
-                  </a>
                 </Button>
               </Col>
               <TotalPrice

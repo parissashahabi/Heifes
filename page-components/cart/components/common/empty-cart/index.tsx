@@ -9,7 +9,7 @@ const EmptyCart = () => {
   return (
     <Col className={styles["container"]}>
       <Text className={styles["empty-txt"]}>سبد خرید شما خالی است</Text>
-      <Button className={styles["return"]} onClick={()=>router.back()}><a>بازگشت به فروشگاه</a></Button>
+      <Button className={styles["return"]} onClick={()=>router.push("/store/list")}><a>بازگشت به فروشگاه</a></Button>
     </Col>
   );
 };

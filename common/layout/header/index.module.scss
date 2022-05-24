@@ -111,18 +111,19 @@
       display: inline-flex;
 
       &-count {
+        z-index: 1;
         position: absolute;
-        background: #ea1d25;
-        width: 1.6rem;
-        height: 1.6rem;
+        background: #EE5D6C;
+        width: 1.2rem;
+        height: 1.2rem;
         border-radius: 50%;
-        right: 0.3rem;
-        top: -0.4rem;
+        right: 0.5rem;
+        top: -0.1rem;
         color: white;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 1rem;
+        padding: 0.8rem;
 
         span {
           margin-top: 0.22rem;
