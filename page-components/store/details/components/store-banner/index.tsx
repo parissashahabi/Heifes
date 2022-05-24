@@ -6,8 +6,9 @@ import {
     ClockCircleOutlined,
 } from '@ant-design/icons';
 import moment from "jalali-moment";
-import {router} from "next/client";
+import {useRouter} from "next/router";
 const StoreBanner = ({storeName, stores, storeAddress, storeOpenHours}:{storeName: string; stores: any[]; storeAddress: string; storeOpenHours}) => {
+   const router = useRouter();
     const handleChange = (value: string) => {
         router.replace(`/store/${value}`)
     };
