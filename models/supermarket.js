@@ -10,6 +10,12 @@ const supermarketSchema = new mongoose.Schema(
         nationalId: { type: String, required: true, unique: true },
         password: { type: String, required: true },
         ranking: { type: Number, required: true, default: 0  },
+        comments: [
+            {
+                customer: { type: mongoose.Schema.Types.ObjectId, ref: 'Customer', required: true },
+                description: { type: String, required: true },
+            }
+        ],
         status: { type: String, required: true, default: "PENDING"},
         workingHours: {
             from: {type: Date},

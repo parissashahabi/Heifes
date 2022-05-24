@@ -15,7 +15,7 @@ handler.delete(async (req, res) => {
     if (stock) {
         await stock.remove();
         await db.disconnect();
-        res.send({ message: 'Product Deleted' });
+        res.send({ message: 'محصول با موفقیت حذف شد.' });
     } else {
         await db.disconnect();
         res.status(404).send({ message: 'محصول یافت نشد.' });

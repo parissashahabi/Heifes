@@ -26,6 +26,28 @@ const data = {
             nationalId: "2981196520",
             password: bcrypt.hashSync('123456'),
             ranking: 4.2,
+            comments: [
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                }
+            ],
             status: "CONFIRMED",
             workingHours: {
                 from: Date.now(),
@@ -40,6 +62,28 @@ const data = {
             nationalId: "2981196529",
             password: bcrypt.hashSync('123456'),
             ranking: 3.8,
+            comments: [
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                },
+                {
+                    customer: "628ba79891a0572998d3dce7",
+                    description: "اصلی‌ترین علت اضافه وزن من اینه که همش میگم حیفه‌س، غذای اضافه‌رو نریزیم دور."
+                }
+            ],
             status: "PENDING",
             workingHours: {
                 from: Date.now(),
@@ -107,7 +151,7 @@ const data = {
     ],
     stocks: [
         {
-            supermarketId: '6287371b943525d22fd07c51',
+            supermarketId: '628bb602a292241a6526db94',
             productId: '6287371b943525d22fd07c55',
             productionDate: Date.now(),
             expiryDate: Date.now(),
@@ -116,7 +160,7 @@ const data = {
             countInStock: 10,
         },
         {
-            supermarketId: '6287371b943525d22fd07c51',
+            supermarketId: '628bb602a292241a6526db94',
             productId: '6287371b943525d22fd07c57',
             productionDate: Date.now(),
             expiryDate: Date.now(),

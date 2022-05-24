@@ -17,7 +17,7 @@
     "lint": "next lint",
     "proxy": "http://localhost:8000",
     "test": "jest",
-    "test:watch": "npm run test -- --watch",
+    "test:watch": "npm run test -- --watchAll",
     "coverage": "jest --collect-coverage"
   },
   "dependencies": {

@@ -1,8 +1,11 @@
-import {Row, Typography, Col, Select} from "antd";
+import {Row, Typography, Select} from "antd";
 import styles from "./index.module.scss";
 import ArrowDown from "../../../../../public/icons/arrowDown.svg"
 import Location from "../../../../../public/icons/location.svg"
-import Clock from "../../../../../public/icons/clock.svg"
+import {
+    ClockCircleOutlined,
+} from '@ant-design/icons';
+import moment from "jalali-moment";
 const StoreBanner = ({storeName, stores, storeAddress, storeOpenHours}:{storeName: string; stores: any[]; storeAddress: string; storeOpenHours}) => {
   return (
     <>
@@ -13,12 +16,19 @@ const StoreBanner = ({storeName, stores, storeAddress, storeOpenHours}:{storeNam
                // onChange={handleCheckBox}
                maxTagCount="responsive"
                placeholder="تغییر فروشگاه"
+               dropdownMatchSelectWidth={350}
                suffixIcon={<ArrowDown/>}
                className={styles["select"]}
+               placement="bottomRight"
+               optionLabelProp="label"
            >
                {stores?.map((item) => (
-                   <Select.Option value={item} key={item}>
-                       {item}
+                   <Select.Option value={item._id} key={item} label={item?.name}>
+                       <Row justify="space-between">
+                           <Typography.Text>{item?.name}</Typography.Text>
+                           <Typography.Text style={{fontSize: "12px", color:"#7E7E7E"}}>{item?.address}</Typography.Text>
+                       </Row>
+
                    </Select.Option>
                ))}
            </Select>
@@ -30,9 +40,9 @@ const StoreBanner = ({storeName, stores, storeAddress, storeOpenHours}:{storeNam
         </Typography.Text>
               <span style={{marginRight:"30px", display:"flex"}}>
 
-              <Clock id="clock"/>
+              <ClockCircleOutlined />
         <Typography.Text id="open-hours">
-            تحویل از ساعت {storeOpenHours}
+            تحویل از ساعت {moment(storeOpenHours)?.format("hh:mm")}
         </Typography.Text>
               </span>
           </Row>

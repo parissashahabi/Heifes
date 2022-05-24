@@ -13,6 +13,9 @@
       .ant-btn{
         background-color: #EE5D6C;
         border-radius: 50px;
+        svg{
+          display: unset;
+        }
         span{
           color: white;
         }

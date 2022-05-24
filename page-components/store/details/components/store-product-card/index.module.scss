@@ -8,6 +8,9 @@
       background: #F28077;
     }button[id="info"]{
        background: #7E7E7E;
+    svg{
+      display: unset;
+    }
        svg > path{
          fill: white;
        }
@@ -18,7 +21,6 @@
       border-color: transparent;
     }
     :global{
-
       .ant-card-actions > li{
         margin: 0 0 12px;
       }

@@ -14,8 +14,10 @@ const Cart = () => {
         cart: { cartItems },
         userInfo
     } = state;
+
     const router = useRouter();
     const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100;
+
     const updateCartHandler = async (item, quantity) => {
         const { data } = await axios.get(`/api/products/${item._id}`);
         if (data.countInStock < quantity) {
