@@ -11,6 +11,7 @@ import Product from "../../public/icons/product.svg";
 import User from "../../public/icons/User.svg";
 import Products from "./components/products";
 import ChangePassword from "./components/change-password";
+import EditProfile from "./components/edit-profile";
 const { Title, Text } = Typography;
 
 const Seller = () => {
@@ -60,7 +61,7 @@ const Seller = () => {
 
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><User/>ویرایش پروفایل</span>} key="2">
-
+                    <EditProfile />
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><List/>لیست سفارشات</span>} key="3">
 

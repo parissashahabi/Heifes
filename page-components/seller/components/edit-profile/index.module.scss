@@ -1,0 +1,79 @@
+.form{
+  .edit-btn{
+    color: #EE5D6C;
+    border: 3px solid #F28077;
+    width: 100%;
+  }
+  .submit-btn{
+    color: #5CBF8C;
+    border: 3px solid #5CBF8C;
+    width: 47%;
+  }
+  .cancel-btn{
+    color: #A0A0A0;
+    border: 3px solid #A0A0A0;
+    width: 47%;
+  }
+
+  :global {
+     .ant-select-arrow{
+       svg path{
+         fill: #A0A0A0;
+       }
+     }
+    .ant-select-single.ant-select-show-arrow .ant-select-selection-item, .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder{
+      padding-right: 25px;
+      display: flex;
+      align-items: center;
+    }
+    .ant-select-selector{
+      background-color: #EFE6E9;
+    }
+    .ant-select{
+      width: 100%;
+    }
+    .ant-select:not(.ant-select-customize-input) .ant-select-selector{
+      border: unset;
+      border-radius: 36px;
+      height: 45px;
+    }
+    .ant-input {
+      border-radius: 36px;
+      height: 45px;
+      background-color: #EFE6E9;
+    }
+    .ant-picker {
+      border-radius: 32px;
+      height: 45px;
+      width: 180px;
+      margin-right: 10px;
+      background-color: #EFE6E9;
+    }
+    .ant-form-item-label > label {
+      color: #707070;
+      align-items: end;
+    }
+    .ant-btn {
+      background-color: transparent;
+      border-radius: 12px;
+      height: 45px;
+    }
+
+    .ant-notification {
+      background-color: #5CBF8C;
+      color: #FFFFFF;
+    }
+  }
+}
+.success-notification {
+  [class="ant-notification-notice-message"]{
+    color: #FFFFFF ;
+  }
+  background-color: #5CBF8C;
+}
+.fail-notification {
+  [class="ant-notification-notice-message"]{
+    color: #FFFFFF ;
+  }
+  background-color: #EE5D6C;
+}
