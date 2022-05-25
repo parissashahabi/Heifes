@@ -1,0 +1,48 @@
+.profile {
+  background: rgba(255,255,255,0.35);
+  border-radius: 16px;
+  width: 300px;
+  height: fit-content;
+  padding: 20px;
+  .edit-btn{
+    color: #EE5D6C;
+    border: 3px solid #F28077;
+    border-radius: 16px;
+    width: 200px;
+    height: 40px;
+    background-color: transparent;
+  }
+}
+.order-list {
+  //background: rgba(255,255,255,0.35);
+  border-radius: 16px;
+  width: 650px;
+  height: fit-content;
+  padding: 0 20px 40px;
+:global{
+  h4.ant-typography, div.ant-typography-h4, div.ant-typography-h4 > textarea, .ant-typography h4{
+    font-weight: 500;
+    font-size: 19px;
+  }
+}
+  .order {
+    background: rgba(255,255,255,0.7);
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+    padding: 10px 20px;
+    align-items: center;
+    margin-bottom: 10px;
+    div[id="tracking-code"]{
+      transform: translateY(-10px);
+    }
+    :global{
+      .ant-typography{
+        color: #5F5F5F;
+        font-weight: 500;
+      }
+    }
+  }
+
+}
+

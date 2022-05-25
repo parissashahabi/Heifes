@@ -13,7 +13,7 @@ import EditProfile from "./components/edit-profile";
 import OrderHistory from "./components/order-history";
 import {Store} from "../../utils/store";
 import Cookies from 'js-cookie';
-import DashboardPage from "./components/dashboard";
+import CustomerDashboard from "./components/customer-dashboard";
 
 const { Title, Text } = Typography;
 
@@ -35,7 +35,6 @@ const Dashboard = () => {
                 return "سابقه خرید";
             case "4":
                 return "تغییر رمز عبور";
-
             default: return ;
         }
     }
@@ -45,6 +44,7 @@ const Dashboard = () => {
         Cookies.remove('cartItems');
         router.push('/');
     };
+
     return(
     <Col className={styles["container"]}>
         <Row className={styles["container-header"]}>
@@ -62,7 +62,7 @@ const Dashboard = () => {
                   }}>
 
                 <Tabs.TabPane tab={<span><DashboardSvg/>داشبورد</span>} key="1">
-                    <DashboardPage />
+                    <CustomerDashboard />
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><User/>ویرایش پروفایل</span>} key="2">
                     <EditProfile/>
