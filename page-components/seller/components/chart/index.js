@@ -45,7 +45,7 @@ function Chart(props) {
     };
     return (
         <>
-            <div style={{ width: "700px", margin: "4rem auto" }}>
+            <div style={{ width: "700px", margin: "1rem auto" }}>
                 <Bar options={options} data={data} />
             </div>
         </>

@@ -1,4 +1,16 @@
 .container{
+  .profile {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255,255,255,0.35);
+    border-radius: 16px;
+    height: fit-content;
+    padding: 20px;
+    div[class="star-ratings"]{
+      direction: ltr;
+    }
+  }
   :global{
     .ant-card-bordered{
       border-radius: 16px;
