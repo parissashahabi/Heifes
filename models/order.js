@@ -4,11 +4,11 @@ var mongoose = require('mongoose');
 const orderSchema = new mongoose.Schema(
     {
         customer: { type: mongoose.Schema.Types.ObjectId, ref: 'Customer', required: true },
-        supermarketId: { type: mongoose.Schema.Types.ObjectId, required: true },
+        supermarketId: { type: mongoose.Schema.Types.ObjectId,ref: 'Supermarket', required: true },
         orderItems: [
             {
-                productId: { type: mongoose.Schema.Types.ObjectId, required: true},
-                stockId: { type: mongoose.Schema.Types.ObjectId, required: true},
+                productId: { type: mongoose.Schema.Types.ObjectId,ref: 'Product', required: true},
+                stockId: { type: mongoose.Schema.Types.ObjectId,ref: 'Stock', required: true},
                 product_details_list: {
                     name: { type: String, required: true },
                     slug: { type: String, unique: true },

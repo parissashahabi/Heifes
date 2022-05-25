@@ -1,0 +1,96 @@
+.print-mode {
+  visibility: hidden;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 20px;
+  }
+  .print-mode {
+    .information {
+      font-size: 11px !important;
+      margin-top: 15px;
+    }
+    .custom-hr {
+      color: #000000;
+      margin-top: 30px;
+    }
+    border: 1px solid #000000 !important;
+    box-sizing: border-box;
+    padding: 3px 20px 10px 20px;
+    visibility: visible !important;
+    display: block !important;
+    width: 100vw;
+    color: black;
+    object-fit: contain;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 10px;
+    table {
+      width: 100%;
+    }
+    td {
+      color: black;
+      align-items: center;
+      text-align: center;
+      border: 1px solid black;
+      font-size: 10px;
+      padding: 5px;
+    }
+    th {
+      background: #f7f7f7;
+      color: black;
+      align-items: center;
+      text-align: center;
+      border: 1px solid black;
+      font-size: 9px;
+      padding: 5px;
+    }
+
+    .footer-value {
+      font-weight: 700;
+      font-size: 10px;
+      line-height: 10px;
+    }
+    .custom-table {
+      font-size: 10px;
+      align-items: center;
+      text-align: center;
+      td,
+      th {
+        border: none;
+      }
+      .text-left {
+        text-align: left;
+      }
+      .has-border {
+        color: black;
+        border: 1px solid black;
+        font-weight: 700;
+      }
+    }
+    .logo {
+      width: 150px;
+      height: 60px;
+    }
+    .title {
+      color: black;
+      font-size: 12px;
+      font-weight: 400;
+    }
+    .title-info {
+      line-height: 20px;
+    }
+  }
+  .sign-text {
+    margin-top: 15px;
+    padding: 0 15px 20px 15px;
+    font-size: 12px;
+    line-height: 30px;
+    color: #000000;
+  }
+  .sign-place {
+    padding: 9px;
+  }
+}
