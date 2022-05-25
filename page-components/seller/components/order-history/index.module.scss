@@ -1,7 +1,7 @@
 .container{
   font-weight: 500;
   display: flex;
-  margin-top: 3.3rem;
+  margin-top: .9rem;
   :global{
     .ant-empty{
       margin-top: 3rem;
@@ -32,9 +32,33 @@
     display: inline;
   }
   .row-of-table{
-    margin: 2rem 0;
-    background-color: white;
-    padding: 1.1rem 0;
+    .list {
+      //padding: 1.8rem 1.6rem;
+      margin: 2rem 2rem 0;
+      align-items: center;
+      border-radius: 8px;
+      border: 1px solid rgba(30, 37, 43, 0.13);
+    }
+
+    .item {
+      :global {
+        .ant-table{
+          border-radius: 10px;
+          overflow: hidden;
+        }
+        .ant-table-thead > tr {
+          th {
+            color: #7E7E7E;
+            font-size: 1.3rem;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+    cursor: pointer;
+    margin: 1.6rem 0;
+    background-color: rgba(255,255,255,0.9);
+    padding: 1.7rem 0;
     border-radius: 8px;
     div[class="ant-col"]:not(:nth-of-type(2)){
       color: #EE5D6C;
@@ -58,8 +82,10 @@
     }
   }
   .title{
+
     div[class="ant-col"]{
-    color: #707070;
+      color: #707070;
+      margin-bottom: 0.7rem;
     }
     div[class="ant-col"]:first-of-type{
       display: flex;
