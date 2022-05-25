@@ -13,6 +13,7 @@ import EditProfile from "./components/edit-profile";
 import OrderHistory from "./components/order-history";
 import {Store} from "../../utils/store";
 import Cookies from 'js-cookie';
+import DashboardPage from "./components/dashboard";
 
 const { Title, Text } = Typography;
 
@@ -61,7 +62,7 @@ const Dashboard = () => {
                   }}>
 
                 <Tabs.TabPane tab={<span><DashboardSvg/>داشبورد</span>} key="1">
-
+                    <DashboardPage />
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><User/>ویرایش پروفایل</span>} key="2">
                     <EditProfile/>
