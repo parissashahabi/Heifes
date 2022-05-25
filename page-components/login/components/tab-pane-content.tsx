@@ -61,7 +61,7 @@ const TabPaneContent = ({ type, activeTab }: { type: string; activeTab:string })
               </Row>
             </Form.Item>
             <Row justify="end">
-              <Link href="/recovery">رمز عبور خود را فراموش کرده‌اید؟</Link>
+              <Link href={`/recovery?user=${type}`}>رمز عبور خود را فراموش کرده‌اید؟</Link>
             </Row>
             <Button htmlType="submit">ورود</Button>
             <Row style={{marginBottom: "60px",marginTop: "12px"}}>

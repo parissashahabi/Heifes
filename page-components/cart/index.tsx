@@ -20,8 +20,8 @@ const Cart = () => {
     const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100;
 
     const updateCartHandler = async (item, quantity) => {
-        const { data } = await axios.get(`/api/products/${item._id}`);
-        if (data.countInStock < quantity) {
+        const { data } = await axios.post(`/api/stocks/find-one`, {supermarketId: item?.supermarketId, productId:item?.productId });
+        if (data.product_details_list?.countInStock < quantity) {
             message.info('موجودی کالا به اتمام رسیده است.');
             return;
         }

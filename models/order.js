@@ -8,18 +8,19 @@ const orderSchema = new mongoose.Schema(
         orderItems: [
             {
                 productId: { type: mongoose.Schema.Types.ObjectId, required: true},
+                stockId: { type: mongoose.Schema.Types.ObjectId, required: true},
                 product_details_list: {
                     name: { type: String, required: true },
-                    slug: { type: String, required: true, unique: true },
+                    slug: { type: String, unique: true },
                     category: {
-                        name: {type: String, required: true},
-                        id: {type: Number, required: true}
+                        name: {type: String},
+                        id: {type: Number}
                     },
-                    image: { type: String, required: true },
-                    description: { type: String, required: true },
+                    image: { type: String },
+                    description: { type: String },
                 },
-                productionDate: { type: Date, required: true },
-                expiryDate: { type: Date, required: true },
+                productionDate: { type: Date },
+                expiryDate: { type: Date },
                 quantity: { type: Number, required: true },
                 price: { type: Number, required: true },
                 isTaken: { type: Boolean, required: true, default: false },
