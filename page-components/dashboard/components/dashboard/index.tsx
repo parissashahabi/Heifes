@@ -8,27 +8,27 @@ import CustomerAvatar from "../../../../public/icons/customerAvatar.svg";
 
 
 const DashboardPage = () => {
-    const { state, dispatch } = useContext(Store);
-    const { userInfo } = state;
+
 
     return (
         <Row justify={"space-between"}>
             <Col  className={styles["profile"]}>
                 <Row  justify={"center"} >
                     <CustomerAvatar style={{margin: "20px", width:"100px"}} />
-                    <Row justify={"center"}>
+                    <Col style={{display:"inline-grid", justifyItems:"center"}} >
                         <Typography.Text
-                            style={{color:"#7E7E7E", fontSize:"16px" ,fontWeight:"500" }}>
+                            style={{color:"#7E7E7E", fontSize:"16px",
+                                fontWeight:"500",marginBottom:"0 10px" }}>
                             name
                         </Typography.Text>
                         <Typography.Text
-                            style={{color:"#A0A0A0", fontSize:"16px" ,fontWeight:"500" }}>
+                            style={{color:"#A0A0A0", fontSize:"16px", marginBottom:"30px"  }}>
                             phoneNumber
                         </Typography.Text>
                         <Button  className={styles["edit-btn"]}>
                             ویرایش پروفایل
                         </Button>
-                    </Row >
+                    </Col >
 
                 </Row>
 
@@ -39,6 +39,8 @@ const DashboardPage = () => {
                     level={3} style={{color:"#707070", margin:"20px" }}>
                     سفارشات جاری
                 </Typography.Title>
+
+
 
             </Col>
         </Row>
