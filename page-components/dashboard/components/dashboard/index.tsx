@@ -4,6 +4,7 @@ import {useContext} from "react";
 import {Store} from "../../../../utils/store";
 import changePassword from "../../../../common/functions/change-password";
 import CustomerAvatar from "../../../../public/icons/customerAvatar.svg";
+import OrderInfo from "./order";
 
 
 
@@ -39,6 +40,10 @@ const DashboardPage = () => {
                     level={3} style={{color:"#707070", margin:"20px" }}>
                     سفارشات جاری
                 </Typography.Title>
+                <Row justify={"center"}>
+                    <OrderInfo />
+                </Row>
+
 
 
 
