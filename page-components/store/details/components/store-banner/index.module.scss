@@ -11,18 +11,31 @@
   margin-bottom: 1.6rem;
   span[id="address"] {
     color: #F28077;
-    margin-right: 7px;
-  }span[id="open-hours"] {
-    color: #A989AE;
+    font-size: 12px;
     margin-right: 7px;
   }
-  svg[id="loaction"] {
+  span[id="open-hours"] {
+    color: #A989AE;
+       font-size: 12px;
+       margin-right: 7px;
+  }
+  svg[id="location"] {
     transform: translateY(-2px);
-  } svg[id="clock"] {
-    transform: translateY(-2px);
+    width: 16px;
+  }
+  svg[id="location"] path{
+    fill: #F28077;
+  }
+  span[class="anticon anticon-clock-circle"]{
+    svg{
+      color: #A989AE;
+      transform: translateY(2px);
+      font-size: 1.5rem;
+
+    }
   }
   .select{
-transform: translateY(-7px);
+    transform: translateY(-7px);
     direction: ltr;
     margin-right: 25px;
   }
@@ -31,6 +44,10 @@ transform: translateY(-7px);
         background-color: #E0D1D6 !important;
         border: unset;
         border-radius: 50px;
+      }
+      .ant-select-single.ant-select-show-arrow .ant-select-selection-item, .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder{
+        padding-right: unset;
+        padding-left: 10px;
       }
       .ant-select-selection-placeholder{
         color: #444444;
@@ -79,44 +96,5 @@ transform: translateY(-7px);
     margin-bottom: 0.8rem !important;
     font-size: 2.4rem;
     line-height: 50px;
-  }
-  //span {
-  //  color: white;
-  //  font-size: 1.3rem !important;
-  //}
-  .telephone {
-    background: white;
-    justify-content: center;
-    align-items: center;
-    padding: 0.8rem 1.6rem;
-    border-radius: 8px;
-    transform: translate(15rem, 2.1rem);
-    margin-right: 11vmax;
-    a{
-      color: inherit;
-    }
-    @media (max-width: 1024px) {
-      margin-right: unset;
-      transform: unset;
-      margin-top: 0.7rem;
-
-      svg {
-        margin-right: 1.2rem !important;
-        font-size: 1.4rem !important;
-      }
-      span {
-        font-weight: 600 !important;
-        font-size: 1.6rem !important;
-        color: green !important;
-      }
-    }
-    svg {
-      margin-right: 1.2rem;
-      font-size: 4.4rem;
-    }
-    h2 {
-      font-weight: 700;
-      margin-bottom: unset !important;
-    }
   }
 }

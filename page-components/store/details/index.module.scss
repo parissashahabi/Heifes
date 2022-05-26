@@ -4,6 +4,7 @@
   border-radius: 8px;
 
     :global{
+
       .ant-modal-footer{
         display: none;
       }
@@ -13,6 +14,9 @@
       .ant-btn{
         background-color: #EE5D6C;
         border-radius: 50px;
+        svg{
+          display: unset;
+        }
         span{
           color: white;
         }
@@ -26,4 +30,10 @@
 }
 .cards{
   padding: 30px 0;
+}
+.empty{
+  margin: 2rem auto;
+    padding: 6rem 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 16px ;
 }

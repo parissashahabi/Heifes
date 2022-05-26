@@ -9,7 +9,8 @@ const SearchBarHeader = ({
   page,
   onSearch,
   title,
-                             listCount
+                             listCount,
+    noTitle
 }: {
   id?: string;
   inputPlaceholderLabel?: string;
@@ -17,6 +18,7 @@ const SearchBarHeader = ({
   onSearch?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   title?: string;
   listCount?: number;
+    noTitle?: boolean;
 }): ReactElement => {
   return (
     <>
@@ -25,15 +27,16 @@ const SearchBarHeader = ({
         align="middle"
         className={style["header-list"]}
       >
-        <Row justify="space-between" align="middle"  className={style["title"]}>
-          <Typography.Title level={5}>
-            {title}
-          </Typography.Title>
-           <Space>
-                <Badge count={listCount} />
-              </Space> 
-        </Row>
-        <Row align="middle" className={style["search-box"]}>
+          {noTitle ? null :  <Row justify="space-between" align="middle"  className={style["title"]}>
+              <Typography.Title level={5}>
+                  {title}
+              </Typography.Title>
+              <Space>
+                  <Badge count={listCount} />
+              </Space>
+          </Row>}
+
+        <Row align="middle" className={style["search-box"]} style={noTitle ? undefined : { marginRight: "30px"}}>
           <SearchOutlined />
           <Input
             id={`${page}-searchbox`}

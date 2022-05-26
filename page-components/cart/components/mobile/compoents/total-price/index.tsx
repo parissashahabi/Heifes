@@ -16,7 +16,6 @@ const TotalAmountMobile = (props: PropType) => {
         <Text>قیمت کالاها با ارزش افزوده:</Text>
       </Col>
       <Col className={styles["price"]}>
-        {" "}
         <Text>{parseAmount(totalAmount)} ریال</Text>
       </Col>
       <Divider className={styles["divider"]} />
@@ -24,7 +23,6 @@ const TotalAmountMobile = (props: PropType) => {
         <Text>جمع سبد خرید:</Text>
       </Col>
       <Col className={styles["sum-cart"]}>
-        {" "}
         <Text>{parseAmount(totalAmount)} ریال</Text>
       </Col>
     </Row>

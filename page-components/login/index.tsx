@@ -15,6 +15,7 @@ const Login = () => {
     router.query.activeTab=activeTab;
     router.push(router);
   },[activeTab])
+
   return (
     <>
       <Row justify="center" align="middle" className={styles["container"]}>

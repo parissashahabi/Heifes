@@ -1,0 +1,128 @@
+.modal {
+  .upload-col{
+    display: flex;
+    justify-content: center;
+  }
+  button[class="ant-btn ant-btn-default"]{
+    background: #7E7E7E 0 0 no-repeat padding-box;
+    box-shadow: 0 3px 6px #00000029;
+    border-color:#7E7E7E  !important ;
+    border-radius: 8px;
+  }
+  button[class="ant-btn ant-btn-primary"]{
+  background: #5CBF8C 0 0 no-repeat padding-box !important;
+  border-color:#5CBF8C !important ;
+  box-shadow: 0 3px 6px #00000029;
+  border-radius: 8px;
+  }
+  :global {
+    .ant-upload.ant-upload-select-picture-card{
+      background: #FFFFFF 0 0 no-repeat padding-box;
+      border: 2px dashed #A0A0A0;
+      border-radius: 16px;
+      width: 140px;
+      height: 140px;
+      margin-right: 20px;
+      @media (max-width: 544px ) {
+        margin-top: 20px;
+        //margin-right: unset;
+      }
+    }
+    .ant-upload-picture-card-wrapper{
+      display: flex;
+      justify-content: end;
+      @media (max-width: 992px ) {
+        justify-content: start;
+      }
+    }
+    .ant-modal-title {
+      color: #EE5D6C;
+      font-weight: 600;
+    }
+    .ant-modal-body{
+      padding: 24px 40px;
+    }
+    .ant-modal-header {
+      border-bottom: 2px solid #EE5D6C;
+      text-align: center;
+      margin: 0 40px;
+    }
+    .ant-modal-body {
+      padding-bottom: 0;
+    }
+    .ant-modal-footer {
+      border-top: 0;
+      padding: 16px 40px;
+    }
+    .ant-btn-default {
+      color: white;
+      background-color: #7E7E7E;
+      border-radius: 12px;
+      padding: 0 26px;
+    }
+    .ant-btn-primary {
+      background-color: #5CBF8C; //sabz nemishe :'
+      border-radius: 12px;
+      padding: 0 96px;
+      margin: 0 10px;
+    }
+  }
+}
+
+.form {
+  textarea{
+    height: 80px;
+  }
+  :global{
+    .ant-select.ant-select-in-form-item{
+      width: 98%;
+    }
+    .ant-form-item-control-input-content {
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .ant-form-item{
+      margin: unset;
+    }
+    .ant-input-number-input{
+      &::placeholder {
+        color: #A0A0A0;
+      }
+    }
+    .ant-input, .ant-input-number {
+      &::placeholder {
+        color: #A0A0A0;
+      }
+      border: 1px solid #A0A0A0;
+      border-radius: 8px;
+      padding: 5px;
+      margin: 5px;
+    }
+    .datepicker-input {
+      &::placeholder {
+       color: #A0A0A0;
+        //transform: translateX(-30px);
+      }
+      border-radius: 8px;
+      padding: 5px;
+      margin: 5px;
+      height: 3.4rem;
+      border: 1px solid #A0A0A0;
+      //max-width: 300px;
+      width: 100%;
+      justify-content: center;
+      color: #A0A0A0;
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+  }
+  .date-picker {
+    svg {
+      font-size: 3rem;
+      margin: 0 1.5rem 0 0.7rem;
+      position: absolute;
+    }
+  }
+}

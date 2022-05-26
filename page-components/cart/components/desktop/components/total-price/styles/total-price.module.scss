@@ -1,12 +1,17 @@
 .total {
-  background: white;
-  border: 1px solid rgba(196, 196, 196, 0.3);
-  border-radius: 8px;
+  background: rgba(224, 209, 214, 1) 0 0 no-repeat padding-box;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
   margin-right: auto;
   width: 23%;
   height: fit-content;
   padding: 1.6rem 2rem 2.8rem;
-
+  span{
+color: rgba(126, 126, 126, 1);
+  }
+  h5{
+color: rgba(126, 126, 126, 1);
+  }
   .divider {
     margin: 1.6rem 0 !important;
   }
@@ -36,34 +41,27 @@
 
   .sum-cart-txt {
     margin-bottom: 3.2rem;
-
-    svg {
-      font-weight: 500;
-      font-size: 14px;
-      color: #4D4D4D;
-    }
+    font-weight: 500;
   }
 
   .sum-cart {
     margin-right: auto;
-
-    span {
-      color: green;
-    }
-  ;
+    color: green;
+    font-weight: 500;
   }
 
   .proceed {
-    background-color: red;
+    width: 100%;
+    justify-content: center;
+    background: rgba(238, 93, 108, 1) 0 0 no-repeat padding-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
     display: flex;
     align-items: center;
-    color: white;
-    border-radius: 8px;
+    span{
+      color: rgba(250, 244, 234, 1) !important;
+    }
     border: none;
     padding: 2.2rem 5rem;
-
-    svg {
-      margin-right: 0.8rem;
-    }
   }
 }

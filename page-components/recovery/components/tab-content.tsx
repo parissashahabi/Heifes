@@ -1,4 +1,4 @@
-import { Col, Row, Input, Typography, Button ,Form, notification, Space } from "antd";
+import { Col, Row, Input, Typography, Button ,Form, notification } from "antd";
 import Link from "next/link";
 import styles from "./index.module.scss";
 import {useState} from "react";
@@ -6,16 +6,16 @@ import {
     EyeInvisibleFilled ,EyeFilled
 } from "@ant-design/icons";
 import {useRouter} from "next/router";
+
 const PasswordRecovery = () => {
-    const [passwordShown, setPasswordShown ] = useState(false);
-    const [repeatPasswordShown, setRepeatPasswordShown ] = useState(false);
+    const [passwordShown, setPasswordShown] = useState(false);
+    const [confirmPasswordShown, setConfirmPasswordShown ] = useState(false);
     const togglePassword = () => {
         setPasswordShown(!passwordShown);
     };
     const toggleRepeatPassword = () => {
-        setRepeatPasswordShown(!repeatPasswordShown);
+        setConfirmPasswordShown(!confirmPasswordShown);
     };
-
 
     const handleSubmit = (dto: any) => {
         console.log("login data: ",dto)
@@ -65,10 +65,10 @@ const PasswordRecovery = () => {
                             <i onClick={togglePassword}>{passwordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
                         </Row>
                     </Form.Item>
-                    <Form.Item name="repeatPassword">
+                    <Form.Item name="confirmPassword">
                         <Row className={styles["password-container"]}>
-                            <Input placeholder="تکرار رمز عبور جدید" type={repeatPasswordShown ? "text" : "password"}/>
-                            <i onClick={toggleRepeatPassword}>{repeatPasswordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
+                            <Input placeholder="تکرار رمز عبور جدید" type={confirmPasswordShown ? "text" : "password"}/>
+                            <i onClick={toggleRepeatPassword}>{confirmPasswordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
                         </Row>
                     </Form.Item>
                     <Form.Item  name="verifyCode">
@@ -80,8 +80,6 @@ const PasswordRecovery = () => {
                                 <Button  >ارسال کد</Button>
                             </Col>
                         </Row>
-
-
                     </Form.Item>
                     <Button htmlType="submit" onClick={()=>router.push("/login")} style={{marginTop: "19px"}}>تغییر رمز عبور</Button>
                     <Row style={{marginBottom: "60px",marginTop: "12px"}}>
