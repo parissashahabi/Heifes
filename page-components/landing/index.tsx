@@ -1,5 +1,4 @@
-import SandwichMenu from "../../public/icons/sandwichMenu.svg"
-import {useState,useEffect} from "react";
+import React, {useState,useEffect} from "react";
 import {useRouter} from "next/router";
 const Landing=()=>{
     const [navOpen, setNavOpen] = useState(false);
@@ -29,7 +28,12 @@ const Landing=()=>{
 
 <nav className="">
     <button className="md:hidden" onClick={()=>setNavOpen(!navOpen)}>
-        <SandwichMenu />
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.25 10H0.75C0.335999 10 0 9.552 0 9C0 8.448 0.335999 8 0.75 8H17.25C17.664 8 18 8.448 18 9C18 9.552 17.664 10 17.25 10Z" fill="#222222"/>
+            <path d="M17.25 5H0.75C0.335999 5 0 4.552 0 4C0 3.448 0.335999 3 0.75 3H17.25C17.664 3 18 3.448 18 4C18 4.552 17.664 5 17.25 5Z" fill="#222222"/>
+            <path d="M17.25 15H0.75C0.335999 15 0 14.552 0 14C0 13.448 0.335999 13 0.75 13H17.25C17.664 13 18 13.448 18 14C18 14.552 17.664 15 17.25 15Z" fill="#222222"/>
+        </svg>
+
     </button>
     <ul className={`flex-row-reverse mt-4 md:translate-x-0 md:p-0 fixed md:relative md:flex md:min-h-0 md:space-y-0 md:space-x-6 left-0 right-0 min-h-screen space-y-4 p-8 transform bg-orange-100 md:bg-transparent ${navOpen? "translate-x-0": "translate-x-full"} transition duration-200`}>
         <li>
