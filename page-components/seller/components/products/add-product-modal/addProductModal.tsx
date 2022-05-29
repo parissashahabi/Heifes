@@ -65,7 +65,6 @@ const AddProductModal = ({setVisible, visible, formRef, setConfirmLoading, confi
                     </Col>
                 </Row>
             </Modal>
-
         </>
     );
 };
