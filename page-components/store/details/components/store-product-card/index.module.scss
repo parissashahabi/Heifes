@@ -68,6 +68,10 @@
     }
   }
   :global{
+    .ant-btn[disabled], .ant-btn[disabled]:hover, .ant-btn[disabled]:focus, .ant-btn[disabled]:active{
+      background: #A0A0A0 !important;
+      opacity: 0.8;
+    }
     .ant-card{
       border-radius: 16px;
     }

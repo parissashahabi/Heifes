@@ -7,7 +7,16 @@
   margin: 1.2rem 0 0;
   padding: 0 2rem;
   width: 100%;
-
+  div[id="sold"] {
+    position: absolute;
+    width: max-content;
+    top: 2.5rem;
+    font-weight: normal;
+    font-size: 1.3rem;
+    transform: translateX(55px);
+    color: #EE5D6C;
+    align-items: center;
+  }
   span[id="oldPrice"] {
     font-weight: 500 !important;
   }

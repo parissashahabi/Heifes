@@ -9,6 +9,7 @@ import CommentsCarousel from "./components/carousel";
 import axios from "axios";
 import React, {useContext, useEffect, useState} from "react";
 import {Store} from "../../../utils/store";
+import moment from "jalali-moment";
 
 export default function StoreDetails()  {
     const router = useRouter();
@@ -17,7 +18,8 @@ export default function StoreDetails()  {
    const [stocks, setStocks] = useState([]);
    const [supermarket, setSupermarket] = useState(undefined);
    const [supermarkets, setSupermarkets] = useState([]);
-
+    const currentDate = new Date();
+    const str = currentDate.toISOString()
     const fetchData = async (id) => {
         try {
             const {data} = await axios.get(`/api/stocks/${id}`);
@@ -79,6 +81,7 @@ export default function StoreDetails()  {
       </Row>
       {stocks?.length ? <Row className={styles["cards"]}>
           {stocks?.map((stock, index) => {
+              if(moment(str).format("jYYYY/jM/jD") !== moment(stock?.expiryDate).format("jYYYY/jM/jD"))
               return <ProductCard product={stock} key={index}/>
           })}
       </Row> : <Empty description={<span>اطلاعاتی وجود ندارد</span>} className={styles["empty"]}/>}
