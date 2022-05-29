@@ -60,7 +60,7 @@ const Header = (props: PropTypes & SizeProps) => {
             {router.pathname.includes("seller") ? null : <Menu.Item>
                 <Row justify="space-between">
                     <Typography.Text style={{ fontWeight: "500", color: "#5F5F5F" }}>موجودی</Typography.Text>
-                    <Typography.Text style={{ fontWeight: "500", color: "#5CBF8C" }}>{parseAmount(userInfo?.balance)}</Typography.Text>
+                    <Typography.Text style={{ fontWeight: "500", color: "#5CBF8C" }}>{userInfo?.balance ? parseAmount(userInfo?.balance) : 0} ريال </Typography.Text>
                 </Row>
             </Menu.Item>}
 

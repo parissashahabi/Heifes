@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import Customer from '../../../models/customer';
 import db from '../../../utils/db';
 import { signToken } from '../../../utils/auth';
+import { withSentry } from "@sentry/nextjs";
 const handler = nc();
 
 handler.post(async (req, res) => {
@@ -25,4 +26,4 @@ handler.post(async (req, res) => {
     }
 });
 
-export default handler;
+export default withSentry(handler);
