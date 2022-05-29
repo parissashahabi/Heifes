@@ -37,8 +37,8 @@ const StoreList = () => {
             />
         </Row>
         <Row className={styles["cards"]}>
-            {supermarkets.map(supermarket => {
-                return <SupermarketDetailsCard supermarket={supermarket} />
+            {supermarkets.map((supermarket, index) => {
+                return <SupermarketDetailsCard supermarket={supermarket} index={index}/>
             })}
         </Row>
 
