@@ -79,7 +79,7 @@ const Landing=()=>{
                         <div className="text-center md:block inline w-1/2 m-auto flex w-fit mb-10">
                             <img src="/images/pie.png" alt="pie" className="img-fluid"/>
                         </div>
-                        <div className="flex m-auto w-1/2 md:block inline text-center">
+                        <div className="flex m-auto w-1/2 md:block inline text-start">
                             <p className="text-gray-800 lg:text-4xl md:text-3xl fw-800">مسئله دورریز مواد غذایی، مسئله بسیار جدی‌ای در اکثر کشورهاست. روزانه مقدار زیادی مواد غذایی قابل استفاده دور ریخته می‌شود که این دورریز خود باعث مشکلات زیست محیطی بسیاری می‌شود.
                                 قسمتی از دورریز مواد غذایی، مربوط به مواد غذایی منقضی شده است که فروشگاه‌ها مجبور به دور انداختن آنها می‌شوند این در حالی است که این مواد غذایی تا چند روز قبل از انقضا قابل استفاده‌اند در نتیجه برای جلوگیری از دورریز مواد غذایی، این مواد باید هرچه زودتر مصرف شوند.
                                 با حیفه‌س به این موادغذایی شانس دوباره دهید.

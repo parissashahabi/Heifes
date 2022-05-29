@@ -86,7 +86,7 @@ export default function StoreDetails()  {
           })}
       </Row> : <Empty description={<span>اطلاعاتی وجود ندارد</span>} className={styles["empty"]}/>}
 
-      {supermarket ?  <CommentsCarousel comments={supermarket?.comments}/>:null}
+      {supermarket?.comments?.length ?  <CommentsCarousel comments={supermarket?.comments}/>:null}
 
     </>;
 };
