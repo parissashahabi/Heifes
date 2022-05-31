@@ -10,7 +10,9 @@ import Product from "../../public/icons/product.svg";
 import User from "../../public/icons/User.svg";
 import Products from "./components/products";
 import ChangePassword from "./components/change-password";
+import SupermarketDashboard from "./components/dashboard";
 import EditProfile from "./components/edit-profile";
+import OrderHistory from "./components/order-history";
 import {Store} from "../../utils/store";
 import Cookies from 'js-cookie';
 
@@ -66,13 +68,13 @@ const Seller = () => {
                   }}>
 
                 <Tabs.TabPane tab={<span><Dashboard/>داشبورد</span>} key="1">
-
+                    <SupermarketDashboard />
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><User/>ویرایش پروفایل</span>} key="2">
                     <EditProfile />
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><List/>لیست سفارشات</span>} key="3">
-
+                    <OrderHistory />
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><Product/>محصولات فروشگاه</span>} key="4">
                    <Products/>

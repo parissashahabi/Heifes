@@ -23,7 +23,6 @@ if(!stockExist){
     await db.disconnect();
     res.status(404).send({ message: 'امکان افزودن این محصول وجود ندارد.' });
 }
-
 });
 
 export default handler;

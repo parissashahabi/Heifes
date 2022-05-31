@@ -4,9 +4,13 @@ import dynamic from 'next/dynamic';
 import React, {useContext,useReducer,useEffect} from "react";
 import {Store} from "../../../../utils/store";
 import {getError} from "../../../../utils/error";
-import {Button, Col, Row, Typography, Skeleton, Empty} from "antd";
-import {parseAmount} from "../../../../common/functions/parse-amount";
-import convertToJalali from "../../../../common/functions/convert-to-jalali";
+import {
+    Col,
+    Row,
+    Skeleton,
+    Empty,
+} from "antd";
+import Order from "./order";
 
 function reducer(state, action) {
     switch (action.type) {
@@ -23,7 +27,6 @@ function reducer(state, action) {
 const OrderHistory = () => {
     const { state } = useContext(Store);
     const { userInfo } = state;
-
     const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
         loading: true,
         orders: [],
@@ -59,39 +62,11 @@ const OrderHistory = () => {
                     {orders?.length? <Skeleton loading={loading} style={{ marginTop: "2rem" }}>
                         {orders?.map((order: any, index: number) => {
                             return (
-                                <Row
-                                    key={index}
-                                    justify="space-between"
-                                    gutter={5}
-                                    style={{ width: "100%" }}
-                                    className={styles["row-of-table"]}
-                                >
-                                    <Col flex="40px"> </Col>
-                                    <Col flex="150px">
-                                        <Typography.Text>{order?._id.substring(20,24)}</Typography.Text>
-                                    </Col>
-                                    <Col flex="160px">
-                                        <Typography.Text>
-                                            {convertToJalali(order?.createdAt)}
-                                        </Typography.Text>
-                                    </Col>
-                                    <Col flex="260px">
-                                        <Typography.Text>
-                                            {parseAmount(order?.totalPrice)}
-                                        </Typography.Text>
-                                    </Col>
-                                    <Col flex="130px">
-                                        {order?.trackingCode}
-                                    </Col>
-                                    <Col flex="180px" className={styles["detail"]}>
-                                        {order?.isConfirmed ?<Button disabled style={{background: "#5CBF8C"}}>ثبت شده</Button> :<Button>ثبت وضعیت</Button>}
-                                    </Col>
-                                </Row>
+                               <Order order={order} index={index}/>
                             );
                         })}
                     </Skeleton> : <Empty description={<span>اطلاعاتی وجود ندارد</span>} />
                     }
-
                 </Col>
             </Col>
         </Row>

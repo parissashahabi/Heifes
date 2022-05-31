@@ -10,6 +10,7 @@ const ChangePassword = () => {
     const { state, dispatch } = useContext(Store);
     const { userInfo } = state;
     const onFinish = (values) => {
+        console.log("val", values)
         const query = {
             userInfo: userInfo,
             dispatch: dispatch,
@@ -19,6 +20,8 @@ const ChangePassword = () => {
             type: "customers",
             formRef: formRef
         };
+        console.log("query", query)
+
         changePassword(query);
     };
     return (
@@ -31,7 +34,7 @@ const ChangePassword = () => {
         onFinish={onFinish}>
             <Form.Item
                 label="رمز عبور فعلی"
-                name="password">
+                name="oldPassword">
                 <Input type={"password"} />
             </Form.Item>
 

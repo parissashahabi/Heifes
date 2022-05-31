@@ -53,7 +53,7 @@ const TotalPrice = (props: PropType) => {
             <Button className={styles["proceed"]} disabled={isButtonClicked} onClick={()=> {
               setIsButtonClicked(true);
               action();
-            }}>
+            }} id="check-out">
               {actionTitle}
             </Button>
           </Row>

@@ -1,10 +1,10 @@
-import {Modal, Col, Row} from 'antd';
-import UploadPicture from "./uploadPicture";
+import {Modal, Col, Row, Image} from 'antd';
 import ProductInfoForm from "./productInfoForm";
 import styles from "./index.module.scss";
+import {useState} from "react";
 
 const AddProductModal = ({setVisible, visible, formRef, setConfirmLoading, confirmLoading, onFinish,expirationDate,setExpirationDate,productionDate,setProductionDate, setSelectedProductId}) => {
-
+    const [productImageUrl, setProductImageUrl] = useState("");
 
     const handleOk = () => {
         formRef.validateFields().then(()=>{
@@ -22,6 +22,7 @@ const AddProductModal = ({setVisible, visible, formRef, setConfirmLoading, confi
 
     const handleCancel = () => {
         formRef.resetFields();
+        setProductImageUrl("");
         setVisible(false);
     };
 
@@ -38,11 +39,32 @@ const AddProductModal = ({setVisible, visible, formRef, setConfirmLoading, confi
                 width={600}
             >
                 <Row>
-                    <Col flex="320px"><ProductInfoForm formRef={formRef} onFinish={onFinish} expirationDate={expirationDate} setExpirationDate={setExpirationDate} productionDate={productionDate} setProductionDate={setProductionDate} setSelectedProductId={setSelectedProductId}/></Col>
-                    <Col flex="auto" className={styles["upload-col"]}><UploadPicture  /></Col>
+                    <Col flex="320px">
+                        <ProductInfoForm
+                            formRef={formRef}
+                            onFinish={onFinish}
+                            expirationDate={expirationDate}
+                            setExpirationDate={setExpirationDate}
+                            productionDate={productionDate}
+                            setProductionDate={setProductionDate}
+                            setSelectedProductId={setSelectedProductId}
+                            setProductImageUrl={setProductImageUrl}
+                        />
+                    </Col>
+                    <Col flex="auto" className={styles["upload-col"]}>
+                        {productImageUrl ?  <Image
+                            src={productImageUrl}
+                            width={170}
+                            preview={false}
+                        />: <Image
+                            src={"/images/image-placeholder.png"}
+                            width={170}
+                            preview={false}
+                        />}
+
+                    </Col>
                 </Row>
             </Modal>
-
         </>
     );
 };

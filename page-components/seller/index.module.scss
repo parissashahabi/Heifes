@@ -48,6 +48,9 @@
       border-left: 1px solid #707070 !important;
     }
   :global{
+    .ant-tabs-left > .ant-tabs-content-holder > .ant-tabs-content > .ant-tabs-tabpane, .ant-tabs-left > div > .ant-tabs-content-holder > .ant-tabs-content > .ant-tabs-tabpane{
+      padding-right: 24px;
+    }
     .ant-tabs-left > .ant-tabs-content-holder, .ant-tabs-left > div > .ant-tabs-content-holder{
       border: 1px solid #707070;
       border-radius: 16px;

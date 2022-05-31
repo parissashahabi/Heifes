@@ -4,22 +4,24 @@ var mongoose = require('mongoose');
 const orderSchema = new mongoose.Schema(
     {
         customer: { type: mongoose.Schema.Types.ObjectId, ref: 'Customer', required: true },
-        supermarketId: { type: mongoose.Schema.Types.ObjectId, required: true },
+        supermarketId: { type: mongoose.Schema.Types.ObjectId,ref: 'Supermarket', required: true },
         orderItems: [
             {
-                productId: { type: mongoose.Schema.Types.ObjectId, required: true},
+                productId: { type: mongoose.Schema.Types.ObjectId,ref: 'Product', required: true},
+                stockId: { type: mongoose.Schema.Types.ObjectId,ref: 'Stock', required: true},
+                countInStock: { type: Number, required: true },
                 product_details_list: {
                     name: { type: String, required: true },
-                    slug: { type: String, required: true, unique: true },
+                    slug: { type: String, unique: true },
                     category: {
-                        name: {type: String, required: true},
-                        id: {type: Number, required: true}
+                        name: {type: String},
+                        id: {type: Number}
                     },
-                    image: { type: String, required: true },
-                    description: { type: String, required: true },
+                    image: { type: String },
+                    description: { type: String },
                 },
-                productionDate: { type: Date, required: true },
-                expiryDate: { type: Date, required: true },
+                productionDate: { type: Date },
+                expiryDate: { type: Date },
                 quantity: { type: Number, required: true },
                 price: { type: Number, required: true },
                 isTaken: { type: Boolean, required: true, default: false },

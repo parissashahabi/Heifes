@@ -5,7 +5,7 @@ import ProductInfo from "../modal";
 import React, {useState, useContext, useEffect} from "react";
 import axios from "axios";
 import {Store} from "../../../../../utils/store"
-const ProductCard = ({product}:{product: object})=>{
+const ProductCard = ({product}:{product: any})=>{
     useEffect(()=>{
         console.log("product",product)
     },[product])
@@ -25,7 +25,18 @@ const ProductCard = ({product}:{product: object})=>{
             message.info('موجودی کالا به اتمام رسیده است.');
             return;
         }
-        dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
+        const payload = {
+            quantity,
+            price: product.price,
+            countInStock: product.countInStock,
+            productId: product.productId,
+            supermarketId: product.supermarketId,
+            stockId: product._id,
+            product_details_list: {
+                name: product.product_details_list.name,
+            }
+        }
+        dispatch({ type: 'CART_ADD_ITEM', payload: payload });
     };
 
     return <div className={styles["container"]}>
@@ -40,7 +51,7 @@ const ProductCard = ({product}:{product: object})=>{
                 />
             }
             actions={[<Button id="info" icon={<Info/>} onClick={()=>setIsModalVisible(true)}/>,
-                <Button id="add-to-card" onClick={addToCartHandler}>افزودن به سبد</Button>
+                <Button id="add-to-card" onClick={addToCartHandler} disabled={product?.countInStock == 0}>{product?.countInStock == 0 ? "اتمام موجودی":"افزودن به سبد"}</Button>
             ]}
             className={styles["card"]}
         >

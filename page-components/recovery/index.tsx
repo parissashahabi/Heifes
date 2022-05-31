@@ -13,9 +13,8 @@ const PasswordRecovery = () => {
       <Row justify="center" align="middle" className={styles["container"]}>
         <Tabs>
           <TabPane>
-            <TabContent  />
+            <TabContent />
           </TabPane>
-
         </Tabs>
       </Row>
     </>

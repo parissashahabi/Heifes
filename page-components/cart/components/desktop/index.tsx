@@ -124,7 +124,6 @@ const CartDesktop = ({cartItems,checkoutHandler, removeItemHandler, updateCartHa
     },
   ];
 
-
   useEffect(()=>{
     setTotalAmount(cartItems.reduce((a, c) => a + c.quantity * c.price, 0));
   },[cartItems]);

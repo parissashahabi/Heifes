@@ -1,6 +1,7 @@
 import {Col, Image, Modal, Row, Typography, Input} from 'antd';
 import styles from "./index.module.scss"
 import convertToJalali from "../../../../../common/functions/convert-to-jalali";
+import {parseAmount} from "../../../../../common/functions/parse-amount";
 const ProductInfo = ({isModalVisible, product, handleCancel}:{isModalVisible: boolean; product: any; handleCancel: any}) => {
 
     const { TextArea } = Input;
@@ -12,7 +13,7 @@ const discountPercentage = round2((product.oldPrice - product.price) / product.o
                 <Row gutter={[24, 16]}>
                     <Col span={12}>
                         <Image  // @ts-ignore
-                            src={product.product_details_list?.image}/>
+                            src={product.product_details_list?.image} preview={false}/>
                     </Col>
                     <Col span={12} >
                         <Row justify="space-between" align="middle" style={{
@@ -38,11 +39,11 @@ const discountPercentage = round2((product.oldPrice - product.price) / product.o
                             </Row>
                             <Row justify="space-between">
                                 <Typography.Text>قیمت روی کالا</Typography.Text>
-                                <Typography.Text>{product.oldPrice}</Typography.Text>
+                                <Typography.Text>{parseAmount(product.oldPrice)} ريال </Typography.Text>
                             </Row>
                             <Row justify="space-between">
                                 <Typography.Text>قیمت حیفه‌س</Typography.Text>
-                                <Typography.Text>{product.price}</Typography.Text>
+                                <Typography.Text>{parseAmount(product.price)} ريال </Typography.Text>
                             </Row>
                             <Row justify="space-between">
                                 <Typography.Text>موجودی</Typography.Text>

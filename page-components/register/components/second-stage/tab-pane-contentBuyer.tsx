@@ -31,13 +31,13 @@ const TabPaneContentBuyer = ({activeTab,handleRegisterBuyer,setIsButtonClicked}:
             </Form.Item>
             <Form.Item name="password" rules={[isRequired]}>
               <Row className={styles["password-container"]}>
-                <Input placeholder="رمز عبور" type={passwordShown ? "text" : "password"}/>
+                <Input placeholder="رمز عبور" type={passwordShown ? "text" : "password"} id="password"/>
                 <i onClick={togglePassword}>{passwordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
               </Row>
             </Form.Item>
             <Form.Item name="confirmPassword" rules={[isRequired]}>
               <Row className={styles["password-container"]}>
-                <Input placeholder="تکرار رمز عبور" type={confirmPasswordShown ? "text" : "password"}/>
+                <Input placeholder="تکرار رمز عبور" type={confirmPasswordShown ? "text" : "password"} id="confirmPassword"/>
                 <i onClick={toggleRepeatPassword}>{confirmPasswordShown ? <EyeInvisibleFilled />:<EyeFilled /> }</i>
               </Row>
             </Form.Item>

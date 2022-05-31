@@ -37,8 +37,9 @@ const StoreList = () => {
             />
         </Row>
         <Row className={styles["cards"]}>
-            {supermarkets.map(supermarket => {
-                return <SupermarketDetailsCard supermarket={supermarket} />
+            {supermarkets.map((supermarket, index) => {
+                if(supermarket?.address)
+                return <SupermarketDetailsCard supermarket={supermarket} index={index}/>
             })}
         </Row>
 

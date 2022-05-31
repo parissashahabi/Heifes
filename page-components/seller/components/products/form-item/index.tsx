@@ -16,6 +16,7 @@ import styles from "./index.module.scss";
 import rialiNumber from "../../../../../common/functions/riali-number"
 import {Store} from "../../../../../utils/store";
 import {getError} from "../../../../../utils/error";
+import {isPositiveNumber} from "../../../../../common/miscellaneous/form-rules";
 
 const FormItem = ({
   initialValues,
@@ -36,7 +37,8 @@ const FormItem = ({
   const [formRef] = Form.useForm();
   const { state } = useContext(Store);
   const { userInfo } = state;
-
+  const currentDate = new Date();
+  const str = currentDate.toISOString()
   useEffect(() => {
     formRef.setFieldsValue(initialValues);
   }, [initialValues]);
@@ -93,6 +95,7 @@ const FormItem = ({
         <Row
           justify="space-between"
           className={styles["container"]}
+          style={initialValues?.countInStock == 0  || moment(str).format("jYYYY/jM/jD") === moment(initialValues?.expiryDate).format("jYYYY/jM/jD") ? {border: "1px solid #EE5D6C"}:undefined}
         >
           <Col flex="26px">
             <Form.Item name={["product_details_list","slug"]}>
@@ -112,11 +115,16 @@ const FormItem = ({
           <Col flex="65px">
             <Form.Item name="expiryDate">
               <Typography.Text>{moment(initialValues?.expiryDate).format("jYYYY/jM/jD")}</Typography.Text>
+              {!editProduct && moment(str).format("jYYYY/jM/jD") === moment(initialValues?.expiryDate).format("jYYYY/jM/jD")? (
+                  <Row id="sold">
+                   تاریخ انقضای محصول گذشته است.
+                  </Row>
+              ) : null}
             </Form.Item>
           </Col>
           {editProduct ? (
             <Col flex="90px">
-              <Form.Item name={["countInStock"]}>
+              <Form.Item name={["countInStock"]} rules={[isPositiveNumber]}>
                 <Input
                   onChange={(e) => {
                     const listData = form.getFieldsValue(true);
