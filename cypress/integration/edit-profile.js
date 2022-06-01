@@ -4,8 +4,6 @@ describe('The Edit Profile Page', {viewportWidth: 993,},() => {
             .its('body')
             .as('userInfo')
 
-
-
     })
     it('editing customer profile',  {defaultCommandTimeout: 10000},function () {
         const { phoneNumber, name, city, token } = this.userInfo

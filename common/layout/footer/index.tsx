@@ -34,7 +34,7 @@ const Footer = (props: SizeProps) => {
   }, [marginBottom]);
 
   return (
-    <Col className={styles["hold"]}>
+    <Col className={styles["hold"]} id="contact">
       <Col className={styles["container"]}>
         <Row className={styles["about-logo"]} justify="space-between">
           <Row>

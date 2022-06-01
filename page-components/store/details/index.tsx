@@ -64,7 +64,7 @@ export default function StoreDetails()  {
               <br/>برای مشاهده موجودی و قیمت دقیق کالاهای فروشگاه‌های محل سکونت خود، شهر خود را انتخاب کنید</Typography.Text>
           </Col>
           <Col span={4} style={{justifyContent: "end", display: "flex"}}>
-          <Button onClick={()=>router.push("/city")}>
+          <Button onClick={()=>router.push("/city")} disabled>
               تغییر آدرس
               <ArrowLeft/>
           </Button>
