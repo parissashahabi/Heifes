@@ -45,8 +45,8 @@ const Dashboard = () => {
                     <Col style={{display:"inline-grid", justifyItems:"center", width: "80%"}} >
                         <Typography.Text
                             style={{color:"#7E7E7E", fontSize:"16px",
-                                fontWeight:"500",marginBottom:"10px" }}>
-                            {supermarketData?.name}
+                                fontWeight:"500",marginBottom:"10px", textAlign: "center" }}>
+                            {supermarketData?.name ? supermarketData?.name : "فروشگاه شما پس از تکمیل پروفایل، در لیست فروشگاه‌های حیفه‌س نشان داده خواهد شد."}
                         </Typography.Text>
                         <Typography.Text
                             style={{color:"#A0A0A0", fontSize:"14px", marginBottom:"10px"  }}>
@@ -75,10 +75,12 @@ const Dashboard = () => {
                                 style={{color:"#7E7E7E",fontSize:"14px" }}>
                                 ساعات کاری:
                             </Typography.Text>
-                            <Typography.Text
+                            {supermarketData?.workingHours?.from ?  <Typography.Text
                                 style={{color:"#8F7293", fontSize:"14px" }}>
                                 {moment(supermarketData?.workingHours?.from).format("hh:mm")} تا {moment(supermarketData?.workingHours?.to).format("hh:mm")}
-                            </Typography.Text>
+                            </Typography.Text>: <Typography.Text
+                                style={{color:"#8F7293", fontSize:"14px" }}>-</Typography.Text>}
+
                         </Row>
                     </Col >
             </Col>

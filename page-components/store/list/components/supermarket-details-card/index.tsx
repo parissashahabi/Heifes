@@ -9,13 +9,14 @@ import moment from "jalali-moment";
 import {useRouter} from "next/router";
 interface PropTypes {
     supermarket?: any;
+    index?: number;
 }
 
 const SupermarketDetailsCard = (props: PropTypes) => {
     const router = useRouter();
 
     return (
-    <Col className={styles["container"]} onClick={()=>router.push(`/store/${props.supermarket?._id}`)}>
+    <Col className={styles["container"]} onClick={()=>router.push(`/store/${props.supermarket?._id}`)} id={`supermarket-details-card-${props.index}`}>
       <Row className={styles["name"]}>
           <Col>
             <Store />

@@ -95,7 +95,7 @@ const EditProfile = () => {
                     </Form.Item>
 
                     <Form.Item label=" ">
-                        {!isEditing ? <Button onClick={()=>setIsEditing(!isEditing)} className={styles["edit-btn"]}>
+                        {!isEditing ? <Button onClick={()=>setIsEditing(!isEditing)} className={styles["edit-btn"]} id="edit">
                             ویرایش پروفایل
                         </Button> : <Row justify="space-between">
                             <Button className={styles["cancel-btn"]} onClick={()=> {
@@ -105,7 +105,7 @@ const EditProfile = () => {
                         }}>
                             انصراف
                         </Button>
-                            <Button className={styles["submit-btn"]} htmlType="submit">
+                            <Button className={styles["submit-btn"]} htmlType="submit" id="submit">
                                 ثبت
                             </Button>
                         </Row>}

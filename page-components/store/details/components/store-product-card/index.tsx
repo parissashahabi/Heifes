@@ -51,7 +51,7 @@ const ProductCard = ({product}:{product: any})=>{
                 />
             }
             actions={[<Button id="info" icon={<Info/>} onClick={()=>setIsModalVisible(true)}/>,
-                <Button id="add-to-card" onClick={addToCartHandler}>افزودن به سبد</Button>
+                <Button id="add-to-card" onClick={addToCartHandler} disabled={product?.countInStock == 0}>{product?.countInStock == 0 ? "اتمام موجودی":"افزودن به سبد"}</Button>
             ]}
             className={styles["card"]}
         >

@@ -52,7 +52,7 @@ const Header = (props: PropTypes & SizeProps) => {
             <Menu.Item> {userInfo?.name}</Menu.Item>
             <Menu.Item>{userInfo?.phoneNumber}</Menu.Item>
             <Divider />
-            {router.pathname.includes("seller") ? null:<Menu.Item onClick={() => router.push(ROUTES.DASHBOARD)}>
+            {router.pathname.includes("seller") ? null:<Menu.Item onClick={() => router.push(ROUTES.DASHBOARD)} id="profile">
                 <Typography.Text style={{ fontWeight: "500", color: "#5F5F5F" }}>
                     پروفایل شما
                 </Typography.Text>
@@ -60,7 +60,7 @@ const Header = (props: PropTypes & SizeProps) => {
             {router.pathname.includes("seller") ? null : <Menu.Item>
                 <Row justify="space-between">
                     <Typography.Text style={{ fontWeight: "500", color: "#5F5F5F" }}>موجودی</Typography.Text>
-                    <Typography.Text style={{ fontWeight: "500", color: "#5CBF8C" }}>{parseAmount(userInfo?.balance)}</Typography.Text>
+                    <Typography.Text style={{ fontWeight: "500", color: "#5CBF8C" }}>{userInfo?.balance ? parseAmount(userInfo?.balance) : 0} ريال </Typography.Text>
                 </Row>
             </Menu.Item>}
 
@@ -94,7 +94,7 @@ const Header = (props: PropTypes & SizeProps) => {
                         {!props.sm ? (
                                 <Row>
                                     {router.pathname.includes("seller")?null :<NextLink href="/cart">
-                                        <a>
+                                        <a id="cart-link">
                                             <Button className={styles["cart"]}>
                                                 {cart.cartItems.length !== 0 && (
                                                     <div className={styles["cart-count"]}>
@@ -109,8 +109,8 @@ const Header = (props: PropTypes & SizeProps) => {
                                     <Dropdown overlay={dropDown}>
                                         <Row className={styles["user"]}>
                                             <Row />
-                                            <Typography.Text style={{ fontSize: "12px" }}>
-                                                {userInfo?.name}
+                                            <Typography.Text style={{ fontSize: "12px" }} id="user-info-name">
+                                                {userInfo?.name || userInfo?.phoneNumber}
                                             </Typography.Text>
                                             {userIcon}
                                         </Row>

@@ -64,7 +64,7 @@ const Dashboard = () => {
                 <Tabs.TabPane tab={<span><DashboardSvg/>داشبورد</span>} key="1">
                     <CustomerDashboard />
                 </Tabs.TabPane>
-                <Tabs.TabPane tab={<span><User/>ویرایش پروفایل</span>} key="2">
+                <Tabs.TabPane tab={<span><User/>ویرایش پروفایل</span>} key="2" id="edit-profile">
                     <EditProfile/>
                 </Tabs.TabPane>
                 <Tabs.TabPane tab={<span><List/>سابقه خرید</span>} key="3">

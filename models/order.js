@@ -9,6 +9,7 @@ const orderSchema = new mongoose.Schema(
             {
                 productId: { type: mongoose.Schema.Types.ObjectId,ref: 'Product', required: true},
                 stockId: { type: mongoose.Schema.Types.ObjectId,ref: 'Stock', required: true},
+                countInStock: { type: Number, required: true },
                 product_details_list: {
                     name: { type: String, required: true },
                     slug: { type: String, unique: true },

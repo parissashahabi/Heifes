@@ -22,7 +22,7 @@ function reducer(state, action) {
             );
             const cartItems = existItem
                 ? state.cart.cartItems.map((item) =>
-                    item.name === existItem.name ? newItem : item
+                    item.stockId === existItem.stockId ? newItem : item
                 )
                 : [...state.cart.cartItems, newItem];
             Cookies.set('cartItems', JSON.stringify(cartItems));

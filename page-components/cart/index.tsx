@@ -30,6 +30,15 @@ const Cart = () => {
     const removeItemHandler = (item) => {
         dispatch({ type: 'CART_REMOVE_ITEM', payload: item });
     };
+
+    const updateCountInStock = async (id: any, query: any) => {
+        try {
+            await axios.put(`/api/stocks/update/${id}`, query, { headers: { authorization: `Bearer ${userInfo.token}` } });
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     const checkoutHandler = async () => {
         try {
             const { data } = await axios.post(
@@ -47,12 +56,11 @@ const Cart = () => {
                     },
                 }
             );
-            // await axios.put(
-            //     `/api/stocks/update/${initialValues._id}`, query, { headers: { authorization: `Bearer ${userInfo.token}` } }
-            // );
-            dispatch({ type: 'CART_CLEAR' });
-            Cookies.remove('cartItems');
-            router.push(`/receipt?result=success&orderId=${data._id}`);
+            await Promise.all(data.orderItems?.map(async (item) => updateCountInStock(item?.stockId, {price: item?.price ,countInStock: Number(item?.countInStock - item?.quantity)}))).then(()=>{
+                dispatch({ type: 'CART_CLEAR' });
+                Cookies.remove('cartItems');
+                router.push(`/receipt?result=success&orderId=${data._id}`);
+            });
         } catch (err) {
             router.push('/receipt?result=fail');
             message.error(getError(err));

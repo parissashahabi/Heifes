@@ -6,7 +6,7 @@
     h2 {
       margin-bottom: unset;
     }
-    @media (max-width: 1024px) {
+    @media (max-width: 992px) {
       padding: unset;
       margin: 0 0 0.8rem;
     }
@@ -17,7 +17,7 @@
       max-width: 20.9rem;
       width: 100%;
       margin: 0 1.6rem;
-      @media (max-width: 1024px) {
+      @media (max-width: 992px) {
         display: none;
       }
     }
@@ -25,7 +25,7 @@
       max-width: 106.8rem;
       width: 100%;
       background-color: #2d2d2d;
-      box-shadow: 2px 4px 60px 0px #2d2d2d1a;
+      box-shadow: 2px 4px 60px 0 #2d2d2d1a;
     }
     .special-offers {
       padding: 1.6rem 0 0.4rem 0;
