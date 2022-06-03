@@ -140,6 +140,7 @@ const Header = (props: PropTypes & SizeProps) => {
                                         alt="header-logo"
                                         src="/images/headerLogo.svg"
                                         preview={false}
+                                        onClick={()=>router.push("/")}
                                     />
                                 </Row>
                                 <Row
@@ -157,6 +158,7 @@ const Header = (props: PropTypes & SizeProps) => {
                                         alt="header-logo"
                                         src="/images/headerLogo.svg"
                                         preview={false}
+                                        onClick={()=>router.push("/")}
                                     />
                                 </Row>
                                 <Row
@@ -172,6 +174,7 @@ const Header = (props: PropTypes & SizeProps) => {
                                 alt="header-logo"
                                 src="/images/headerLogo.svg"
                                 preview={false}
+                                onClick={()=>router.push("/")}
                             />
                         ) : null}
                     </Row>
